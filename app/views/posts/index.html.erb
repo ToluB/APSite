@@ -1,0 +1,23 @@
+<h1>Listing posts</h1>
+
+
+
+	<% @posts.each do |post| %>
+	<div class="posts">
+		<div class="points">
+		    <%= post.merits %>
+		</div>
+	
+		<%= post.title %><br>
+	  <%= post.content %><br>
+		</div>
+	<% end %>
+
+<%= render 'new_form' %>
+
+<script>
+$('document').ready(function(){
+	
+	
+})
+</script>

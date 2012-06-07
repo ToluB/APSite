@@ -1,0 +1,32 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  content: MyText
+  user_id: 1
+  convo_id: 1
+  merits: 1
+  skill: 1
+
+two:
+  title: MyString
+  content: MyText
+  user_id: 1
+  convo_id: 1
+  merits: 1
+  skill: 1
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer         not null, primary key
+#  title      :string(255)
+#  content    :text
+#  user_id    :integer
+#  convo_id   :integer
+#  merits     :integer
+#  skill      :integer
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+
