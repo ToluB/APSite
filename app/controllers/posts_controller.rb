@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.paginate(page: params[:page])
+    @post = Post.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -35,6 +36,10 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # POST /posts
@@ -46,9 +51,11 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to root_url, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -57,11 +64,11 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
-
     respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render json: @post.merits }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @post.errors, status: :unprocessable_entity }

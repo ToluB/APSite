@@ -1,7 +1,6 @@
 ApApp1::Application.routes.draw do
   root to: 'posts#index'
   resources :posts
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,10 @@
+//Add latest post
+$("#post_list").append('<%= escape_javascript(render "post" ,:post => @post) %>');
+
+//Temporarily edit post
+$("#post_list").append("<span class='temp_edit'><a href='#'>Edit</a></span>");
+$('.temp_edit').delay(5000).fadeOut(300);
+
+//Clear form field
+$('#post_content').val(null);
+$('#post_title').val(null);
