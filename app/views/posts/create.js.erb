@@ -2,7 +2,7 @@
 $("#post_list").append('<%= escape_javascript(render "post" ,:post => @post) %>');
 
 //Temporarily edit post
- $("#post_list").append("<div class='temp_edit'><a href='<%= edit_post_url(@post.id) %>'>Edit</a></div>");
+ $("#post_list").append("<%= j(link_to edit_post_url(@post.id), :remote => true) %>");
  $('.temp_edit').delay(3000).fadeOut(300);
 
 //Clear form field
