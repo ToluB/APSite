@@ -1,18 +1,22 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.posts{
+.post{
 	background:blue;
 	border: 1px;
 	margin: 5px;
 }
 
-.posts2{
+.post2{
 	background:red;
 	border: dotted 1px;
 	margin: 5px;
 }
 
-.points{
+.merits{
 	color:red;
+}
+
+.post_id{
+	display:none;
 }
