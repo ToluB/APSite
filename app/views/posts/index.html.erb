@@ -4,9 +4,12 @@
 <ul id="post_list">
 	<% @posts.each do |post| %>
 	<%= render "post" ,:post => post %>
-	<%= link_to 'Edit', edit_post_path(post.id) %>
+
+<!-- if admin, will see delete button here	 -->
 	<% end %>
 </ul>
+
+<%= will_paginate %>
 
 <div id="new_input">
 <%= render 'new_form' %>
@@ -34,4 +37,43 @@ $('.merits').click(function(){
 		alert("Sorry, request failed");
 	});
 });
+
+$('.upmerit').click(function(){
+	meritDiv=$(this).siblings('.merits');
+	var id = meritDiv.parent().data('post-id');
+			var merits = parseInt(meritDiv.text());
+		
+		  merits += 1;
+		
+			$.ajax({
+				url: "/posts/"+id,
+				type: "POST",
+				dataType: "json",
+				data: { _method: "PUT", id: id, post: { merits: merits } }
+			}).success(function(){
+				meritDiv.text(merits);
+			}).fail(function(data){
+				alert("Sorry, request failed");
+			});
+});
+
+$('.demerit').click(function(){
+	meritDiv=$(this).siblings('.merits');
+	var id = meritDiv.parent().data('post-id');
+			var merits = parseInt(meritDiv.text());
+		
+		  merits -= 1;
+		
+			$.ajax({
+				url: "/posts/"+id,
+				type: "POST",
+				dataType: "json",
+				data: { _method: "PUT", id: id, post: { merits: merits } }
+			}).success(function(){
+				meritDiv.text(merits);
+			}).fail(function(data){
+				alert("Sorry, request failed");
+			});
+});
+
 </script>

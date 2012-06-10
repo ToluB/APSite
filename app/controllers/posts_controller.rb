@@ -46,6 +46,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
+    @post.merits = 0
 
     respond_to do |format|
       if @post.save
@@ -55,7 +56,6 @@ class PostsController < ApplicationController
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
-        format.js
       end
     end
   end
