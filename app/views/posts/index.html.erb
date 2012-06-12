@@ -1,12 +1,11 @@
 <h1>Listing posts</h1>
 
 
-<ul id="post_list">
-	<% @posts.each do |post| %>
-	<%= render "post" ,:post => post %>
+<ul id="posts">
+	<%= nested_posts @posts.arrange(:order => :created_at) %> 
 
 <!-- if admin, will see delete button here	 -->
-	<% end %>
+
 </ul>
 
 <%= will_paginate %>
@@ -17,26 +16,6 @@
 
 
 <script>
-
-$('.merits').click(function(){
-	var meritDiv = $(this);
-	
-	var id = meritDiv.parent().data('post-id');
-	var merits = parseInt(meritDiv.text());
-
-  merits += 1;
-
-	$.ajax({
-		url: "/posts/"+id,
-		type: "POST",
-		dataType: "json",
-		data: { _method: "PUT", id: id, post: { merits: merits } }
-	}).success(function(){
-		meritDiv.text(merits);
-	}).fail(function(data){
-		alert("Sorry, request failed");
-	});
-});
 
 $('.upmerit').click(function(){
 	meritDiv=$(this).siblings('.merits');

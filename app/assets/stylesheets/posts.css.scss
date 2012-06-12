@@ -17,6 +17,10 @@
 	color:red;
 }
 
-.post_id{
-	display:none;
+.nested_posts{
+	margin-left: 25px;
+}
+
+.nested_posts .nested_posts .nested_posts .nested_posts{
+	margin-left: 0px;
 }

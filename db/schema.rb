@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120606212500) do
+ActiveRecord::Schema.define(:version => 20120610235550) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(:version => 20120606212500) do
     t.integer  "skill"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "ancestry"
   end
+
+  add_index "posts", ["ancestry"], :name => "index_posts_on_ancestry"
 
 end

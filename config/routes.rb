@@ -1,4 +1,10 @@
 ApApp1::Application.routes.draw do
+  get "pages/home"
+
+  get "pages/help"
+
+  get "pages/about"
+
   root to: 'posts#index'
   resources :posts
   # The priority is based upon order of creation:

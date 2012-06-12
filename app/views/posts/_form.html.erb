@@ -11,6 +11,9 @@
 	   </ul>
 	 </div>
 	<% end %>
+	
+	<%=f.hidden_field :parent_id %>
+	
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 	
@@ -18,4 +21,5 @@
 	<%= f.text_field :content %>
 	
 	<%= f.submit "Post"%>
+	
 <% end %>
