@@ -1,30 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+<%= nested_posts @post.subtree.arrange(:order => :created_at ) %>
 
-<p>
-  <b>Content:</b>
-  <%= @post.content %>
-</p>
-
-<p>
-  <b>Convo:</b>
-  <%= @post.convo_id %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @post.user_id %>
-</p>
-
-<p>
-  <b>Merits:</b>
-  <%= @post.merits %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back to posts', posts_path %>
