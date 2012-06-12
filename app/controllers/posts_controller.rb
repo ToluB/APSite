@@ -48,6 +48,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.merits = 0
+    @parent = Post.find_by_id(params[:parent_id])
 
     respond_to do |format|
       if @post.save

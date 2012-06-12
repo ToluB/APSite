@@ -1,8 +1,16 @@
 //Add latest post
-$("#post_list").append('<%= escape_javascript(render "post" ,:post => @post) %>');
+
+//Something about if @parent of 
+
+<% if @post.ancestry %>
+puts @parent.id
+$('#posts').append('<%= escape_javascript(render "post" ,:post => @post) %>');
+<% else %>
+$("#posts").append('<%= escape_javascript(render "post" ,:post => @post) %>');
+<% end %>
 
 //Temporarily edit post
- $("#post_list").append("<%= j(link_to edit_post_url(@post.id), :remote => true) %>");
+ $("#posts").append("<%= j(link_to edit_post_url(@post.id), :remote => true) %>");
  $('.temp_edit').delay(3000).fadeOut(300);
 
 //Clear form field
