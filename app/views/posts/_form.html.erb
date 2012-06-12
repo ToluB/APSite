@@ -14,11 +14,9 @@
 	
 	<%=f.hidden_field :parent_id %>
 	
-	<%= f.label :title %>
-	<%= f.text_field :title %>
+	<%= f.text_field :title, placeholder: "Title" %>
 	
-	<%= f.label :content %>
-	<%= f.text_field :content %>
+	<%= f.text_field :content, placeholder: "Enter your thoughts..." %>
 	
 	<%= f.submit "Post"%>
 	
