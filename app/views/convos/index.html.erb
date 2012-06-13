@@ -1,0 +1,31 @@
+<h1>Listing convos</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Subject</th>
+    <th>Merits</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @convos.each do |convo| %>
+  <tr>
+    <td><%= convo.user_id %></td>
+    <td><%= convo.subject_id %></td>
+    <td><%= convo.merits %></td>
+    <td><%= convo.title %></td>
+    <td><%= convo.content %></td>
+    <td><%= link_to 'Show', convo %></td>
+    <td><%= link_to 'Edit', edit_convo_path(convo) %></td>
+    <td><%= link_to 'Destroy', convo, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Convo', new_convo_path %>

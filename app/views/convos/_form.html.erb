@@ -1,0 +1,37 @@
+<%= form_for(@convo) do |f| %>
+  <% if @convo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@convo.errors.count, "error") %> prohibited this convo from being saved:</h2>
+
+      <ul>
+      <% @convo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :subject_id %><br />
+    <%= f.number_field :subject_id %>
+  </div>
+  <div class="field">
+    <%= f.label :merits %><br />
+    <%= f.number_field :merits %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
