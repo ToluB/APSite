@@ -6,7 +6,12 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'ancestry'
 gem 'rmagick', '~> 2.13.1'
-gem 'tinymce-rails'
+gem 'tinymce-rails', '~>3.5.2'
+gem 'thin'
+gem 'best_in_place'
+gem 'prawn'
+gem 'carrierwave'
+gem "fog", "~> 1.3.1"
 
 group :development, :test do
 gem 'sqlite3', '1.3.5'

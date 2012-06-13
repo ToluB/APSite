@@ -2,15 +2,16 @@
 
 //Something about if @parent of 
 
-<% if @post.ancestry %>
+<% if @parent.present? %>
 puts @parent.id
+$('#<%= dom_id(@parent)%>').append('<%= escape_javascript(render "post" ,:post => @post) %>');
 $('#posts').append('<%= escape_javascript(render "post" ,:post => @post) %>');
 <% else %>
 $("#posts").append('<%= escape_javascript(render "post" ,:post => @post) %>');
 <% end %>
 
 //Temporarily edit post
- $("#posts").append("<%= j(link_to edit_post_url(@post.id), :remote => true) %>");
+ $("#posts").append("<span class='temp_edit'><%= j(link_to "Edit", edit_post_url(@post.id), :remote => true) %></span>");
  $('.temp_edit').delay(3000).fadeOut(300);
 
 //Clear form field

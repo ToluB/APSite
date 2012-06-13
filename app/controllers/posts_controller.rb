@@ -25,8 +25,8 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-    @post = Post.new(:parent_id => params[:parent_id])
-    @parent = Post.find_by_id(params[:parent_id])
+    @post = Post.new() #=> dummy for form creation purposes
+    @parent = Post.find_by_id(params[:parent_id]) #=> dummy for append purposes
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
