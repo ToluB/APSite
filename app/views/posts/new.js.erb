@@ -1,3 +1,4 @@
 $('#new_input').hide();
-$('#<%= dom_id(@parent)%>').append("<%= j(render 'form', :parent_id => @parent.id) %>");
+alert('#<%= dom_id(@parent)%>')
+$('#<%= dom_id(@parent)%>').append("<%= j(render 'form')%>");
 // Need to find a way to pass the parent's id

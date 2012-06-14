@@ -1,5 +1,6 @@
 <%= tinymce_assets %>
 <%= tinymce %>
+
 <%= form_for(@post, :remote =>true) do |f| %>
 
 	<% if @post.errors.any? %>
@@ -13,13 +14,12 @@
 	   </ul>
 	 </div>
 	<% end %>
-	
 	<%=f.hidden_field :parent_id %>
 	
 	<%= f.text_field :title, placeholder: "Title" %>
 	
 	<%= f.text_area :content, :class=> "tinymce", :size =>'10x10',placeholder: "Credits for your thoughts?" %>
 	
-	<%= f.submit "Post"%>
+	<%= f.submit "Post"%><%= link_to "Cancel", posts_url, class: "btn btn-primary btn-small" %>
 	
 <% end %>

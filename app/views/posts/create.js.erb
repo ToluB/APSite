@@ -14,6 +14,6 @@ $("#posts").append('<%= escape_javascript(render "post" ,:post => @post) %>');
  $("#posts").append("<span class='temp_edit'><%= j(link_to "Edit", edit_post_url(@post.id), :remote => true) %></span>");
  $('.temp_edit').delay(3000).fadeOut(300);
 
-//Clear form field
+//Clear form fieldk; change this to clear tiny mce instead ...
 $('#post_content').val(null);
 $('#post_title').val(null);
