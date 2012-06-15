@@ -1,6 +1,7 @@
 <h1> Advanced Placement Forum Posts</h1>
 
 <%= tinymce_assets%>
+<%= tinymce %>
 
 <ul id="posts">
 	<%= nested_posts @posts.arrange(:order => :created_at) %> 

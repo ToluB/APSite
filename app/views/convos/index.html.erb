@@ -13,19 +13,41 @@
   </tr>
 
 <% @convos.each do |convo| %>
-  <tr>
-    <td><%= convo.user_id %></td>
-    <td><%= convo.subject_id %></td>
-    <td><%= convo.merits %></td>
-    <td><%= convo.title %></td>
-    <td><%= convo.content %></td>
-    <td><%= link_to 'Show', convo %></td>
-    <td><%= link_to 'Edit', edit_convo_path(convo) %></td>
-    <td><%= link_to 'Destroy', convo, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+ 
+  
+  <%= link_to 'Show', convo %>
+  <%= link_to 'Edit', edit_convo_path(convo) %>
+  <%= link_to 'Destroy', convo, confirm: 'Are you sure?', method: :delete %>
+  
 <% end %>
 </table>
 
 <br />
 
 <%= link_to 'New Convo', new_convo_path %>
+
+<div id="<%= dom_id(convo) %>">	 
+	<div class="post" data-post-id="<%= post.id %>">
+	
+		<!-- add alternate images for mouseover -->
+		<span class = "upmerit" >
+			<%= image_tag "upmerit.jpeg", :size => '20x20', :alt => "Give credit" %>
+			</span>
+		<span class = "demerit" >
+				<%= image_tag "demerit.jpeg", :size => '20x20', :alt => "Demerit"%>
+			</span>
+		
+		<span class = "merits">
+		    <%= convo.merits %>
+		</span>
+	
+		<span class="content">
+		<%= convo.title %><br>
+	  <%= convo.content %><br>
+		</span>
+	
+		<span class="post_actions">
+			<%= link_to "Reply", new_post_path(:parent_id => post.id), :remote => true %>
+			</span>
+	</div>
+</div>
