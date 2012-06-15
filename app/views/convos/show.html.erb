@@ -1,29 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @convo.user_id %>
-</p>
+<div class="convo" data-post-id="<%= convo.id %>">
 
-<p>
-  <b>Subject:</b>
-  <%= @convo.subject_id %>
-</p>
+	<%= render 'shared/merits'%>
+	
+	<span class = "merits">
+	    <%= convo.merits %>
+	</span>
 
-<p>
-  <b>Merits:</b>
-  <%= @convo.merits %>
-</p>
+	<span class="content">
+	<%= link_to convo.title, convo %><br>
+  <%= raw convo.content %><br>
+	</span>
 
-<p>
-  <b>Title:</b>
-  <%= @convo.title %>
-</p>
+</div>
 
-<p>
-  <b>Content:</b>
-  <%= @convo.content %>
-</p>
+<hr>
+
+<% @convo.posts.each do |post|%>
+<%= render '/posts/post', :post => post %>
+
+<% end %>
 
 
 <%= link_to 'Edit', edit_convo_path(@convo) %> |

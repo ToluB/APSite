@@ -1,13 +1,17 @@
 ApApp1::Application.routes.draw do
+  
+  root to: 'convos#index'
+  
   get "pages/home"
 
   get "pages/help"
 
   get "pages/about"
 
-  root to: 'posts#index'
+  
   resources :posts
   resources :convos
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

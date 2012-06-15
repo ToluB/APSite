@@ -1,31 +1,10 @@
-<h1>Listing convos</h1>
+<h1>Advanced Placement Exam Discussions</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Subject</th>
-    <th>Merits</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul id="convos">
+	<%= render @convos %> 
 
-<% @convos.each do |convo| %>
-  <tr>
-    <td><%= convo.user_id %></td>
-    <td><%= convo.subject_id %></td>
-    <td><%= convo.merits %></td>
-    <td><%= convo.title %></td>
-    <td><%= convo.content %></td>
-    <td><%= link_to 'Show', convo %></td>
-    <td><%= link_to 'Edit', edit_convo_path(convo) %></td>
-    <td><%= link_to 'Destroy', convo, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<!-- if admin, will see delete button here	 -->
 
-<br />
+</ul>
 
-<%= link_to 'New Convo', new_convo_path %>
+<%= link_to "Start a new conversation", new_convo_path %>

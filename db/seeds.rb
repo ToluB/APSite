@@ -24,7 +24,7 @@ c = Convo.create :title => title,
   title = (0...20).map{65.+(rand(25)).chr}.join
   content = (0...90).map{65.+(rand(25)).chr}.join
   merits = rand(0..100)
-  convo_id = rand(0..5)
+  convo_id = rand(1..5)
 
 p = Post.create :title => title,
                 :content => content,

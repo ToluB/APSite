@@ -1,21 +1,15 @@
 <div id="<%= dom_id(post) %>">	 
 	<div class="post" data-post-id="<%= post.id %>">
 	
-		<!-- add alternate images for mouseover -->
-		<span class = "upmerit" >
-			<%= image_tag "upmerit.jpeg", :size => '20x20', :alt => "Give credit" %>
-			</span>
-		<span class = "demerit" >
-				<%= image_tag "demerit.jpeg", :size => '20x20', :alt => "Demerit"%>
-			</span>
+		<%= render 'shared/merits'%>
 		
 		<span class = "merits">
 		    <%= post.merits %>
 		</span>
 	
 		<span class="content">
-		<%= post.title %><br>
-	  <%= link_to post.content, post %><br>
+		<%=link_to post.title, post %><br>
+	  <%= raw post.content %>
 		</span>
 	
 		<span class="post_actions">
@@ -23,3 +17,45 @@
 			</span>
 	</div>
 </div>
+
+<script>
+
+$('.upmerit').click(function(){
+	meritDiv=$(this).siblings('.merits');
+	var id = meritDiv.parent().data('post-id');
+			var merits = parseInt(meritDiv.text());
+		
+		  merits += 1;
+		
+			$.ajax({
+				url: "/posts/"+id,
+				type: "POST",
+				dataType: "json",
+				data: { _method: "PUT", id: id, post: { merits: merits } }
+			}).success(function(){
+				meritDiv.text(merits);
+			}).fail(function(data){
+				alert("Sorry, request failed");
+			});
+});
+
+$('.demerit').click(function(){
+	meritDiv=$(this).siblings('.merits');
+	var id = meritDiv.parent().data('post-id');
+			var merits = parseInt(meritDiv.text());
+		
+		  merits -= 1;
+		
+			$.ajax({
+				url: "/posts/"+id,
+				type: "POST",
+				dataType: "json",
+				data: { _method: "PUT", id: id, post: { merits: merits } }
+			}).success(function(){
+				meritDiv.text(merits);
+			}).fail(function(data){
+				alert("Sorry, request failed");
+			});
+});
+
+</script>
