@@ -1,53 +1,9 @@
-<h1>Listing convos</h1>
+<h1>Advanced Placement Exam Discussions</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Subject</th>
-    <th>Merits</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul id="convos">
+	<%= render @convos %> 
 
-<% @convos.each do |convo| %>
- 
-  
-  <%= link_to 'Show', convo %>
-  <%= link_to 'Edit', edit_convo_path(convo) %>
-  <%= link_to 'Destroy', convo, confirm: 'Are you sure?', method: :delete %>
-  
-<% end %>
-</table>
+<!-- if admin, will see delete button here	 -->
+</ul>
 
-<br />
-
-<%= link_to 'New Convo', new_convo_path %>
-
-<div id="<%= dom_id(convo) %>">	 
-	<div class="post" data-post-id="<%= post.id %>">
-	
-		<!-- add alternate images for mouseover -->
-		<span class = "upmerit" >
-			<%= image_tag "upmerit.jpeg", :size => '20x20', :alt => "Give credit" %>
-			</span>
-		<span class = "demerit" >
-				<%= image_tag "demerit.jpeg", :size => '20x20', :alt => "Demerit"%>
-			</span>
-		
-		<span class = "merits">
-		    <%= convo.merits %>
-		</span>
-	
-		<span class="content">
-		<%= convo.title %><br>
-	  <%= convo.content %><br>
-		</span>
-	
-		<span class="post_actions">
-			<%= link_to "Reply", new_post_path(:parent_id => post.id), :remote => true %>
-			</span>
-	</div>
-</div>
+<%= link_to "Start a new conversation", new_convo_path %>

@@ -1,0 +1,14 @@
+	<div class="convo" data-post-id="<%= convo.id %>">
+	
+		<%= render 'shared/merits'%>
+		
+		<span class = "merits">
+		    <%= convo.merits %>
+		</span>
+	
+		<span class="content">
+		<%= link_to convo.title, convo %><br>
+	  <%= raw convo.content %><br>
+		</span>
+
+	</div>

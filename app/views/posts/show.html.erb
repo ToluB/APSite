@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+Posted by <%= @post.user_id %> at <%#= created_at %>
+
 <%= nested_posts @post.subtree.arrange(:order => :created_at ) %>
 
 <%= link_to 'Back to posts', posts_path %>

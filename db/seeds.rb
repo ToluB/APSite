@@ -6,17 +6,33 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+Convo.destroy_all
 Post.destroy_all
+
+5.times do
+  title = (0...20).map{65.+(rand(25)).chr}.join
+  content = (0...90).map{65.+(rand(25)).chr}.join
+  merits = rand(0..100)
+
+c = Convo.create :title => title,
+                :content => content,
+                :merits => merits
+          end
 
 20.times do
   title = (0...20).map{65.+(rand(25)).chr}.join
   content = (0...90).map{65.+(rand(25)).chr}.join
   merits = rand(0..100)
+  convo_id = rand(1..5)
 
 p = Post.create :title => title,
                 :content => content,
-                :merits => merits
+                :merits => merits,
+                :convo_id => convo_id
+                
           end
+
 
 #(0...8).map{65.+(rand(25)).chr}.join #=> generate random 8 letter title
 #(0...90).map{65.+(rand(25)).chr}.join #=> generate random 90 letter post
