@@ -14,7 +14,7 @@ class ConvosController < ApplicationController
   # GET /convos/1.json
   def show
     @convo = Convo.find(params[:id])
-
+    @post = Post.new()
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @convo }

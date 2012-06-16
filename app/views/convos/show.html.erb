@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<div class="convo" data-post-id="<%= convo.id %>">
+<div class="convo" data-post-id="<%= @convo.id %>">
 
 	<%= render 'shared/merits'%>
 	
 	<span class = "merits">
-	    <%= convo.merits %>
+	    <%= @convo.merits %>
 	</span>
 
 	<span class="content">
-	<%= link_to convo.title, convo %><br>
-  <%= raw convo.content %><br>
+	<%= link_to @convo.title, convo_url(@convo.id) %><br>
+  <%= raw @convo.content %><br>
 	</span>
 
 </div>
@@ -19,8 +19,9 @@
 
 <% @convo.posts.each do |post|%>
 <%= render '/posts/post', :post => post %>
-
 <% end %>
+<%= render '/posts/form'%>
+
 
 
 <%= link_to 'Edit', edit_convo_path(@convo) %> |
