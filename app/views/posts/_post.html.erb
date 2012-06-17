@@ -13,8 +13,8 @@
 		</span>
 	
 		<span class="post_actions">
-			<%= link_to "Reply", new_post_path(:parent_id => post.id), :remote => true %>
-			</span>
+			<%= link_to "Reply", new_convo_post_path(:convo_id => post.convo.id, :parent_id => post.id), :remote => true %>
+			</span><br>
 	</div>
 </div>
 

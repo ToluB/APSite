@@ -1,6 +1,4 @@
-<%= tinymce %>
-
-<%= form_for(@post, :remote =>true) do |f| %>
+<%= form_for @post, url:convo_posts_path(@convo) do |f| %>
 
 	<% if @post.errors.any? %>
 	 <div id="error_explanation">

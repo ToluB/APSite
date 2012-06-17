@@ -7,7 +7,7 @@
 		</span>
 	
 		<span class="content">
-		<%= link_to convo.title, convo %><br>
+		<%= link_to convo.title, convo_posts_path(convo.id) %><br>
 	  <%= raw convo.content %><br>
 		</span>
 

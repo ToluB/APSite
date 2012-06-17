@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.paginate(page: params[:page])
+    @convo = Convo.find(params[:convo_id])
+    @posts = @convo.posts.paginate(page: params[:page])
     @post = Post.new
 
     respond_to do |format|
@@ -14,6 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @convo = Convo.find_by_id(params[:convo_id])
     @post = Post.find(params[:id])
 
     respond_to do |format|
@@ -25,8 +27,9 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-    @post = Post.new() #=> dummy for form creation purposes
-    @parent = Post.find_by_id(params[:parent_id]) #=> dummy for append purposes
+    @convo = Convo.find(params[:convo_id])
+    @post = @convo.posts.new(:parent_id => params[:parent_id]) #=> dummy for form creation purposes
+    @parent = @convo.posts.find_by_id(params[:parent_id]) #=> dummy for append purposes
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
@@ -46,13 +49,14 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(params[:post])
+    @convo = Convo.find(params[:convo_id])
+    @post = @convo.posts.new(params[:post])
     @post.merits = 0
-    @parent = Post.find_by_id(params[:parent_id])
+    @parent = @convo.posts.find_by_id(params[:parent_id]) #=> would we @convo.post or just do Post; seems like we might as well save time going through the whole database again...
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to root_url, notice: 'Post was successfully created.' }
+        format.html { redirect_to convo_posts_url, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
         format.js
       else

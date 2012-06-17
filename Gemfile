@@ -12,6 +12,8 @@ gem 'best_in_place'
 gem 'prawn'
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
+gem 'devise'
+gem 'omniauth-facebook'
 
 group :development, :test do
 gem 'sqlite3', '1.3.5'

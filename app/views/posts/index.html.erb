@@ -1,5 +1,20 @@
 <h1> Advanced Placement Forum Posts</h1>
 
+<div class="convo" data-post-id="<%= @convo.id %>">
+
+	<%= render 'shared/merits'%>
+	
+	<span class = "merits">
+	    <%= @convo.merits %>
+	</span>
+
+	<span class="content">
+	<%= link_to @convo.title, convo_url(@convo.id) %><br>
+  <%= raw @convo.content %><br>
+	</span>
+
+</div>
+
 <ul id="posts">
 	<%= nested_posts @posts.arrange(:order => :created_at) %> 
 

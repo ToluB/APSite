@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
-  attr_accessible :content, :convo_id, :merits, :skill, :title, :user_id, :parent_id
+  attr_accessible :content, :convo_id, :merits, :skill, :title, :user_id, :parent_id, :convo
   
   has_ancestry
+  belongs_to :convo
 end
 # == Schema Information
 #

@@ -14,7 +14,8 @@ class ConvosController < ApplicationController
   # GET /convos/1.json
   def show
     @convo = Convo.find(params[:id])
-    @post = Post.new()
+    @posts = @convo.posts
+    @post = Post.new #=> dummy to allow immediate transition to new posts form
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @convo }
@@ -44,7 +45,7 @@ class ConvosController < ApplicationController
 
     respond_to do |format|
       if @convo.save
-        format.html { redirect_to @convo, notice: 'Convo was successfully created.' }
+        format.html { redirect_to @convo, notice: 'New conversation created.' }
         format.json { render json: @convo, status: :created, location: @convo }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class ConvosController < ApplicationController
 
     respond_to do |format|
       if @convo.update_attributes(params[:convo])
-        format.html { redirect_to @convo, notice: 'Convo was successfully updated.' }
+        format.html { redirect_to @convo, notice: 'Conversation has been modified.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
