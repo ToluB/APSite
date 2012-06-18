@@ -1,5 +1,7 @@
 ApApp1::Application.routes.draw do
   
+  devise_for :users
+
   root to: 'convos#index'
   
   match "/posts", to:'posts#index'

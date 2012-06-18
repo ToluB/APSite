@@ -34,4 +34,10 @@ ApApp1::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # Devise: default url options; change for deployment
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  # Devise: deploying to Heroku 3...
+  config.assets.initialize_on_precompile = false  
 end
