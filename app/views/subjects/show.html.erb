@@ -1,0 +1,9 @@
+<h1>Advanced Placement <%= @subject.name %> Forum</h1>
+
+<ul id="convos">
+	<%= render @subject.convos %> 
+
+</ul>
+
+<%= link_to "Start a new conversation", new_convo_path %>
+

@@ -1,0 +1,11 @@
+<h1>Subjects#index</h1>
+
+<% @subjects.each do |subject|%>
+	<%= subject.name %>
+	<%= link_to "Edit", "#"%>
+	<%= link_to "Delete", "#"%> 
+
+<% end %>
+
+<%= link_to "Create new subject", "#"%>
+

@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
+  #before_filter :require_user, :only => [:create, edit]
+  #before_filter :require_admin, :only => [:destroy]
   def index
     @convo = Convo.find(params[:convo_id])
     @posts = @convo.posts.paginate(page: params[:page])

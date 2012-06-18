@@ -27,7 +27,9 @@
 								<li><a href="#"><i class="icon-remove"></i>Logout</a></li>
 							</ul>
 						</li>
-          <li><%= link_to "Sign in", '#' %></li>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+					<li><%= link_to "Sign in facebook", user_omniauth_authorize_path(:facebook) %></li>
+					<li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         </ul>
       </nav>
     </div>

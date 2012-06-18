@@ -1,3 +1,6 @@
+require "omniauth-facebook"
+config.omniauth :facebook, "428678670498590", "ddf7d1bc1db6b617d15e95f11438431b"
+      :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|

@@ -1,5 +1,17 @@
 ApApp1::Application.routes.draw do
   
+  resources :convos, :shallow => true do
+    resources :posts
+  end
+  
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
+  
+  #match 'auth/:provider/callback', to: 'sessions#'
+  
+  get "subjects/index"
+
+  get "subjects/show"
+
   devise_for :users
 
   root to: 'convos#index'
@@ -12,9 +24,7 @@ ApApp1::Application.routes.draw do
 
   get "pages/about"
   
-  resources :convos, :shallow => true do
-    resources :posts
-  end
+
     
   # The priority is based upon order of creation:
   # first created -> highest priority.

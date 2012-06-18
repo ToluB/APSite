@@ -1,6 +1,8 @@
 class ConvosController < ApplicationController
   # GET /convos
   # GET /convos.json
+  #before_filter :require_user, :only => [:create, edit]
+  #before_filter :require_admin, :only => [:destroy]
   def index
     @convos = Convo.all
 

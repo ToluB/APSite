@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617232307) do
+ActiveRecord::Schema.define(:version => 20120618003635) do
 
   create_table "convos", :force => true do |t|
     t.integer  "user_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20120617232307) do
     t.string   "area_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
   add_index "subjects", ["area_id"], :name => "index_subjects_on_area_id"
