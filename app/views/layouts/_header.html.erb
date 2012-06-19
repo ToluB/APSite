@@ -8,6 +8,7 @@
 					<input type="text" class="span2" placeholder="Search WhizAP">
 					</form>
         <ul class="nav pull-right">
+	
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 							Forums
@@ -17,19 +18,32 @@
 								<li><a href="#">Math and Science</a> | <a href="#">Social Science</a> | <a href="#">History and Religion</a> | Language   </li>
 							</ul>
 						</li>
+						
+					<% if user_signed_in? %>	
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							Account
+							<%= current_user.email %>
 							<b class="caret"> </b>
 						</a>
 							<ul class="dropdown-menu">
 								<li><a href="#"><i class="icon-user"></i>Profile</a></li>
 								<li><a href="#"><i class="icon-remove"></i>Logout</a></li>
+								<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 							</ul>
 						</li>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
-					<li><%= link_to "Sign in facebook", user_omniauth_authorize_path(:facebook) %></li>
-					<li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+						<% end %>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								Sign In
+								<b class="caret"> </b>
+							</a>
+								<ul class="dropdown-menu">
+								<li><%= link_to "Sign in - Facebook", user_omniauth_authorize_path(:facebook) %></li>
+								<li><%= link_to "Sign in - Email", new_user_session_path %></li>
+								<li><%= link_to "Register", new_user_registration_path %></li>
+								</ul>
+							</li>
+  
         </ul>
       </nav>
     </div>

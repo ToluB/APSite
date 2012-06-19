@@ -9,27 +9,32 @@
 
 Convo.destroy_all
 Post.destroy_all
+User.destroy_all
 
-5.times do
+20.times do
   title = (0...20).map{65.+(rand(25)).chr}.join
   content = (0...90).map{65.+(rand(25)).chr}.join
   merits = rand(0..100)
+  user = rand(0..5)
 
 c = Convo.create :title => title,
                 :content => content,
                 :merits => merits
+                :user_id => user
           end
 
 20.times do
   title = (0...20).map{65.+(rand(25)).chr}.join
   content = (0...90).map{65.+(rand(25)).chr}.join
   merits = rand(0..100)
-  convo_id = rand(1..5)
+  convo_id = rand(1..20)
+  user = rand(0..5)
 
 p = Post.create :title => title,
                 :content => content,
                 :merits => merits,
                 :convo_id => convo_id
+                :user
                 
           end
 

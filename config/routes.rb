@@ -5,9 +5,7 @@ ApApp1::Application.routes.draw do
   end
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
-  
-  #match 'auth/:provider/callback', to: 'sessions#'
-  
+    
   get "subjects/index"
 
   get "subjects/show"
