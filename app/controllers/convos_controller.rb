@@ -4,7 +4,8 @@ class ConvosController < ApplicationController
   #before_filter :require_user, :only => [:create, edit]
   #before_filter :require_admin, :only => [:destroy]
   def index
-    @convos = Convo.all
+    @subject = Subject.find_by_name(params[:subject_id])
+    @convos = Convo.all # make this @convos=@subject.convos.all
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,8 +2,9 @@
 
 <ul id="convos">
 	<%= render @subject.convos %> 
+	
+	<!-- if admin, will see delete button here	 -->
 
 </ul>
 
-<%= link_to "Start a new conversation", new_convo_path %>
-
+<%= link_to "Start a new conversation", new_convo_path(:subject_id => @subject.id) %>

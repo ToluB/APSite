@@ -1,11 +1,14 @@
-<h1>Subjects#index</h1>
+<h1>Index of Current Subjects Covered</h1>
 
 <% @subjects.each do |subject|%>
-	<%= subject.name %>
-	<%= link_to "Edit", "#"%>
-	<%= link_to "Delete", "#"%> 
+	<%= subject.id %> <%= link_to subject.name, subject_path(subject.id) %> 
+	<%= link_to "Edit", edit_subject_path(subject.id) %> | 
+	<%= link_to "Delete", subject_path(subject.id), method: :delete %> <br>
+	
+	<%= subject.name %> has <%= subject.convos.count %> conversations with <%= subject.posts.count %> posts
+	<hr>
 
 <% end %>
 
-<%= link_to "Create new subject", "#"%>
+<%= link_to "Create a new subject", new_subject_path %>
 

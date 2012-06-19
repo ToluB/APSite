@@ -4,11 +4,9 @@ ApApp1::Application.routes.draw do
     resources :posts
   end
   
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
-    
-  get "subjects/index"
-
-  get "subjects/show"
+  devise_for :users, :controllers => { :user_omniauth_callback => "users/omniauth_callbacks"}
+  
+  resources :subjects
 
   devise_for :users
 
