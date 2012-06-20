@@ -11,12 +11,11 @@
     </div>
   <% end %>
 
-	<%#=f.hidden_field :subject_id %> #=> Automatically transfer subject id
-
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
+	<% if user_signed_in? %>
+	<%=f.hidden_field :user_id => current_user.id %>
+	<% end %>
+	
+<!-- Subjects will be decided later... -->
   <div class="field">
     <%= f.label :subject_id %><br />
     <%= f.number_field :subject_id %>

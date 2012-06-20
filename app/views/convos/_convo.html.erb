@@ -1,13 +1,15 @@
 <div id="<%= dom_id(convo) %>">
 	<div class="convo" data-convo-id="<%= convo.id %>">
 	
-	<%= render 'users/user', :user => convo.user %>
+	  <%= render 'users/user', :user => convo.user %>
+	
+		<span class="title">
+		<%=link_to convo.title, convo %><br>
+	  </span>
 	
 		<%= render 'shared/merits', :merits => convo.merits %>
-		
 	
 		<span class="content">
-		<%= link_to convo.title, convo_posts_path(convo.id) %><br>
 	  <%= raw convo.content %><br>
 		</span>
 	</div>

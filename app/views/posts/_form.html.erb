@@ -11,6 +11,11 @@
 	   </ul>
 	 </div>
 	<% end %>
+	
+	<% if user_signed_in? %>
+	<%=f.hidden_field :user_id => current_user.id %>
+	<% end %>
+	
 	<%=f.hidden_field :parent_id %>
 	
 	<%= f.text_field :title, placeholder: "Title" %>
