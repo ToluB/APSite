@@ -65,7 +65,7 @@ class ConvosController < ApplicationController
     respond_to do |format|
       if @convo.update_attributes(params[:convo])
         format.html { redirect_to @convo, notice: 'Conversation has been modified.' }
-        format.json { head :no_content }
+        format.json { render json: @convo.merits }
       else
         format.html { render action: "edit" }
         format.json { render json: @convo.errors, status: :unprocessable_entity }

@@ -1,19 +1,15 @@
 <div id="<%= dom_id(convo) %>">
 	<div class="convo" data-convo-id="<%= convo.id %>">
 	
-	<%#= render 'users/user', :user => convo.user %>
+	<%= render 'users/user', :user => convo.user %>
 	
-		<%= render 'shared/merits'%>
+		<%= render 'shared/merits', :merits => convo.merits %>
 		
-		<span class = "merits">
-		    <%= convo.merits %>
-		</span>
 	
 		<span class="content">
 		<%= link_to convo.title, convo_posts_path(convo.id) %><br>
 	  <%= raw convo.content %><br>
 		</span>
-
 	</div>
 </div>
 
@@ -23,11 +19,10 @@ $('.upmerit').click(function(){
 	meritDiv=$(this).siblings('.merits');
 	var id = meritDiv.parent().data('convo-id');
 			var merits = parseInt(meritDiv.text());
-		
 		  merits += 1;
 		
 			$.ajax({
-				url: "/convos/"+id,
+				url: "<%= convo_url(convo.id)%>",
 				type: "POST",
 				dataType: "json",
 				data: { _method: "PUT", id: id, post: { merits: merits } }
@@ -40,7 +35,7 @@ $('.upmerit').click(function(){
 
 $('.demerit').click(function(){
 	meritDiv=$(this).siblings('.merits');
-	var id = meritDiv.parent().data('post-id');
+	var id = meritDiv.parent().data('convo-id');
 			var merits = parseInt(meritDiv.text());
 		
 		  merits -= 1;

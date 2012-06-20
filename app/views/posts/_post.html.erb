@@ -1,17 +1,13 @@
 <div id="<%= dom_id(post) %>">	 
 	<div class="post" data-post-id="<%= post.id %>">
 		
-		<%#= render 'users/user', :user => post.user %>
+		<%= render 'users/user', :user => post.user %>
 	
-		<%= render 'shared/merits'%>
+		<%= render 'shared/merits', :merits => post.merits %>
 		
-		<span class = "merits">
-		    <%= post.merits %>
-		</span>
-	
 		<span class="content">
 		<%=link_to post.title, post %><br>
-	  <%= raw post.content %>
+	  <%= raw post.content %><br>
 		</span>
 	
 		<span class="post_actions">

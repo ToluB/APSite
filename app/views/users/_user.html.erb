@@ -1,10 +1,7 @@
-<div class="user" data-post-id="<%= @user.id %>">
+<div class="user" data-post-id="<%= user.id %>">
 
-	<%= render 'shared/merits'%>
-	
-	<span class = "merits">
-	    <%= user.merits %>
-	</span>
+	<%= render 'shared/merits', :merits => user.merits %>
+	<!-- Add everything else about users here -->
 
 <!-- User box height/width to be set by users css -->
 

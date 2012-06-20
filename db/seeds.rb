@@ -27,8 +27,8 @@ s5=Subject.create :name => "Environmental Science"
   title = (0...20).map{65.+(rand(25)).chr}.join
   content = (0...90).map{65.+(rand(25)).chr}.join
   merits = rand(0..100)
-  user = rand(0..5)
-  subject = rand (0...5)
+  user = rand(1..5)
+  subject = rand (1...5)
 
 c = Convo.create :title => title,
                 :content => content,
@@ -41,8 +41,8 @@ c = Convo.create :title => title,
   title = (0...20).map{65.+(rand(25)).chr}.join
   content = (0...90).map{65.+(rand(25)).chr}.join
   merits = rand(0..100)
-  convo = rand(1..20)
-  user = rand(0..5)
+  convo = rand(1..250)
+  user = rand(1..5)
 
 p = Post.create :title => title,
                 :content => content,
