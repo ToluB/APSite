@@ -1,8 +1,9 @@
 class Convo < ActiveRecord::Base
   attr_accessible :content, :merits, :subject_id, :title, :user_id
   
-  has_many :posts, dependent: :destroy
+  has_many :posts, dependent: :destroy  
   belongs_to :subject
+  belongs_to :user
   
   default_scope order: 'convos.created_at DESC'
 end

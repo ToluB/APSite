@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   
   has_ancestry
   belongs_to :convo
+  belongs_to :user
 end
 # == Schema Information
 #

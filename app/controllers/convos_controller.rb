@@ -1,6 +1,5 @@
 class ConvosController < ApplicationController
-  # GET /convos
-  # GET /convos.json
+  before_filter :authenticate_user!, :only => [:create]
   #before_filter :require_user, :only => [:create, edit]
   #before_filter :require_admin, :only => [:destroy]
   def index
@@ -45,7 +44,8 @@ class ConvosController < ApplicationController
   # POST /convos.json
   def create
     @convo = Convo.new(params[:convo])
-
+    @convo.merits = 0
+    @convo.user_id = current_user.id
     respond_to do |format|
       if @convo.save
         format.html { redirect_to @convo, notice: 'New conversation created.' }

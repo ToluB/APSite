@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:create]
   # GET /posts
   # GET /posts.json
   #before_filter :require_user, :only => [:create, edit]
@@ -54,6 +55,7 @@ class PostsController < ApplicationController
     @convo = Convo.find(params[:convo_id])
     @post = @convo.posts.new(params[:post])
     @post.merits = 0
+    @post.user_id = current_user.id
     @parent = @convo.posts.find_by_id(params[:parent_id]) #=> would we @convo.post or just do Post; seems like we might as well save time going through the whole database again...
 
     respond_to do |format|

@@ -1,4 +1,7 @@
-	<div class="convo" data-post-id="<%= convo.id %>">
+<div id="<%= dom_id(convo) %>">
+	<div class="convo" data-convo-id="<%= convo.id %>">
+	
+	<%#= render 'users/user', :user => convo.user %>
 	
 		<%= render 'shared/merits'%>
 		
@@ -12,3 +15,46 @@
 		</span>
 
 	</div>
+</div>
+
+<script>
+
+$('.upmerit').click(function(){
+	meritDiv=$(this).siblings('.merits');
+	var id = meritDiv.parent().data('convo-id');
+			var merits = parseInt(meritDiv.text());
+		
+		  merits += 1;
+		
+			$.ajax({
+				url: "/convos/"+id,
+				type: "POST",
+				dataType: "json",
+				data: { _method: "PUT", id: id, post: { merits: merits } }
+			}).success(function(){
+				meritDiv.text(merits);
+			}).fail(function(data){
+				alert("Sorry, request failed");
+			});
+});
+
+$('.demerit').click(function(){
+	meritDiv=$(this).siblings('.merits');
+	var id = meritDiv.parent().data('post-id');
+			var merits = parseInt(meritDiv.text());
+		
+		  merits -= 1;
+		
+			$.ajax({
+				url: "/convos/"+id,
+				type: "POST",
+				dataType: "json",
+				data: { _method: "PUT", id: id, post: { merits: merits } }
+			}).success(function(){
+				meritDiv.text(merits);
+			}).fail(function(data){
+				alert("Sorry, request failed");
+			});
+});
+
+</script>

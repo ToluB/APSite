@@ -1,14 +1,13 @@
 ApApp1::Application.routes.draw do
-  
+
   resources :convos, :shallow => true do
     resources :posts
   end
   
-  devise_for :users, :controllers => { :user_omniauth_callback => "users/omniauth_callbacks"}
+  devise_for :users, :controllers => { :user_omniauth_callback => "users/omniauth_callbacks"}, :path_prefix => 'd'
   
+  resources :users, :only => [:show, :index]
   resources :subjects
-
-  devise_for :users
 
   root to: 'convos#index'
   
