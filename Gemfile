@@ -16,9 +16,10 @@ gem 'devise'
 gem 'omniauth-facebook'
 
 group :development, :test do
-gem 'sqlite3', '1.3.5'
+gem 'pg', '0.12.2'
 gem 'rspec-rails', '2.9.0'
 gem 'annotate', '~> 2.4.1.beta'
+gem 'quiet_assets'
 end
 
 
@@ -43,6 +44,10 @@ end
 group :production do
   gem 'pg', '0.12.2'
 end
+
+#Full - text - search gem
+gem 'pg_search'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
