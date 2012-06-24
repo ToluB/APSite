@@ -1,0 +1,7 @@
+$('#convos').append('<%= j render(@convos) %>');
+<% if @convos.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@convos) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>
+<% sleep 1 %>

@@ -4,11 +4,12 @@ class ConvosController < ApplicationController
   #before_filter :require_admin, :only => [:destroy]
   def index
     @subject = Subject.find_by_name(params[:subject_id])
-    @convos = Convo.all # make this @convos=@subject.convos.all
+    @convos = Convo.page(params[:page]).per_page(20) # make this @convos=@subject.convos.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @convos }
+      format.js
     end
   end
 
