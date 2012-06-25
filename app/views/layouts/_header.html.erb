@@ -4,8 +4,8 @@
       <%= link_to "WhizAP", root_path, id: "logo" %>
 
       <nav>
-				<form class="navbar-search">
-					<input type="text" class="span2" placeholder="Search WhizAP">
+				<form class="navbar-search" action="/convos" method="get">
+					<input type="text" name="search" class="span2" placeholder="Search WhizAP">
 					</form>
         <ul class="nav pull-right">
 	
