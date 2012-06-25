@@ -10,3 +10,14 @@
 	<span class = "merits">
 	    <%= merits %>
 	</span>
+	
+	<div id="<%= dom_id(item) %>_merits">
+		<%= item.merits %>
+	</div>
+
+	<span id="<%= dom_id(item) %>_vote_up">
+		<%= link_to (image_tag "upmerit.jpeg", :size => '20x20', :class => "upmerit"), upmerit_convo_path(id: item.id), method: :put, remote: true %>
+	</span>
+	<span id = "<%= dom_id(item) %>_vote_down">
+		<%= link_to (image_tag "downmerit.jpeg", :size => '20x20', :class => "downmerit"), downmerit_convo_path(id: item.id), method: :put, remote: true %>
+	</span>

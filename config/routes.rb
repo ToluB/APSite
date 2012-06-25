@@ -11,15 +11,13 @@ ApApp1::Application.routes.draw do
 
   root to: 'convos#index'
   
-  match "/posts", to:'posts#index'
-  
   get "pages/home"
-
   get "pages/help"
-
   get "pages/about"
   
-
+  put 'upmerit_convo', to: 'convos#vote_up'
+  put 'downmerit_convo', to: 'convos#vote_down'
+  
     
   # The priority is based upon order of creation:
   # first created -> highest priority.

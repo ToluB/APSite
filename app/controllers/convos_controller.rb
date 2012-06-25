@@ -85,4 +85,19 @@ class ConvosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def vote_up
+    @post = Convo.find(params[:id])
+    @post.update_attribute :merits, @convo.merits + 1
+    respond_to do |f|
+      f.js
+    end
+  end
+  
+  def vote_down
+    @post = Convo.find(params[:id])
+    @post.update_attribute :merits, @convo.merits - 1
+    respond_to do |f|
+      f.js
+    end
+  end
 end

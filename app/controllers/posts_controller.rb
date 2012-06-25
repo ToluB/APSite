@@ -97,4 +97,21 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def vote_up
+    @post = Post.find(params[:id])
+    @post.update_attribute :merits, @post.merits + 1
+    respond_to do |f|
+      f.js
+    end
+  end
+  
+  def vote_down
+    @post = Post.find(params[:id])
+    @post.update_attribute :merits, @post.merits - 1
+    respond_to do |f|
+      f.js
+    end
+  end
+  
 end

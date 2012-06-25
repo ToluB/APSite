@@ -7,7 +7,7 @@
 		<%=link_to convo.title, posts_url(:convo_id => convo.id) %><br>
 	  </span>
 	
-		<%= render 'shared/merits', :merits => convo.merits %>
+		<%= render 'shared/merits', :item => convo %>
 	
 		<span class="content">
 	  <%= raw convo.content %><br>
