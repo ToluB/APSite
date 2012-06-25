@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120619011044) do
+ActiveRecord::Schema.define(:version => 20120625014424) do
 
   create_table "convos", :force => true do |t|
     t.integer  "user_id"
     t.integer  "subject_id"
-    t.integer  "merits"
+    t.integer  "merits",     :default => 0
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "convos", ["subject_id"], :name => "index_convos_on_subject_id"
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(:version => 20120619011044) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "convo_id"
-    t.integer  "merits"
+    t.integer  "merits",     :default => 0
     t.integer  "skill"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "ancestry"
   end
 
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(:version => 20120619011044) do
     t.string   "colleges"
     t.string   "past_exams"
     t.string   "current_exams"
-    t.integer  "merits"
-    t.integer  "umerits"
+    t.integer  "merits",                 :default => 0
+    t.integer  "umerits",                :default => 0
     t.integer  "gradelevel"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
