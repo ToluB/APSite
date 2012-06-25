@@ -3,9 +3,6 @@ class SessionsController < Devise::SessionsController
   def create
     redirect_to :back
   end
-  def destroy
-  redirect_to :back
-  end
   
   def update_user_merits
     # This will calculate total merits for the current user, to be run on login
