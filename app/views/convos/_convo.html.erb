@@ -4,7 +4,7 @@
 	  <%= render 'users/user', :user => convo.user %>
 	
 		<span class="title">
-		<%=link_to convo.title, posts_url(:convo_id => convo.id) %><br>
+		<%=link_to convo.title, convo_posts_url(:convo_id => convo.id) %><br>
 	  </span>
 	
 		<%= render 'shared/merits', :item => convo %>

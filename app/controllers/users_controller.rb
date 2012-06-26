@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
   end
   
-  def vote_up
+  def upmerit
     @user = User.find(params[:id])
     @user.update_attribute :merits, @user.merits + 1
     respond_to do |f|
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
   end
   
-  def vote_down
+  def demerit
     @user = User.find(params[:id])
     @user.update_attribute :merits, @user.merits - 1
     respond_to do |f|

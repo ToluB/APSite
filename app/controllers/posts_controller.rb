@@ -98,7 +98,7 @@ class PostsController < ApplicationController
     end
   end
   
-  def vote_up
+  def upmerit
     @post = Post.find(params[:id])
     @post.update_attribute :merits, @post.merits + 1
     respond_to do |f|
@@ -106,7 +106,7 @@ class PostsController < ApplicationController
     end
   end
   
-  def vote_down
+  def demerit
     @post = Post.find(params[:id])
     @post.update_attribute :merits, @post.merits - 1
     respond_to do |f|

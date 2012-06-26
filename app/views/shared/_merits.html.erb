@@ -1,23 +1,11 @@
 <!-- Add alternate image to create animation -->
-	<span id = "upmerit" >
-	<i class="icon-thumbs-up"></i>
-	<%= image_tag "upmerit.jpeg", :size => '20x20', :alt => "Give credit where credit is due", :class=>"upmerit" %>
+
+	<span id="<%= dom_id(item) %>_upmerit">
+		<%= link_to (image_tag "upmerit.jpeg", :size => '20x20', :class => "upmerit"), "/upmerit_#{item.class.to_s.downcase}?id=#{item.id}", method: :put, remote: true %>
 	</span>
-	<span class = "demerit" >
-		<%= image_tag "demerit.jpeg", :size => '20x20', :alt => "Demerit", :class=>"downmerit" %>
+	<span id = "<%= dom_id(item) %>_demerit">
+		<%= link_to (image_tag "demerit.jpeg", :size => '20x20', :class => "demerit"), "/demerit_#{item.class.to_s.downcase}?id=#{item.id}", method: :put, remote: true %>
 	</span>
-	
-	<span class = "merits">
-	    <%= merits %>
-	</span>
-	
 	<div id="<%= dom_id(item) %>_merits">
 		<%= item.merits %>
 	</div>
-
-	<span id="<%= dom_id(item) %>_vote_up">
-		<%= link_to (image_tag "upmerit.jpeg", :size => '20x20', :class => "upmerit"), upmerit_convo_path(id: item.id), method: :put, remote: true %>
-	</span>
-	<span id = "<%= dom_id(item) %>_vote_down">
-		<%= link_to (image_tag "downmerit.jpeg", :size => '20x20', :class => "downmerit"), downmerit_convo_path(id: item.id), method: :put, remote: true %>
-	</span>

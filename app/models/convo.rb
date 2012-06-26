@@ -6,6 +6,11 @@ class Convo < ActiveRecord::Base
   belongs_to :user
   
   default_scope order: 'convos.created_at DESC'
+  
+  # def self.search(search)
+  #     find(:all, :conditions => ['content LIKE ?', "%#{search}%"]).page(params[:page]).per_page(20) 
+  # end
+  
 end
 # == Schema Information
 #

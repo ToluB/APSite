@@ -3,8 +3,13 @@ class ConvosController < ApplicationController
   #before_filter :require_user, :only => [:create, edit]
   #before_filter :require_admin, :only => [:destroy]
   def index
+    if params[:search]
+    @convos = Convo.find(:all, :conditions => ['content LIKE ?', "%#{params[:search]}%"]).all
+    @convos = @convos.page(params[:page]).per_page(5) 
+    else
     @subject = Subject.find_by_name(params[:subject_id])
-    @convos = Convo.page(params[:page]).per_page(5) # make this @convos=@subject.convos.all
+    @convos = Convo.page(params[:page]).per_page(5) 
+  end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -85,17 +90,17 @@ class ConvosController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def vote_up
-    @post = Convo.find(params[:id])
-    @post.update_attribute :merits, @convo.merits + 1
+  def upmerit
+    @convo = Convo.find(params[:id])
+    @convo.update_attribute :merits, @convo.merits + 1
     respond_to do |f|
       f.js
     end
   end
   
-  def vote_down
-    @post = Convo.find(params[:id])
-    @post.update_attribute :merits, @convo.merits - 1
+  def demerit
+    @convo = Convo.find(params[:id])
+    @convo.update_attribute :merits, @convo.merits - 1
     respond_to do |f|
       f.js
     end

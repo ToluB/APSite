@@ -15,9 +15,13 @@ ApApp1::Application.routes.draw do
   get "pages/help"
   get "pages/about"
   
-  put 'upmerit_convo', to: 'convos#vote_up'
-  put 'downmerit_convo', to: 'convos#vote_down'
-  
+  put 'upmerit_convo', to: 'convos#upmerit'
+  put 'demerit_convo', to: 'convos#demerit'
+  put 'upmerit_post', to: 'posts#upmerit'
+  put 'demerit_post', to: 'posts#demerit'
+  put 'upmerit_user', to: 'users#upmerit'
+  put 'demerit_user', to: 'users#demerit'
+    
     
   # The priority is based upon order of creation:
   # first created -> highest priority.
