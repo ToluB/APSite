@@ -3,9 +3,6 @@ class SessionsController < Devise::SessionsController
   after_filter :update_user_merits, :only =>[:create]
   #after_filter :update_user_rank, :only =>[:create]; update the user's ranking based on number of merits
   
-  def create
-    redirect_to :back
-  end
   
   def user_login_merits
     #Currently uses Western time zone; set to get 25 points for logging in on your birthday along with notice HAPPY BIRTHDAY!!
@@ -45,10 +42,23 @@ class SessionsController < Devise::SessionsController
       current_user.save    
   end
   
-  def update_user_rank
-    if current_user.merits < 250
-      current_user.rank = "Tabula Rasa"
-    
-  end
+  # def update_user_rank
+  #   
+  #   if current_user.merits < 250
+  #     current_user.rank = "Tabula Rasa"
+  #     
+  #   elsif current_user.merits < 500
+  #     current_user.rank = "Tabula Rasa"
+  #     
+  #   elsif current_user.merits < 1000
+  #     current_user.rank = "Tabula Rasa"
+  #     
+  #   elsif current_user.merits < 2000
+  #     current_user.rank = "Illuminati"
+  #   else
+  #     current_user.rank = "G Whiz"
+  #   end  
+  #   
+  # end
   
 end
