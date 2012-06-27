@@ -16,10 +16,11 @@ class Convo < ActiveRecord::Base
   def self.text_search(query)
     if query.present?
       search(query)
-     # rank = <<-RANK
-     #   ts_rank(to_tsvector(content), plainto_tsquery(#{sanitize(query)}))
-     #   RANK
-     #   where("to_tsvector('english', title) @@ :q or to_tsvector('english', content) @@ :q", q: query).order("#{rank} desc")
+      #don't know why ranking isn't working, need to fix
+      # rank = <<-RANK
+      #         ts_rank(to_tsvector(title), plainto_tsquery(#{sanitize(query)}))
+      #         RANK
+      #         where("to_tsvector('english', content) @@ :q or to_tsvector('english', title) @@ :q", q: query).order("#{rank} desc")
      else
        scoped
      end

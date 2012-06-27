@@ -3,3 +3,5 @@ bundle install
 rake db:migrate
 rake db:seed
 rake
+
+#use rake:db:structure:load to get SQL indices for full text search
