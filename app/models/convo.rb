@@ -7,12 +7,24 @@ class Convo < ActiveRecord::Base
   
   default_scope order: 'convos.created_at DESC'
   
-  def self.search(search, page)
-    paginate  :per_page => 5, :page => page,
-              :conditions => ['content like ? OR title like ?', "%#{search}%", "%#{search}%"],
-              :order => 'created_at DESC'
+  include PgSearch
+  pg_search_scope :search, against: [:title, :content],
+    using: {tsearch: {dictionary: "english"}},
+    associated_against: {posts: [:title, :content]},
+    ignoring: :accents
+  
+  def self.text_search(query)
+    if query.present?
+      search(query)
+     # rank = <<-RANK
+     #   ts_rank(to_tsvector(content), plainto_tsquery(#{sanitize(query)}))
+     #   RANK
+     #   where("to_tsvector('english', title) @@ :q or to_tsvector('english', content) @@ :q", q: query).order("#{rank} desc")
+     else
+       scoped
+     end
   end
-    
+  
 end
 # == Schema Information
 #

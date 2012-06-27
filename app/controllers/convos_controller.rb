@@ -3,8 +3,8 @@ class ConvosController < ApplicationController
   #before_filter :require_user, :only => [:create, edit]
   #before_filter :require_admin, :only => [:destroy]
   def index
-    if params[:search]
-    @convos = Convo.search(params[:search], params[:page])
+    if params[:query]
+    @convos = Convo.text_search(params[:query]).page(params[:page]).per_page(3)
     
     else
     @subject = Subject.find_by_name(params[:subject_id])
