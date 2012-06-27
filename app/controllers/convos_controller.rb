@@ -4,8 +4,8 @@ class ConvosController < ApplicationController
   #before_filter :require_admin, :only => [:destroy]
   def index
     if params[:search]
-    @convos = Convo.find(:all, :conditions => ['content LIKE ?', "%#{params[:search]}%"]).all
-    @convos = @convos.page(params[:page]).per_page(5) 
+    @convos = Convo.search(params[:search], params[:page])
+    
     else
     @subject = Subject.find_by_name(params[:subject_id])
     @convos = Convo.page(params[:page]).per_page(5) 

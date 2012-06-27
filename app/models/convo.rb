@@ -7,10 +7,12 @@ class Convo < ActiveRecord::Base
   
   default_scope order: 'convos.created_at DESC'
   
-  # def self.search(search)
-  #     find(:all, :conditions => ['content LIKE ?', "%#{search}%"]).page(params[:page]).per_page(20) 
-  # end
-  
+  def self.search(search, page)
+    paginate  :per_page => 5, :page => page,
+              :conditions => ['content like ? OR title like ?', "%#{search}%", "%#{search}%"],
+              :order => 'created_at DESC'
+  end
+    
 end
 # == Schema Information
 #
