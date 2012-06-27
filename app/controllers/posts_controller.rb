@@ -100,6 +100,7 @@ class PostsController < ApplicationController
   
   def upmerit
     @post = Post.find(params[:id])
+    demerituser(current_user,1)
     @post.update_attribute :merits, @post.merits + 1
     respond_to do |f|
       f.js
@@ -108,6 +109,7 @@ class PostsController < ApplicationController
   
   def demerit
     @post = Post.find(params[:id])
+    demerituser(current_user,2)
     @post.update_attribute :merits, @post.merits - 1
     respond_to do |f|
       f.js
