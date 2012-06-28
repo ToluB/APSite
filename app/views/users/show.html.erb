@@ -1,2 +1,24 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h2><%= @user.name %>'s Profile</h2>
+
+<h3> Summary </h3>
+<ul>
+	<li> You have started <%= @user.convos.count %> conversations and made <%= @user.posts.count%> posts.</li>
+	<li> You have <%= @user.merits %> merits.</li>
+			<small>Earn more merits</small>
+	<li> You have logged in <%= user.sign_in_count %> times</li>	
+</ul>
+
+<h3> You are interested in <%= link_to "user.exams.count", "#" %> exams</h3>
+
+<h3> Your Friends </h3>
+
+You are <%= link_to "following", "#" %> users
+You are being <%= link_to "followed by", "#" %> users
+
+<h3> Your Groups</h3>
+
+<% if current_user == @user%>
+
+You are interested in <%link_to "@user.colleges", "#"%> colleges
+	
+	<% end %>
