@@ -1,6 +1,17 @@
 <div class="user" data-post-id="<%= user.id %>">
 
-	<%= user.name %><br/>
+<% if user.pic_url.present? %>
+
+<%= image_tag pic_url, :class => "user_image"%>
+
+<% else %>
+
+<%= image_tag "no-image.png" , :class => "user_image"%>
+
+<% end %>
+
+	<%= link_to user.name, user_path(user.id) %><br/>
+	<%= user.rank %><br />
 	<%= render 'shared/merits', :item => user %>
 	<!-- Add everything else about users here -->
 

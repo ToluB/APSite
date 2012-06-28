@@ -50,8 +50,8 @@ class ConvosController < ApplicationController
   # POST /convos.json
   def create
     @convo = Convo.new(params[:convo])
-    @convo.merits = 0
     @convo.user_id = current_user.id
+    upmerituser(current_user, 10)
     respond_to do |format|
       if @convo.save
         format.html { redirect_to @convo, notice: 'New conversation created.' }

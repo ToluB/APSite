@@ -1,6 +1,7 @@
 class SessionsController < Devise::SessionsController
   after_filter :user_login_merits, :only =>[:create]
   after_filter :update_user_merits, :only =>[:create]
+  after_filter :update_user_rank, :only =>[:create]
   #after_filter :update_user_rank, :only =>[:create]; update the user's ranking based on number of merits
   
   
@@ -8,7 +9,7 @@ class SessionsController < Devise::SessionsController
     #Currently uses Western time zone; set to get 25 points for logging in on your birthday along with notice HAPPY BIRTHDAY!!
     
     if current_user.last_sign_in_at.in_time_zone(-5).day != Time.now.in_time_zone(-5).day
-      current_user.merits += 5
+      current_user.merits += 20
     end
   end
   
@@ -42,23 +43,31 @@ class SessionsController < Devise::SessionsController
       current_user.save    
   end
   
-  # def update_user_rank
-  #   
-  #   if current_user.merits < 250
-  #     current_user.rank = "Tabula Rasa"
-  #     
-  #   elsif current_user.merits < 500
-  #     current_user.rank = "Tabula Rasa"
-  #     
-  #   elsif current_user.merits < 1000
-  #     current_user.rank = "Tabula Rasa"
-  #     
-  #   elsif current_user.merits < 2000
-  #     current_user.rank = "Illuminati"
-  #   else
-  #     current_user.rank = "G Whiz"
-  #   end  
-  #   
-  # end
+   def update_user_rank
+     
+     if current_user.merits < 250
+       current_user.rank = "Tabula Rasa"
+       
+     elsif current_user.merits < 500
+       current_user.rank = "Pupil"
+       
+     elsif current_user.merits < 1000
+       current_user.rank = "Scholar"
+       
+     elsif current_user.merits < 3000
+       current_user.rank = "Sage"
+       
+     elsif current_user.merits < 5000
+       current_user.rank = "Elder"
+       
+     elsif current_user.mreits < 10000
+       current_user.rank = "Illuminati"
+    
+     else
+       current_user.rank = "G Whiz"   
+     end  
+     
+     current_user.save
+   end
   
 end

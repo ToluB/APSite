@@ -54,9 +54,9 @@ class PostsController < ApplicationController
   def create
     @convo = Convo.find(params[:convo_id])
     @post = @convo.posts.new(params[:post])
-    @post.merits = 0
     @post.user_id = current_user.id
-    @parent = @convo.posts.find_by_id(params[:parent_id]) #=> would we @convo.post or just do Post; seems like we might as well save time going through the whole database again...
+    upmerit(current_user, 5)
+    @parent = @convo.posts.find_by_id(params[:parent_id])
 
     respond_to do |format|
       if @post.save
