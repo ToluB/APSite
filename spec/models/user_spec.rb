@@ -13,8 +13,8 @@ end
 #  colleges               :string(255)
 #  past_exams             :string(255)
 #  current_exams          :string(255)
-#  merits                 :integer
-#  umerits                :integer
+#  merits                 :integer         default(0)
+#  umerits                :integer         default(0)
 #  gradelevel             :integer
 #  email                  :string(255)     default(""), not null
 #  encrypted_password     :string(255)     default(""), not null
@@ -28,5 +28,9 @@ end
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
+#  provider               :string(255)
+#  uid                    :string(255)
+#  rank                   :string(255)
+#  pic_url                :string(255)
 #
 

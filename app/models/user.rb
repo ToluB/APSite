@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :merits, :umerits, :name, :colleges, :current_exams, :past_exams, :gradelevel, :school, :provider, :uid
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :merits, :umerits, :name, :colleges, :current_exams, :past_exams, :gradelevel, :school, :provider, :uid, :rank, :pic_url, :bday
   # attr_accessible :title, :body
 
 has_many :posts
@@ -20,7 +20,9 @@ def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
                          provider:auth.provider,
                          uid:auth.uid,
                          email:auth.info.email,
-                         password:Devise.friendly_token[0,20]
+                         password:Devise.friendly_token[0,20],
+                         pic_url:auth.info.image,
+                         bday:auth.info.user_birthday
                          )
   end
   user
@@ -34,8 +36,7 @@ def self.new_with_session(params, session)
   end
 end
 
-end
-# == Schema Information
+end# == Schema Information
 #
 # Table name: users
 #
@@ -45,8 +46,8 @@ end
 #  colleges               :string(255)
 #  past_exams             :string(255)
 #  current_exams          :string(255)
-#  merits                 :integer
-#  umerits                :integer
+#  merits                 :integer         default(0)
+#  umerits                :integer         default(0)
 #  gradelevel             :integer
 #  email                  :string(255)     default(""), not null
 #  encrypted_password     :string(255)     default(""), not null
@@ -60,5 +61,9 @@ end
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
+#  provider               :string(255)
+#  uid                    :string(255)
+#  rank                   :string(255)
+#  pic_url                :string(255)
 #
 
