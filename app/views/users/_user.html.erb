@@ -2,11 +2,11 @@
 
 <% if user.pic_url.present? %>
 
-<%= image_tag user.pic_url, :class => "user_image"%>
+<%= image_tag user.pic_url, :class => "user_image"%><br />
 
 <% else %>
 
-<%= image_tag "no-image.png" , :class => "user_image"%>
+<%= image_tag "no-image.png" , :class => "user_image"%><br />
 
 <% end %>
 

@@ -1,9 +1,9 @@
 <!-- Add alternate image to create animation -->
 	<span id="<%= dom_id(item) %>_upmerit">
-		<%= link_to (image_tag "upmerit.jpeg", :size => '20x20', :class => "upmerit"), "/upmerit_#{item.class.to_s.downcase}?id=#{item.id}", method: :put, remote: true %>
+		<%= link_to (image_tag "upmerit.png", :size => '20x20', :class => "upmerit"), "/upmerit_#{item.class.to_s.downcase}?id=#{item.id}", method: :put, remote: true %>
 	</span>
 	<span id = "<%= dom_id(item) %>_demerit">
-		<%= link_to (image_tag "demerit.jpeg", :size => '20x20', :class => "demerit"), "/demerit_#{item.class.to_s.downcase}?id=#{item.id}", method: :put, remote: true %>
+		<%= link_to (image_tag "demerit.png", :size => '20x20', :class => "demerit"), "/demerit_#{item.class.to_s.downcase}?id=#{item.id}", method: :put, remote: true %>
 	</span>
 	<div id="<%= dom_id(item) %>_merits">
 		<%= item.merits %>
