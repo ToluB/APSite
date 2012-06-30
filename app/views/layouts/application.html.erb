@@ -17,8 +17,12 @@
 			<% flash.each do |name,msg| %>
 				<%= content_tag :div, msg, :id => "flash_#{name}" %>
 			<% end %>
-				
+			
+			<%= render 'layouts/forum_nav' unless no_forum_nav? %>
+	    	
 			<%= yield %>
+			
+			
 			<%= render '/layouts/footer'%>
 		</div>
 	</body>
