@@ -3,7 +3,7 @@ ApApp1::Application.routes.draw do
   resources :convos, :shallow => true do
     resources :posts
   end
-  
+    
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions=>'sessions'}
   
   resources :users, :only => [:show, :index]
@@ -14,6 +14,7 @@ ApApp1::Application.routes.draw do
   get "pages/home"
   get "pages/help"
   get "pages/about"
+
   
   put 'upmerit_convo', to: 'convos#upmerit'
   put 'demerit_convo', to: 'convos#demerit'

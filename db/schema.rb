@@ -11,7 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120630032635) do
+ActiveRecord::Schema.define(:version => 20120701023349) do
+
+  create_table "collegeprefs", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "college_id"
+    t.string   "pref"
+    t.text     "exp"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "collegeprefs", ["college_id"], :name => "index_collegeprefs_on_college_id"
+  add_index "collegeprefs", ["user_id", "college_id"], :name => "index_collegeprefs_on_user_id_and_college_id"
+  add_index "collegeprefs", ["user_id"], :name => "index_collegeprefs_on_user_id"
+
+  create_table "colleges", :force => true do |t|
+    t.string   "name"
+    t.string   "region"
+    t.string   "state"
+    t.integer  "usnrank"
+    t.integer  "satmed"
+    t.float    "gpamed"
+    t.float    "acceptrate"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "convos", :force => true do |t|
     t.integer  "user_id"
@@ -25,6 +51,34 @@ ActiveRecord::Schema.define(:version => 20120630032635) do
 
   add_index "convos", ["subject_id"], :name => "index_convos_on_subject_id"
   add_index "convos", ["user_id"], :name => "index_convos_on_user_id"
+
+  create_table "examprefs", :force => true do |t|
+    t.string   "user_id"
+    t.string   "exam_id"
+    t.boolean  "taken"
+    t.datetime "datetaken"
+    t.integer  "score"
+    t.text     "exp1"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "examprefs", ["exam_id"], :name => "index_examprefs_on_exam_id"
+  add_index "examprefs", ["user_id", "exam_id"], :name => "index_examprefs_on_user_id_and_exam_id"
+  add_index "examprefs", ["user_id"], :name => "index_examprefs_on_user_id"
+
+  create_table "exams", :force => true do |t|
+    t.string   "name"
+    t.integer  "subject_id"
+    t.datetime "nextadm"
+    t.datetime "lastadm"
+    t.integer  "passrt"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "exams", ["subject_id"], :name => "index_exams_on_subject_id"
 
   create_table "posts", :force => true do |t|
     t.string   "title"

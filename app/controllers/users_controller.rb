@@ -24,6 +24,10 @@ class UsersController < ApplicationController
     end
   end
   
+  def avatar
+    @user = User.find(params[:user_id])
+  end
+  
   # def tracking
   #   @title = "Following"
   #   @user = User.find(params[:id])
