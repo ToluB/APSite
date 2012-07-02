@@ -1,7 +1,11 @@
 Upload your picture:
 
 <%= form_for @user, :html => {:multipart => true} do |f| %>
-  <%= f.error_messages %>
+  <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+	<% end %>
 
   <p>
     <%= f.label :name %><br />
@@ -11,8 +15,14 @@ Upload your picture:
     <%= f.file_field :avatar %>
   </p>
   <p>
-    <%= f.label :remote_image_url, "or image URL" %><br />
-    <%= f.text_field :remote_image_url %>
+    <%= f.label :remote_avatar_url, "or image URL" %><br />
+    <%= f.text_field :remote_avatar_url %>
   </p>
+
+	<p>
+		<lable>
+		<%= f.check_box :remove_avatar%>
+		Remove picture
+		</label>
   <p><%= f.submit %></p>
 <% end %>

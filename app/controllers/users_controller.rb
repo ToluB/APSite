@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
+    @users = User.all
   end
 
   def show
-    @user = User.find_by_id(params[:user_id])
+    @user = User.find_by_id(params[:id])
+  end
+  
+  def update
+    @user = User.find_by_id(params[:id])
+    @user.update_attributes(params[:user])
+    redirect_to users_url
   end
   
   def upmerit
@@ -23,6 +32,8 @@ class UsersController < ApplicationController
       f.js
     end
   end
+  
+
   
   def avatar
     @user = User.find(params[:user_id])

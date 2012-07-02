@@ -1,5 +1,4 @@
-<h1>Advanced Placement <%= @subject.name %> Forum</h1>
-
+<% provide(:header, @subject.name)%>
 <ul id="convos">
 	<%= render @subject.convos %> 
 	

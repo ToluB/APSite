@@ -1,24 +1,16 @@
-  <div class="row">
-    <div class="span10">
-      <h1>#Include specific page title here??? </h1>
-    </div>
-  </div>  
+<div class="span10">
+ <h1>	<%= page_heading(yield(:header))%></h1>
 </div>
 
 <div class="tab_row">
-  <div class="row">
     <div class="span7">
-    <div class="tabs">
-      <ul>			
-        <%= nav_link "All", convos_url %>
-        <%= nav_link 'Economics', '#' %>
-        <%= nav_link 'Mathematics', '#'%>
-        <%= nav_link 'Other', '#' %>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div>
-<p class="notice"><%= flash[:notice] %></p>
+    	<div class="tabs">
+	      <ul>			
+	        <%= nav_link "All", convos_url %>
+	        <%= nav_link 'Economics', subject_page_url(:name =>"Economics") %>
+	        <%= nav_link 'Calculus', subject_page_url(:name => "Calculus")%>
+	        <%= nav_link 'History', subject_page_url(:name => "History") %>
+	      </ul>
+	    </div>
+  	</div>
 </div>
