@@ -1,4 +1,4 @@
-<%#= updateAllColors %>
+<%= updateAllColors %>
 <% provide(:header, '')%>
 <ul id="convos">
 	<%= render @convos %> 
@@ -9,3 +9,4 @@
 <%= link_to "Start a new conversation", new_convo_path %>
 
 <%= will_paginate @convos, previous_label: h("<"), next_label: h(">") %>
+
