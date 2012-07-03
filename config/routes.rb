@@ -1,5 +1,7 @@
 ApApp1::Application.routes.draw do
 
+  resources :documents
+
   root to: 'convos#index'
 
   resources :convos, :shallow => true do
