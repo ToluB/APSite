@@ -1,26 +1,33 @@
 ApApp1::Application.routes.draw do
 
+  resources :documents
+
+  root to: 'convos#index'
+
   resources :convos, :shallow => true do
     resources :posts
   end
-  
+    
+  get 'users/avatar', to:'users#avatar', as: :user_avatar
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions=>'sessions'}
+  resources :users, :only => [:show, :index, :update]
   
-  resources :users, :only => [:show, :index]
-  resources :subjects
+  resources :subjects, :except => [:show]
+  get 'subject_page', to: 'subjects#show'
 
-  root to: 'convos#index'
-  
-  get "pages/home"
-  get "pages/help"
-  get "pages/about"
-  
   put 'upmerit_convo', to: 'convos#upmerit'
   put 'demerit_convo', to: 'convos#demerit'
   put 'upmerit_post', to: 'posts#upmerit'
   put 'demerit_post', to: 'posts#demerit'
   put 'upmerit_user', to: 'users#upmerit'
   put 'demerit_user', to: 'users#demerit'
+  
+  get "pages/home"
+  get "pages/help"
+  get "pages/about"
+
+  
+
     
     
   # The priority is based upon order of creation:

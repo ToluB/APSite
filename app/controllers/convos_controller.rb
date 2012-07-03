@@ -1,6 +1,5 @@
 class ConvosController < ApplicationController
-  before_filter :authenticate_user!, :only => [:create]
-  #before_filter :require_user, :only => [:create, edit]
+  before_filter :authenticate_user!, :except => [:index]
   #before_filter :require_admin, :only => [:destroy]
   def index
     if params[:query]

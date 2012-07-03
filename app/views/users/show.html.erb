@@ -1,24 +1,54 @@
 <h2><%= @user.name %>'s Profile</h2>
 
+<% if @user.avatar.present? %>
+	<%= image_tag @user.avatar, :class => "user_image" %>
+<% elsif @user.pic_url.present? %>
+	<%= image_tag @user.pic_url, :class => "user_image" %><br />
+<% else %>
+	<%= image_tag "no-image.png" , :class => "user_image" %><br />
+<% end %>
+
+<% if current_user == @user %>
+<%= link_to "Upload picture", user_avatar_url(:user_id => current_user.id) %>
+<%= button_to "Remove avatar", :onclick => :remove_avatar! %>
+<% else %>
+
+Send private message (telephone icon)
+
+<% end %>
+
+
 <h3> Summary </h3>
+<% if current_user == @user%>
+	You have:<br />
+<% else %>
+	<%= @user.name %> has:<br />
+<% end %>
 <ul>
-	<li> You have started <%= @user.convos.count %> conversations and made <%= @user.posts.count%> posts.</li>
-	<li> You have <%= @user.merits %> merits.</li>
-			<small>Earn more merits</small>
-	<li> You have logged in <%= user.sign_in_count %> times</li>	
+	<li> started <%= @user.convos.count %> conversations and made <%= @user.posts.count%> posts.</li>
+	<li> earned <%= @user.merits %> merits.</li>
+			<em> <%= link_to "Earn more merits!" , '#' %> </em>
+	<li> logged in <%= @user.sign_in_count %> times</li>	
 </ul>
 
-<h3> You are interested in <%= link_to "user.exams.count", "#" %> exams</h3>
+
+<% if current_user == @user%>
+	You are interested in:<br />
+<% else %>
+	<%= @user.name %> is interested in:<br />
+<% end %>
+
+<h3> <%= link_to "user.exams.count", "#" %> exams</h3>
 
 <h3> Your Friends </h3>
 
-You are <%= link_to "following", "#" %> users
+You are <%= link_to "following", "#" %> users <br />
 You are being <%= link_to "followed by", "#" %> users
 
 <h3> Your Groups</h3>
 
 <% if current_user == @user%>
-
+<!-- Figure out how to checkbox for making this public -->
 You are interested in <%link_to "@user.colleges", "#"%> colleges
 	
-	<% end %>
+<% end %>

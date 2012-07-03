@@ -8,17 +8,6 @@
 					<input type="text" name="query" class="span2" placeholder="Search WhizAP">
 					</form>
         <ul class="nav pull-right">
-	
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							Forums
-							<b class="caret"> </b>
-						</a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Math and Science</a> | <a href="#">Social Science</a> | <a href="#">History and Religion</a> | Language   </li>
-							</ul>
-						</li>
-						
 					<% if user_signed_in? %>	
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -31,6 +20,15 @@
 								<li><a href="<%= destroy_user_session_path %>" data-method="delete" rel="nofollow"><i class="icon-remove"></i>Sign Out</a></li>
 							</ul>
 						</li>
+						
+						<% if current_user.avatar.present? %>
+							<%= link_to (image_tag current_user.avatar, :class => "user_image"), user_url(current_user.id) %>
+						<% elsif current_user.pic_url.present? %>
+							<%= link_to (image_tag current_user.pic_url, :class => "user_image"), user_url(current_user.id) %><br />
+						<% else %>
+							<%= link_to (image_tag "no-image.png" , :class => "user_image"), user_url(current_user.id) %><br />
+						<% end %>
+						
 						<% else %>
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -50,3 +48,7 @@
     </div>
   </div>
 </header>
+
+<% flash.each do |name,msg| %>
+	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>

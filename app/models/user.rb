@@ -6,12 +6,36 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :merits, :umerits, :name, :colleges, :current_exams, :past_exams, :gradelevel, :school, :provider, :uid, :rank, :pic_url, :bday
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :merits, :umerits, :name, :colleges, :current_exams, :past_exams, :gradelevel, :school, :provider, :uid, :rank, :pic_url, :bday, :gpa, :avatar, :remote_avatar_url, :remove_avatar
+  
+  mount_uploader :avatar, AvatarUploader
   # attr_accessible :title, :body
 
 has_many :posts
-has_many :convos  
+has_many :convos
+has_many :relationships, foreign_key: 'tracker_id', dependent: :destroy
+has_many :tracked_users, through: :relationships, source: :tracked
 
+has_many :reverse_relationships, foreign_key: 'tracked_id', class_name: "Relationship", dependent: :destroy
+has_many :trackers, through: :reverse_relationships, source: :tracker
+
+ 
+
+#User tracking code
+
+def tracking?(other_user)
+  relationships.find_by_tracked_id(other_user.id)
+end
+
+def track!(other_user)
+  relationships.create!(tracked_id: other_user.id)
+end
+
+def untrack!(other_user)
+  relationship.find_by_tracked_id(other_user.id).destroy
+end
+
+#Facebook oauth code
 
 def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
   user = User.where(:provider => auth.provider, :uid => auth.uid).first

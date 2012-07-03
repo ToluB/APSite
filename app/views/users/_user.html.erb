@@ -1,14 +1,20 @@
 <div class="user" data-post-id="<%= user.id %>">
 
-<% if user.pic_url.present? %>
+	<% if user.avatar.present? %>
 
-<%= image_tag user.pic_url, :class => "user_image"%><br />
+		<%= image_tag user.avatar, :class => "user_image" %>
 
-<% else %>
+	<% elsif user.pic_url.present? %>
 
-<%= image_tag "no-image.png" , :class => "user_image"%><br />
+		<%= image_tag user.pic_url, :class => "user_image" %><br />
 
-<% end %>
+	<% else %>
+
+		<%= image_tag "no-image.png" , :class => "user_image" %><br />
+
+	<% end %>
+	
+	PM(telephone icon)
 
 	<%= link_to user.name, user_path(user.id) %><br/>
 	<%= user.rank %><br />
