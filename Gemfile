@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'color'
 
 group :development, :test do
 gem 'pg', '0.12.2'

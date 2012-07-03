@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701023349) do
+ActiveRecord::Schema.define(:version => 20120703045643) do
 
   create_table "collegeprefs", :force => true do |t|
     t.integer  "user_id"
@@ -93,6 +93,17 @@ ActiveRecord::Schema.define(:version => 20120701023349) do
   end
 
   add_index "posts", ["ancestry"], :name => "index_posts_on_ancestry"
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "tracked_id"
+    t.integer  "tracker_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "relationships", ["tracked_id", "tracker_id"], :name => "index_relationships_on_tracked_id_and_tracker_id", :unique => true
+  add_index "relationships", ["tracked_id"], :name => "index_relationships_on_tracked_id"
+  add_index "relationships", ["tracker_id"], :name => "index_relationships_on_tracker_id"
 
   create_table "subjects", :force => true do |t|
     t.datetime "created_at", :null => false
