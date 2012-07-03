@@ -22,12 +22,11 @@
 						</li>
 						
 						<% if current_user.avatar.present? %>
-							<%= link to (image_tag current_user.avatar, :class => "user_image"), "#" %>
+							<%= link_to (image_tag current_user.avatar, :class => "user_image"), user_url(current_user.id) %>
 						<% elsif current_user.pic_url.present? %>
-							<%= image_tag current_user.pic_url, :class => "user_image" %><br />
+							<%= link_to (image_tag current_user.pic_url, :class => "user_image"), user_url(current_user.id) %><br />
 						<% else %>
-							<%= image_tag "no-image.png" , :class => "user_image" %><br />
-							<%= link_to "Upload picture", users_avatar_url(:user_id => current_user.id) %>
+							<%= link_to (image_tag "no-image.png" , :class => "user_image"), user_url(current_user.id) %><br />
 						<% end %>
 						
 						<% else %>

@@ -2,7 +2,7 @@
 
 <% if @user.avatar.present? %>
 
-	<%= image_tag user.avatar, :class => "user_image" %>
+	<%= image_tag @user.avatar, :class => "user_image" %>
 
 <% elsif @user.pic_url.present? %>
 
@@ -11,9 +11,12 @@
 <% else %>
 
 	<%= image_tag "no-image.png" , :class => "user_image" %><br />
-	<%= link_to "Upload picture", users_avatar_url(:user_id => current_user.id) %>
 
 <% end %>
+	
+<%= link_to "Upload picture", user_avatar_url(:user_id => current_user.id) %>
+<%= button_to "Remove avatar", :onclick => :remove_avatar! %>
+
 
 
 <h3> Summary </h3>
@@ -24,8 +27,8 @@
 <% end %>
 <ul>
 	<li> started <%= @user.convos.count %> conversations and made <%= @user.posts.count%> posts.</li>
-	<li> <%= @user.merits %> merits.</li>
-			<small> Earn more merits! </small>
+	<li> earned <%= @user.merits %> merits.</li>
+			<em> <%= link_to "Earn more merits!" , '#' %> </em>
 	<li> logged in <%= @user.sign_in_count %> times</li>	
 </ul>
 

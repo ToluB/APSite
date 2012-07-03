@@ -11,7 +11,7 @@
 	<% else %>
 
 		<%= image_tag "no-image.png" , :class => "user_image" %><br />
-		<%= link_to "Upload picture", users_avatar_url(:user_id => current_user.id) %>
+		<%= link_to "Upload picture", user_avatar_url(:user_id => current_user.id) %>
 
 	<% end %>
 
