@@ -116,4 +116,8 @@ class PostsController < ApplicationController
     end
   end
   
+  def file
+    @post = Post.find(params[:user_id])
+  end
+  
 end

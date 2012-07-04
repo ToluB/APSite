@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
   has_ancestry
   belongs_to :convo
   belongs_to :user
+  
+  mount_uploader :file, FileUploader
+  
 end
 # == Schema Information
 #
