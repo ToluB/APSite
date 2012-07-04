@@ -1,9 +1,11 @@
 class Convo < ActiveRecord::Base
-  attr_accessible :content, :merits, :subject_id, :title, :user_id
+  attr_accessible :content, :merits, :subject_id, :title, :user_id, :file
   
   has_many :posts, dependent: :destroy  
   belongs_to :subject
   belongs_to :user
+  
+  mount_uploader :file, FileUploader
   
   default_scope order: 'convos.created_at DESC'
   
