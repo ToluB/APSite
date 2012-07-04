@@ -10,7 +10,11 @@ ApApp1::Application.routes.draw do
     
   get 'users/avatar', to:'users#avatar', as: :user_avatar
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions=>'sessions'}
-  resources :users, :only => [:show, :index, :update]
+  resources :users, :only => [:show, :index, :update] do
+    member do
+      get :tracked, :trackers
+    end
+  end
   
   resources :subjects, :except => [:show]
   get 'subject_page', to: 'subjects#show'

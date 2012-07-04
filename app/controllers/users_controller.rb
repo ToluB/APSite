@@ -33,7 +33,19 @@ class UsersController < ApplicationController
     end
   end
   
-
+  def tracked
+    @title = "Tracked"
+    @user = User.find(params[:id])
+    @users = @user.tracked_users.page(params[:page]).per_page(20)
+    render 'show_track'
+  end
+  
+  def trackers
+    @title = "Trackers"
+    @user = User.find(params[:id])
+    @users = @user.tracked_users.page(params[:page]).per_page(20)
+    render 'show_track'
+  end
   
   def avatar
     @user = User.find(params[:user_id])
