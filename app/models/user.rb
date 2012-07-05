@@ -35,6 +35,17 @@ def untrack!(other_user)
   relationship.find_by_tracked_id(other_user.id).destroy
 end
 
+def feed
+  Post.from_users_tracked_by(self)
+end
+
+def self.from_users_tracked_by(user)
+   tracked_user_ids = "SELECT tracked_id FROM relationships
+                         WHERE tracker_id = :user_id"
+    where("user_id IN (#{tracked_user_ids}) OR user_id = :user_id", 
+          user_id: user.id)
+end
+
 #Facebook oauth code
 
 def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

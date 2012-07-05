@@ -10,7 +10,7 @@
 
 <% if current_user == @user %>
 <%= link_to "Upload picture", user_avatar_url(:user_id => current_user.id) %>
-<%= button_to "Remove avatar", :onclick => :remove_avatar! %>
+<%#= button_to "Remove avatar", :onclick => current_user.avatar.remove! %>
 <% else %>
 
 Send private message (telephone icon)
@@ -47,8 +47,11 @@ You are being <%= link_to "followed by", "#" %> users
 
 <h3> Your Groups</h3>
 
+
+Colleges and exams (private)
 <% if current_user == @user%>
-<!-- Figure out how to checkbox for making this public -->
+Private area (other users cannot see this) -- dropdown using jscipt?
+<!-- Figure out how to checkbox for making this public; jscript for if checked, hide -->
 You are interested in <%link_to "@user.colleges", "#"%> colleges
 	
 <% end %>

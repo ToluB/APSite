@@ -16,8 +16,8 @@ class UsersController < ApplicationController
   end
   
   def upmerit
-    @user = User.find(params[:id])
     demerituser(current_user,1)
+    @user = User.find(params[:id])
     @user.update_attribute :merits, @user.merits + 1
     respond_to do |f|
       f.js
@@ -25,8 +25,8 @@ class UsersController < ApplicationController
   end
   
   def demerit
-    @user = User.find(params[:id])
     demerituser(current_user,2)
+    @user = User.find(params[:id])
     @user.update_attribute :merits, @user.merits - 1
     respond_to do |f|
       f.js

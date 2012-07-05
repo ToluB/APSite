@@ -240,7 +240,6 @@ DEPENDENCIES
   faker (= 1.0.1)
   fog (~> 1.3.1)
   jquery-rails (= 2.0.0)
-  mime-types
   omniauth-facebook
   pg (= 0.12.2)
   pg_search
