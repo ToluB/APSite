@@ -4,7 +4,7 @@ class ConvosController < ApplicationController
   def index
     if params[:query]
     @convos = Convo.text_search(params[:query]).page(params[:page]).per_page(3)
-    
+    #@popular = Convo.order("merits" desc).where("created_at < " < 4.hours.ago)
     else
     @subject = Subject.find_by_name(params[:subject_id])
     @convos = Convo.page(params[:page]).per_page(5) 
@@ -90,9 +90,12 @@ class ConvosController < ApplicationController
     end
   end
   def upmerit
-    demerituser(current_user,1)
     @convo = Convo.find(params[:id])
-    @convo.update_attribute :merits, @convo.merits + 1
+
+    if demerituser(current_user,1)
+      @convo.update_attribute :merits, @convo.merits + 1
+    end
+    
     respond_to do |f|
       f.js
     end

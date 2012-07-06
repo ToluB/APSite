@@ -7,5 +7,10 @@ describe "Convos" do
       get convos_path
       response.status.should be(200)
     end
+    
+    it "should be able to upmerit a conversation" do
+      get new_user_registration_path
+      page.should have_content "Sign up"
+    end
   end
 end

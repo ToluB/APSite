@@ -39,7 +39,7 @@ module ConvosHelper
             @convos.each do |convo|
               jqout +="$('#convo_#{convo.id}').css('background','#{merits_to_color(convo.merits)}');"
             end
-            output="<script> $(document).ready(function(){"+"#{jqout}"+"});</script>"
+            output="<script> function updateColors(){"+"#{jqout}"+"}; $(document).ready(updateColors);</script>"
             return raw output
           end
           #figure out how to call merits_to_color from within js
