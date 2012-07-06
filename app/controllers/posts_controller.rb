@@ -55,7 +55,8 @@ class PostsController < ApplicationController
     @convo = Convo.find(params[:convo_id])
     @post = @convo.posts.new(params[:post])
     @post.user_id = current_user.id
-    upmerit(current_user, 5)
+    @user = current_user
+    upmerituser(current_user, 5)
     @parent = @convo.posts.find_by_id(params[:parent_id])
 
     respond_to do |format|

@@ -36,7 +36,7 @@ module ConvosHelper
           
           def updateAllColors     
             jqout = ""
-                     Convo.all.each do |convo|
+                     @convos.each do |convo|
                       jqout +="$('#convo_#{convo.id}').css('background','#{merits_to_color(convo.merits)}');"
                      end
                      output="<script> $(document).ready(function(){"+"#{jqout}"+"});</script>"

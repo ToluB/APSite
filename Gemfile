@@ -15,6 +15,7 @@ gem 'carrierwave'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'color'
+gem 'surveyor', "~> 0.22.0"
 
 group :development, :test do
 gem 'pg', '0.12.2'

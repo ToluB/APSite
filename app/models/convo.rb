@@ -17,8 +17,12 @@ class Convo < ActiveRecord::Base
   
   def self.text_search(query)
     if query.present?
-      search(query)
-      #don't know why ranking isn't working, need to fix
+         rank = <<-RANK #=> this version wont search posts
+                    ts_rank(to_tsvector(title), plainto_tsquery(#{sanitize(query)}))
+                 RANK
+                 search(query).order("#{rank} desc")
+        #         where("content @@ :q or content @@ :q", q: query).order("title desc")
+      #Not sure why this version of ranking (ref railscast) not working
       # rank = <<-RANK
       #         ts_rank(to_tsvector(title), plainto_tsquery(#{sanitize(query)}))
       #         RANK

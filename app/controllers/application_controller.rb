@@ -9,5 +9,9 @@ class ApplicationController < ActionController::Base
       user.update_attribute :merits, user.merits - n
     end
   end
+  
+  def upmerituser(user,n)
+      user.update_attribute :merits, user.merits + n
+  end
 
 end

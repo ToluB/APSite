@@ -6,6 +6,7 @@
 puts @parent.id
 $('#<%= dom_id(@parent)%>').append('<%= escape_javascript(render "post" ,:post => @post) %>');
 $('#posts').append('<%= escape_javascript(render "post" ,:post => @post) %>');
+$("#<%= dom_id(@user) %>_merits").html("<%= @user.merits %>");
 <% else %>
 $("#posts").append('<%= escape_javascript(render "post" ,:post => @post) %>');
 <% end %>

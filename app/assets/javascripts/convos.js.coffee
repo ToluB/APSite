@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
     $(window).scroll ->
-      if $(window).scrollTop() > $(document).height() - $(window).height() - 50
+      // if $(window).scrollTop() > $(document).height() - $(window).height() - 50
+      if $(window).scrollTop() + $(window).height() == $(document).height()
         $('.pagination').text("Fetching more conversations...")
         $.getScript($('.pagination.next_page').attr('href'))
