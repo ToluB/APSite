@@ -1,0 +1,111 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.post-wrapper {
+
+}
+
+.linearBg2 {
+  /* fallback */
+  background-color: #E6F1F5;
+/*  background: url(images/linear_bg_2.png);*/
+  background-repeat: repeat-x;
+  
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E6F1F5), to(#ffffff));
+  
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #ffffff, #E6F1F5);
+  
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #ffffff, #E6F1F5);
+  
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #ffffff, #E6F1F5);
+  
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #ffffff, #E6F1F5);
+}
+
+
+.post{
+	width: 900px;
+	border: 1px solid black;
+	margin: 0 auto;
+	padding: 10px;
+	overflow: hidden;
+
+}
+
+.post_content {
+	width: 70%;
+	height: auto;
+	overflow: hidden;
+	float: left;
+}
+
+.user {
+	float: left;
+}
+
+.header {
+	float: left;
+	margin: 5px auto;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+.merits{
+	color:red;
+}
+
+.nested_posts{
+	margin-left: 25px;
+}
+
+.nested_posts .nested_posts .nested_posts .nested_posts{
+	margin-left: 0px;
+}
+
+#new_input {
+	overflow: hidden;
+	padding: 10px;
+}
+.new_post {
+	position: relative;
+	width: 600px;
+	margin-left: 30%;
+	float: left;
+}
+	
+	.new-post hr {
+		padding: 0 10px;
+	}
+
+	#post_title {
+		font-size: 18px;
+		width: 380px;
+		height: 20px;
+		line-height: 20px;
+		padding: 10px;
+
+	}
+
+	#post_content {
+		width: 580px;
+		padding: 10px;
+	}
+
+	.post-submit {
+		width: 150px;
+		float: right;
+		margin-right: 10px;
+	}
+
+	.post-cancel {
+		width: 60px;
+		float: right;
+	}
+
