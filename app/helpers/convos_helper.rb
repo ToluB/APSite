@@ -36,11 +36,11 @@ module ConvosHelper
           
           def updateAllColors     
             jqout = ""
-                     @convos.each do |convo|
-                      jqout +="$('#convo_#{convo.id}').css('background','#{merits_to_color(convo.merits)}');"
-                     end
-                     output="<script> $(document).ready(function(){"+"#{jqout}"+"});</script>"
-                     return raw output
+            @convos.each do |convo|
+              jqout +="$('#convo_#{convo.id}').css('background','#{merits_to_color(convo.merits)}');"
+            end
+            output="<script> $(document).ready(function(){"+"#{jqout}"+"});</script>"
+            return raw output
           end
           #figure out how to call merits_to_color from within js
   
