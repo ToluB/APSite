@@ -1,20 +1,37 @@
-<div id="<%= dom_id(post) %>">	 
-	<div class="post" data-post-id="<%= post.id %>">
+<article class = "post-wrapper" id = "<%= dom_id(post) %>">	 
+	<div class = "post linearBg2" data-post-id = "<%= post.id %>">
 		
 		<%= render 'users/user', :user => post.user %>
 	
-		<span class="title">
-		<%=link_to post.title, post %><br>
-	  </span>
+		<header class = "title">
+			<h3>
+				<%=link_to post.title, post %>
+			</h3>
+			<br>
+		</header>
 	
 		<%= render 'shared/merits', :item => post %>
 	
-		<span class="post_content">
-	  <%= raw post.content %><br>
-		</span>
+		<section class = "post_content">
+			<!-- <p>
+	  			<%= raw post.content %>
+	  		</p> -->
+
+	  		<p>Hello this is some test text! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	  		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	  		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	  		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	  		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+	  		<br>
+		</section>
 	
-		<span class="post_actions">
+		<section class = "post_actions">
 			<%= link_to "Reply", new_convo_post_path(:convo_id => post.convo.id, :parent_id => post.id), :remote => true %>
-			</span><br>
+		</section>
+
+		<br>
+	
 	</div>
-</div>
+</article>

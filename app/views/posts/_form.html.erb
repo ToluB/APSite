@@ -23,6 +23,6 @@
 	
 	<%= f.text_area :content, :size =>'10x10',placeholder: "Credits for your thoughts?" %>
 	
-	<%= f.submit "Post"%><%= link_to "Cancel", convos_url, class: "btn btn-primary btn-small" %>
+	<%= link_to "Cancel", convos_url, class: "btn btn-small post-cancel" %><%= f.submit "Post", class: "post-submit btn btn-primary btn-large" %>
 	
 <% end %>
