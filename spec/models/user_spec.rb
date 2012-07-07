@@ -49,5 +49,9 @@ end
 #  uid                    :string(255)
 #  rank                   :string(255)
 #  pic_url                :string(255)
+#  bday                   :datetime
+#  location               :string(255)
+#  avatar                 :string(255)
+#  gpa                    :float
 #
 

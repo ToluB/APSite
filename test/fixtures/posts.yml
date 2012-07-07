@@ -24,10 +24,11 @@ two:
 #  content    :text
 #  user_id    :integer
 #  convo_id   :integer
-#  merits     :integer
+#  merits     :integer         default(0)
 #  skill      :integer
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #  ancestry   :string(255)
+#  file       :string(255)
 #
 

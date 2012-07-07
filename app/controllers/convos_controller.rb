@@ -91,20 +91,19 @@ class ConvosController < ApplicationController
   end
   def upmerit
     @convo = Convo.find(params[:id])
-
     if demerituser(current_user,1)
       @convo.update_attribute :merits, @convo.merits + 1
     end
-    
     respond_to do |f|
       f.js
     end
   end
   
   def demerit
-    demerituser(current_user,2)
     @convo = Convo.find(params[:id])
-    @convo.update_attribute :merits, @convo.merits - 1
+    if demerituser(current_user,2)
+      @convo.update_attribute :merits, @convo.merits - 1
+    end
     respond_to do |f|
       f.js
     end
