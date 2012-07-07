@@ -3,10 +3,11 @@ class ApplicationController < ActionController::Base
     
   def demerituser(user,n)
     if user.merits < n
-      flash[:alert]= "You need #{n} merits to perform this action"
-      redirect_to nil and return flash[:notice]="You need #{n} merits biotch"
+      flash[:notice]= "You need #{n} merits to perform this action"
+      return false
     else
       user.update_attribute :merits, user.merits - n
+      return true
     end
   end
   
