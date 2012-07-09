@@ -1,6 +1,6 @@
 ApApp1::Application.routes.draw do
-
-  resources :documents
+  
+  resources :docs
 
   root to: 'convos#index'
 
@@ -18,6 +18,8 @@ ApApp1::Application.routes.draw do
   
   resources :subjects, :except => [:show]
   get 'subject_page', to: 'subjects#show'
+  
+  resources :docs
 
   put 'upmerit_convo', to: 'convos#upmerit'
   put 'demerit_convo', to: 'convos#demerit'

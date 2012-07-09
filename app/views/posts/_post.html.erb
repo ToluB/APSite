@@ -26,11 +26,8 @@
 
 	  		<br>
 		</section>
-		<span class= "documents">
-			Document 1<br />
-			Document 2 <br />
-		<%= button_tag "Upload document"%>
-		</span>
+		
+		<%= render 'shared/documents', :item => post %>
 	
 		<section class = "post_actions">
 			<%= link_to "Reply", new_convo_post_path(:convo_id => post.convo.id, :parent_id => post.id), :remote => true %>

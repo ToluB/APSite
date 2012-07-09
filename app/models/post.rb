@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   has_ancestry
   belongs_to :convo
   belongs_to :user
+  has_many :docs, :as => :docable
   
   mount_uploader :file, FileUploader
   

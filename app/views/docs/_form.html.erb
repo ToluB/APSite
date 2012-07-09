@@ -1,10 +1,10 @@
-<%= form_for(@document) do |f| %>
-  <% if @document.errors.any? %>
+<%= form_for(@doc) do |f| %>
+  <% if @doc.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h2>
+      <h2><%= pluralize(@doc.errors.count, "error") %> prohibited this doc from being saved:</h2>
 
       <ul>
-      <% @document.errors.full_messages.each do |msg| %>
+      <% @doc.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -23,13 +23,17 @@
     <%= f.label :user_id %><br />
     <%= f.number_field :user_id %>
   </div>
-	<div class="field">
-    <%= f.label :post_id %><br />
-    <%= f.number_field :user_id %>
+  <div class="field">
+    <%= f.label :docable_id %><br />
+    <%= f.number_field :docable_id %>
   </div>
   <div class="field">
-    <%= f.label :convo_id %><br />
-    <%= f.number_field :user_id %>
+    <%= f.label :docable_type %><br />
+    <%= f.text_field :docable_type %>
+  </div>
+  <div class="field">
+    <%= f.label :attachment %><br />
+    <%= f.text_field :attachment %>
   </div>
   <div class="actions">
     <%= f.submit %>
