@@ -3,8 +3,8 @@
 	<%= doc.name %>
 	<% end %>
 	<% # @item.documents do |doc|, doc.description on hover ...%>
-	Document 1<br />
-	Document 2 <br />
+	Document 1 | Edit | Delete<br />
+	Document 2 | Edit | Delete<br />
 	
 <%= button_to "Upload document", new_doc_url(:convo_id => item.id ), :method => "get"%>
 
