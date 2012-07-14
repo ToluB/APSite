@@ -21,6 +21,7 @@ gem 'pg', '0.12.2'
 gem 'rspec-rails', '2.9.0'
 gem 'annotate', '~> 2.4.1.beta'
 gem 'quiet_assets'
+gem 'rmagick'
 end
 
 

@@ -4,10 +4,10 @@ class ConvosController < ApplicationController
   def index
     if params[:query]
     @convos = Convo.text_search(params[:query]).page(params[:page]).per_page(3)
-    #@popular = Convo.order("merits" desc).where("created_at < " < 4.hours.ago)
     else
     @subject = Subject.find_by_name(params[:subject_id])
-    @convos = Convo.page(params[:page]).per_page(5) 
+    @convos = Convo.page(params[:page]).per_page(5)
+    @popular = Convo.where(:created_at => (Time.now - 7.days)..Time.now ).order("merits") 
   end
 
     respond_to do |format|

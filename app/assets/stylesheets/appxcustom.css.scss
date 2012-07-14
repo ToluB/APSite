@@ -143,6 +143,7 @@ p {
 /* sidebar */
 
 .sidebar {
+	position: fixed;
   overflow: auto;
   a {
     float: left;
@@ -215,8 +216,5 @@ footer ul li {
   margin-left: 10px;
 }
 
-.documents{
-	border: 1 px solid;
-	background: red;
-}
+
 

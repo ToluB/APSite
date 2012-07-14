@@ -3,9 +3,9 @@
 class FileUploader < CarrierWave::Uploader::Base
 
   #Include RMagick or MiniMagick support:
-   #include CarrierWave::RMagick
+   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-   #include CarrierWave::MimeTypes
+   include CarrierWave::MimeTypes
    
    # Call method
    process :set_content_type
@@ -40,9 +40,9 @@ class FileUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-   # version :thumb do
-   #     process :resize_to_limit => [100, 100]
-   #   end
+    version :thumb do
+        process :resize_to_limit => [100, 100]
+      end
    
    protected
      def image?(new_file)

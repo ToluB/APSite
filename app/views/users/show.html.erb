@@ -1,4 +1,4 @@
-<h2><%= @user.name %>'s Profile</h2>
+<%= render 'user_nav', :user => @user %>
 
 <% if @user.avatar.present? %>
 	<%= image_tag @user.avatar, :class => "user_image" %>

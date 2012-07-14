@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @doc.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @doc.description %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @doc.user_id %>
+</p>
+
+<p>
+  <b>Docable:</b>
+  <%= @doc.docable_id %>
+</p>
+
+<p>
+  <b>Docable type:</b>
+  <%= @doc.docable_type %>
+</p>
+
+<p>
+  <b>Attachment:</b>
+  <%= @doc.attachment %>
+</p>
+
+
+<%= link_to 'Edit', edit_doc_path(@doc) %> |
+<%= link_to 'Back', docs_path %>

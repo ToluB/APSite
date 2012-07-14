@@ -1,11 +1,14 @@
 require 'spec_helper'
 
-describe "documents/show" do
+describe "docs/show" do
   before(:each) do
-    @document = assign(:document, stub_model(Document,
+    @doc = assign(:doc, stub_model(Doc,
       :name => "Name",
       :description => "Description",
-      :user_id => 1
+      :user_id => 1,
+      :docable_id => 2,
+      :docable_type => "Docable Type",
+      :attachment => "Attachment"
     ))
   end
 
@@ -15,5 +18,8 @@ describe "documents/show" do
     rendered.should match(/Name/)
     rendered.should match(/Description/)
     rendered.should match(/1/)
+    rendered.should match(/2/)
+    rendered.should match(/Docable Type/)
+    rendered.should match(/Attachment/)
   end
 end

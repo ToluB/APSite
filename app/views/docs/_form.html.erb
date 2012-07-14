@@ -1,0 +1,59 @@
+<% form_for [@docable, @doc] do |f| %>
+  <% if @doc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@doc.errors.count, "error") %> prohibited this doc from being saved:</h2>
+
+      <ul>
+      <% @doc.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+For docable type/ id, if item.class =, then... 	f.hidden_field :post_id > f.hidden_field :convo_id 
+
+	<div class="field">
+	  <%= f.label :docable_id %><br />
+	  <%= f.number_field :docable_id %>
+	</div>
+
+	<div class="field">
+	  <%= f.label :docable_type %><br />
+	  <%= f.text_field :docable_type %>
+	</div>
+
+	<div class="field">
+	  <%= f.label :name %><br />
+	  <%= f.text_field :name %>
+	</div>
+
+	<div class="field">
+	  <%= f.label :description %><br />
+	  <%= f.text_field :description %>
+	</div>
+
+	<div class="field">
+	<%= f.label :attachment %><br />
+	<%= f.text_field :attachment %>
+	</div>
+
+  <p>
+    <%= f.file_field :attachment %>
+  </p>
+
+  <p>
+    <%= f.label :remote_attachment_url, "or image URL" %><br />
+    <%= f.text_field :remote_attachment_url %>
+  </p>
+
+	<p>
+		<%= f.check_box :remove_attachment %>
+		Delete document
+	</p>
+		
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

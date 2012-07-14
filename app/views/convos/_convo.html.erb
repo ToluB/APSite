@@ -1,4 +1,5 @@
 <div class= "convo" id="<%= dom_id(convo) %>" style="background:<%= merits_to_color(convo.merits) %>">
+<article id="<%= dom_id(convo) %>" style="background:<%= merits_to_color(convo.merits) %>">
 	<div class="convo" data-convo-id="<%= convo.id %>">
 	
 	  <%= render 'users/user', :user => convo.user %>
@@ -24,11 +25,12 @@
 
 			</section>
 		</article>
-		<div class= "documents">
-			Document 1<br>
-			Document 2<br>
-		<%= button_tag "Upload document"%>
-		</div>
+=======
+	  <br>
+		</span>
+		
+		<%= render 'shared/docs', :item => convo %>
+>>>>>>> docs
 		
 	</div>
 </div>
