@@ -3,6 +3,6 @@
 		<%=link_to "User statistics", user_url(user.id), :class => "divider"%>/
   </li>
   <li>
-		<%=link_to "Track user", user_activity_url, :class => "divider"%>/
+		<%=link_to "Track user", activity_user_path(user.id), :class => "divider"%>/
   </li>
 </ul>
