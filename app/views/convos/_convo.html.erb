@@ -1,5 +1,5 @@
-<div class="convo" id="<%= dom_id(convo) %>">
-	<div data-convo-id="<%= convo.id %>">
+<div class= "convo" id="<%= dom_id(convo) %>" style="background:<%= merits_to_color(convo.merits) %>">
+	<div class="convo" data-convo-id="<%= convo.id %>">
 	
 	  <%= render 'users/user', :user => convo.user %>
 

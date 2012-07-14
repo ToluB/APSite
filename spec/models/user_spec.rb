@@ -1,7 +1,24 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#update_rank" do
+    it "doesn't update rank if rank is unchanged" do
+      user = User.create(name: "Kori", merits: 10)
+      user.update_rank
+      user.rank.should == "Tabula Rasa"
+      user.update_rank
+      user.rank.should == "Tabula Rasa"
+    end
+    
+    it "updates rank if user moved to a new level" do
+      user = User.create(name:"Kori", merits:10)
+      user.update_rank
+      user.rank.should == "Tabula Rasa"
+      user.update_attribute(:merits, 2000)
+      user.update_rank
+      user.rank.should == "Sage"
+    end
+  end
 end
 # == Schema Information
 #
@@ -32,5 +49,9 @@ end
 #  uid                    :string(255)
 #  rank                   :string(255)
 #  pic_url                :string(255)
+#  bday                   :datetime
+#  location               :string(255)
+#  avatar                 :string(255)
+#  gpa                    :float
 #
 
