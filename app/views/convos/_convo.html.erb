@@ -1,30 +1,34 @@
-<div id="<%= dom_id(convo) %>">
-	<div class="convo" data-convo-id="<%= convo.id %>">
+<div class="convo" id="<%= dom_id(convo) %>">
+	<div data-convo-id="<%= convo.id %>">
 	
 	  <%= render 'users/user', :user => convo.user %>
-	
-		<span class="title">
-		<%=link_to convo.title, convo_posts_url(:convo_id => convo.id) %><br>
-	  </span>
-	
-		<%= render 'shared/merits', :item => convo %>
-	
-		<span class="convo_content">
-	  <!-- <%= raw convo.content %> -->
-	  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-	  <br>
-		</span>
-		<span class= "documents">
-			Document 1<br />
-			Document 2 <br />
+	  <article class="post_content">
+		
+			<header class="title">
+				<h2>
+					<%=link_to convo.title, convo_posts_url(:convo_id => convo.id) %>
+				</h2>
+			</header>
+		
+			<%= render 'shared/merits', :item => convo %>
+		
+			<section class="convo_content">
+			  <!-- <%= raw convo.content %> -->
+			  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			</section>
+		</article>
+		<div class= "documents">
+			Document 1<br>
+			Document 2<br>
 		<%= button_tag "Upload document"%>
-		</span>
+		</div>
 		
 	</div>
 </div>

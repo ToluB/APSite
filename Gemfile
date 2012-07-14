@@ -5,7 +5,6 @@ gem 'bootstrap-sass', '2.0.0'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'ancestry'
-gem 'rmagick', '~> 2.13.1'
 gem 'tinymce-rails', '~>3.5.2'
 gem 'thin'
 gem 'best_in_place'
@@ -16,6 +15,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'color'
 gem 'surveyor', "~> 0.22.0"
+gem 'sqlite3'
 
 group :development, :test do
 gem 'pg', '0.12.2'
