@@ -27,7 +27,7 @@
 	  		<br>
 		</section>
 		
-		<%= render 'shared/documents', :item => post %>
+		<%= render 'shared/docs', :item => post %>
 	
 		<section class = "post_actions">
 			<%= link_to "Reply", new_convo_post_path(:convo_id => post.convo.id, :parent_id => post.id), :remote => true %>

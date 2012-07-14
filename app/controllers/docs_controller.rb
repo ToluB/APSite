@@ -2,7 +2,8 @@ class DocsController < ApplicationController
   # GET /docs
   # GET /docs.json
   def index
-    @docs = Doc.all
+    @docable = find_docable
+    @docs = @docable.docs
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,15 +41,20 @@ class DocsController < ApplicationController
   # POST /docs
   # POST /docs.json
   def create
-    @doc = Doc.new(params[:doc])
+    @docable = find_docable
+    @doc = @docable.docs.build(params[:doc])
+    @doc.user_id = current_user.id
+    
 
     respond_to do |format|
       if @doc.save
-        format.html { redirect_to @doc, notice: 'Doc was successfully created.' }
-        format.json { render json: @doc, status: :created, location: @doc }
+        redirect_to :back, notice: "Error. Could not save document"
+        # format.html { redirect_to @doc, notice: 'Doc was successfully created.' }
+        # format.json { render json: @doc, status: :created, location: @doc }
       else
-        format.html { render action: "new" }
-        format.json { render json: @doc.errors, status: :unprocessable_entity }
+       redirect_to :back, notice: "Error. Could not save document"
+       format.html { render action: "new" }
+       format.json { render json: @doc.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -79,5 +85,14 @@ class DocsController < ApplicationController
       format.html { redirect_to docs_url }
       format.json { head :no_content }
     end
+  end
+  
+  def find_docable
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
   end
 end

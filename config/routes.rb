@@ -9,6 +9,7 @@ ApApp1::Application.routes.draw do
   end
     
   get 'users/avatar', to:'users#avatar', as: :user_avatar
+  get 'users/activity', to: 'users#activity', as: :user_activity
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions=>'sessions'}
   resources :users, :only => [:show, :index, :update] do
     member do

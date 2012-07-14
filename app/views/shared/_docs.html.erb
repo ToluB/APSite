@@ -1,0 +1,16 @@
+<section class= "documents">
+	<% item.docs.each do|doc|%>
+	<%= doc.name %>
+	<% end %>
+	<% # @item.documents do |doc|, doc.description on hover ...%>
+	Document 1<br />
+	Document 2 <br />
+	
+<%= button_to "Upload document", new_doc_url(:convo_id => item.id ), :method => "get"%>
+
+
+</section>
+
+<script>
+
+</script>
