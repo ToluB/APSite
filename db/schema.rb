@@ -47,13 +47,13 @@ ActiveRecord::Schema.define(:version => 20120709063623) do
     t.text     "content"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+    t.string   "file"
   end
 
   add_index "convos", ["subject_id"], :name => "index_convos_on_subject_id"
   add_index "convos", ["user_id"], :name => "index_convos_on_user_id"
 
   create_table "docs", :force => true do |t|
-<<<<<<< HEAD
     t.string   "name"
     t.string   "description"
     t.integer  "user_id"
@@ -68,20 +68,14 @@ ActiveRecord::Schema.define(:version => 20120709063623) do
   add_index "docs", ["user_id"], :name => "index_docs_on_user_id"
 
   create_table "documents", :force => true do |t|
-=======
->>>>>>> docs
     t.string   "name"
     t.string   "description"
     t.integer  "user_id"
-    t.integer  "docable_id"
-    t.string   "docable_type"
-    t.string   "attachment"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
-  add_index "docs", ["docable_type", "docable_id"], :name => "index_docs_on_docable_type_and_docable_id"
-  add_index "docs", ["user_id"], :name => "index_docs_on_user_id"
+  add_index "documents", ["user_id"], :name => "index_documents_on_user_id"
 
   create_table "examprefs", :force => true do |t|
     t.string   "user_id"
@@ -121,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20120709063623) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.string   "ancestry"
+    t.string   "file"
   end
 
   add_index "posts", ["ancestry"], :name => "index_posts_on_ancestry"

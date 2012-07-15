@@ -1,4 +1,4 @@
-<% form_for [@docable, @doc] do |f| %>
+<%= form_for [@docable,@doc] do |f| %>
   <% if @doc.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@doc.errors.count, "error") %> prohibited this doc from being saved:</h2>
@@ -10,18 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-For docable type/ id, if item.class =, then... 	f.hidden_field :post_id > f.hidden_field :convo_id 
-
-	<div class="field">
-	  <%= f.label :docable_id %><br />
-	  <%= f.number_field :docable_id %>
-	</div>
-
-	<div class="field">
-	  <%= f.label :docable_type %><br />
-	  <%= f.text_field :docable_type %>
-	</div>
 
 	<div class="field">
 	  <%= f.label :name %><br />

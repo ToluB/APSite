@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
 has_many :posts
 has_many :convos
-has_many :documents
+has_many :docs
 has_many :relationships, foreign_key: 'tracker_id', dependent: :destroy
 has_many :tracked_users, through: :relationships, source: :tracked
 

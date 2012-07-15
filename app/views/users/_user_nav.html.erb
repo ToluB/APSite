@@ -1,8 +1,25 @@
 <ul class="breadcrumb">
-  <li>
-		<%=link_to "User statistics", user_url(user.id), :class => "divider"%>/
-  </li>
-  <li>
-		<%=link_to "Track user", activity_user_path(user.id), :class => "divider"%>/
-  </li>
+	
+	<% if user == current_user %>
+
+	  <li>
+			<%=link_to "My Profile", user_url(user.id), :class => "divider"%>/
+	  </li>
+	  <li>
+			<%=link_to "My Activity", activity_user_path(user.id), :class => "divider"%>/
+	  </li>
+	  <li>
+			<%=link_to "My Documents", activity_user_path(user.id), :class => "divider"%>/
+	  </li>
+		<% else %>
+	
+	  <li>
+			<%=link_to "#{user.name}'s public profile", user_url(user.id), :class => "divider"%>/
+	  </li>
+	  <li>
+			<%=link_to "#{user.name}'s activity", activity_user_path(user.id), :class => "divider"%>/
+	  </li>
+
+	<% end %>
+
 </ul>

@@ -1,4 +1,4 @@
-<section class= "documents">
+<section class= "docs">
 	<% item.docs.each do|doc|%>
 	<%= doc.name %>
 	<% end %>
@@ -6,8 +6,7 @@
 	Document 1 | Edit | Delete<br />
 	Document 2 | Edit | Delete<br />
 	
-<%= button_to "Upload document", new_doc_url(:convo_id => item.id ), :method => "get"%>
-
+<%= link_to "Upload document", new_convo_doc_url(item.id) %>
 
 </section>
 

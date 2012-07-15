@@ -23,7 +23,7 @@ s3=Subject.create :name => "History"
 s4=Subject.create :name => "Psychology"
 s5=Subject.create :name => "Environmental Science" 
 
-250.times do
+100.times do
   title = (0...20).map{65.+(rand(25)).chr}.join
   content = (0...90).map{65.+(rand(25)).chr}.join
   merits = rand(0..100)

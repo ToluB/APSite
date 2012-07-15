@@ -1,26 +1,25 @@
 ApApp1::Application.routes.draw do
   
-  resources :docs
-
   root to: 'convos#index'
 
   resources :convos, :shallow => true do
-    resources :posts
+    resources :docs
+    resources :posts do
+      resources :docs
+    end
   end
     
   get 'users/avatar', to:'users#avatar', as: :user_avatar
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions=>'sessions'}
   resources :users, :only => [:show, :index, :update] do
     member do
-      get :tracked, :trackers, :activity
+      get :tracked, :trackers, :activity, :documents
     end
   end
   
   resources :subjects, :except => [:show]
   get 'subject_page', to: 'subjects#show'
   
-  resources :docs
-
   put 'upmerit_convo', to: 'convos#upmerit'
   put 'demerit_convo', to: 'convos#demerit'
   put 'upmerit_post', to: 'posts#upmerit'

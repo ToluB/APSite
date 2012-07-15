@@ -1,18 +1,10 @@
 class DocsController < ApplicationController
-  # GET /docs
-  # GET /docs.json
+  before_filter :load_docable
   def index
-    @docable = find_docable
     @docs = @docable.docs
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @docs }
-    end
   end
 
-  # GET /docs/1
-  # GET /docs/1.json
   def show
     @doc = Doc.find(params[:id])
 
@@ -25,12 +17,12 @@ class DocsController < ApplicationController
   # GET /docs/new
   # GET /docs/new.json
   def new
-    @doc = Doc.new
+    @doc = @docable.docs.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @doc }
-    end
+    # respond_to do |format|
+    #      format.html # new.html.erb
+    #      format.json { render json: @doc }
+    #    end
   end
 
   # GET /docs/1/edit
@@ -41,20 +33,16 @@ class DocsController < ApplicationController
   # POST /docs
   # POST /docs.json
   def create
-    @docable = find_docable
-    @doc = @docable.docs.build(params[:doc])
+    @doc = @docable.docs.new(params[:doc])
     @doc.user_id = current_user.id
     
 
     respond_to do |format|
       if @doc.save
-        redirect_to :back, notice: "Error. Could not save document"
-        # format.html { redirect_to @doc, notice: 'Doc was successfully created.' }
-        # format.json { render json: @doc, status: :created, location: @doc }
+        redirect_to [@docable, :docs], notice: "Document saved"
       else
-       redirect_to :back, notice: "Error. Could not save document"
-       format.html { render action: "new" }
-       format.json { render json: @doc.errors, status: :unprocessable_entity }
+       render :new, notice: "Error. Could not save document"
+  
       end
     end
   end
@@ -87,12 +75,11 @@ class DocsController < ApplicationController
     end
   end
   
-  def find_docable
-    params.each do |name, value|
-      if name =~ /(.+)_id$/
-        return $1.classify.constantize.find(value)
-      end
+  def load_docable
+    @docable = if params[:convo_id]
+      Convo.find(params[:convo_id])
+    elsif params[:post_id]
+      Post.find(params[:photo_id])
     end
-    nil
   end
 end

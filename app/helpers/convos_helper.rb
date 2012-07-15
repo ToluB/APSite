@@ -33,15 +33,14 @@ module ConvosHelper
        
             return out_color
           end
-          
-          # def updateAllColors     # => Would update colors if called within page; new in-line editing system makes obsolete...
-          #   jqout = ""
-          #   @convos.each do |convo|
-          #     jqout +="$('#convo_#{convo.id}').css('background','#{merits_to_color(convo.merits)}');"
-          #   end
-          #   output="<script> function updateColors(){"+"#{jqout}"+"}; $(document).ready(updateColors);</script>"
-          #   return raw output
-          # end
-          #figure out how to call merits_to_color from within js
   
 end
+
+# def updateAllColors     # => Would update colors if called within page; new in-line editing system makes obsolete...
+#   jqout = ""
+#   @convos.each do |convo|
+#     jqout +="$('#convo_#{convo.id}').css('background','#{merits_to_color(convo.merits)}');"
+#   end
+#   output="<script> function updateColors(){"+"#{jqout}"+"}; $(document).ready(updateColors);</script>"
+#   return raw output
+# end
