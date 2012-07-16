@@ -8,6 +8,7 @@ class ConvosController < ApplicationController
     @subject = Subject.find_by_name(params[:subject_id])
     @convos = Convo.page(params[:page]).per_page(5)
     @popular = Convo.where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(3) 
+        # @popular = Convo.where("created_at <?", (Time.now - 7.days)).order("merits DESC").page(params[:page]).per_page(3) 
   end
 
     respond_to do |format|
