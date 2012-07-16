@@ -1,11 +1,15 @@
 <section class= "docs">
 	<% item.docs.each do|doc|%>
-	<%= doc.name %>
+	<% if doc.attachment.present?%>
+	<%= image_tag doc.attachment_url, :class => 'doc_image' %>
+  <% end %>
+	<%= doc.name %> | <%=link_to "Edit", edit_doc_url(doc.id) %> | <%=link_to "Delete", doc_url(doc.id), method: :delete %><br />
+	<%= doc.description %>
+	<hr>
+	
 	<% end %>
 	<% # @item.documents do |doc|, doc.description on hover ...%>
-	Document 1 | Edit | Delete<br />
-	Document 2 | Edit | Delete<br />
-	
+
 <%= link_to "Upload document", new_convo_doc_url(item.id) %>
 
 </section>

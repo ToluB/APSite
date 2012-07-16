@@ -35,16 +35,13 @@ class DocsController < ApplicationController
   def create
     @doc = @docable.docs.new(params[:doc])
     @doc.user_id = current_user.id
-    
 
-    respond_to do |format|
       if @doc.save
         redirect_to [@docable, :docs], notice: "Document saved"
       else
        render :new, notice: "Error. Could not save document"
   
       end
-    end
   end
 
   # PUT /docs/1
@@ -63,14 +60,13 @@ class DocsController < ApplicationController
     end
   end
 
-  # DELETE /docs/1
-  # DELETE /docs/1.json
   def destroy
     @doc = Doc.find(params[:id])
+    @docable = @doc.docable
     @doc.destroy
 
     respond_to do |format|
-      format.html { redirect_to docs_url }
+      format.html { redirect_to @docable }
       format.json { head :no_content }
     end
   end

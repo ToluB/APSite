@@ -8,3 +8,19 @@
 	float: right;
 	clear: top;
 }
+
+.attachment_thumbnail {
+	float: left;
+	margin: 20px 10px 20px 0;
+		img {
+			border: solid 1px #ddd;
+		}
+		p.attachment_caption {
+			text-align: center;
+		}
+}
+
+.doc_image{
+	height:25px;
+	width: 25px; 
+}
