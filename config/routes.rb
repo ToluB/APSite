@@ -24,8 +24,6 @@ ApApp1::Application.routes.draw do
   put 'demerit_convo', to: 'convos#demerit'
   put 'upmerit_post', to: 'posts#upmerit'
   put 'demerit_post', to: 'posts#demerit'
-  put 'upmerit_user', to: 'users#upmerit'
-  put 'demerit_user', to: 'users#demerit'
   
   get "pages/home"
   get "pages/help"

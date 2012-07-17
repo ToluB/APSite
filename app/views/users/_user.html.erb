@@ -18,9 +18,6 @@
 
 	<%= link_to user.name, user_path(user.id) %><br/>
 	<%= user.rank %><br />
-	<%= render 'shared/merits', :item => user %>
-	<!-- Add everything else about users here -->
-
-<!-- User box height/width to be set by users css -->
+	<%= user.merits %>
 
 </div>

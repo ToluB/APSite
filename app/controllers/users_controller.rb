@@ -13,31 +13,19 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
   end
   
+  def documents
+    @user = User.find_by_id(params[:id])
+    @docs = @user.docs
+    @convos = @user.convos
+    @posts = @user.posts
+  end
+  
   def update
     @user = User.find_by_id(params[:id])
     @user.update_attributes(params[:user])
     redirect_to root_url
   end
   
-  def upmerit
-    @user = User.find(params[:id])
-    if demerituser(current_user,1)
-      @user.update_attribute :merits, @user.merits + 1
-    end
-    respond_to do |f|
-      f.js
-    end
-  end
-  
-  def demerit
-    @user = User.find(params[:id])
-    if demerituser(current_user,2)
-      @user.update_attribute :merits, @user.merits - 1
-    end
-    respond_to do |f|
-      f.js
-    end
-  end
   
   def tracked
     @title = "Tracked"
@@ -56,6 +44,26 @@ class UsersController < ApplicationController
   def avatar
     @user = User.find(params[:user_id])
   end
+  
+  # def upmerit
+  #     @user = User.find(params[:id])
+  #     if demerituser(current_user,1)
+  #       @user.update_attribute :merits, @user.merits + 1
+  #     end
+  #     respond_to do |f|
+  #       f.js
+  #     end
+  #   end
+  #   
+  #   def demerit
+  #     @user = User.find(params[:id])
+  #     if demerituser(current_user,2)
+  #       @user.update_attribute :merits, @user.merits - 1
+  #     end
+  #     respond_to do |f|
+  #       f.js
+  #     end
+  #   end
   
   # def tracking
   #   @title = "Following"

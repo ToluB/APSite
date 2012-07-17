@@ -27,14 +27,13 @@ module ApplicationHelper
    end
    
    def no_forum_nav?
+     controller_name == 'users'
+   end
+   
+   def no_forum_nav?
      controller_name == 'invitations' || 
      controller_name == 'kases' && action_name == 'index' 
    end
    
-   def user_pic(user)
-     
-     #replace user picture conditionals with these
-     
-   end
   
 end

@@ -1,0 +1,18 @@
+Documents belonging to <%= @user.name %>
+
+<%= @docs.each do |doc| %>
+<%= @doc.name %>
+<% end %>
+
+<%= @convos.each do |convo| %>
+	<%= convo.docs.each do |doc| %>
+		<%=link_to doc.name %>
+	<% end %>
+<% end %>
+
+<%= @posts.each do |post| %>
+	<%= post.docs.each do |doc| %>
+		<%=link_to doc.name %>
+	<% end %>
+<% end %>
+
