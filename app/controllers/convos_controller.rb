@@ -1,6 +1,7 @@
 class ConvosController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
-  #before_filter :require_admin, :only => [:destroy]
+  #before_filter :authenticate_admin, :only => [:destroy]
+  
   def index
     if params[:query]
     @convos = Convo.text_search(params[:query]).page(params[:page]).per_page(3)

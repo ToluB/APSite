@@ -147,8 +147,8 @@ ActiveRecord::Schema.define(:version => 20120718035038) do
     t.integer  "merits",                 :default => 0
     t.integer  "umerits",                :default => 0
     t.integer  "gradelevel"
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -157,8 +157,8 @@ ActiveRecord::Schema.define(:version => 20120718035038) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "provider"
     t.string   "uid"
     t.string   "rank"
@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(:version => 20120718035038) do
     t.string   "location"
     t.string   "avatar"
     t.float    "gpa"
-    t.boolean  "admin"
+    t.boolean  "admin",                  :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :merits, :umerits, :name, :colleges, :current_exams, :past_exams, :gradelevel, :school, :provider, :uid, :rank, :pic_url, :bday, :gpa, :avatar, :remote_avatar_url, :remove_avatar, :thumbnail
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :merits, :umerits, :name, :colleges, :current_exams, :past_exams, :gradelevel, :school, :provider, :uid, :rank, :pic_url, :bday, :gpa, :avatar, :remote_avatar_url, :remove_avatar, :thumbnail, :admin
   
   mount_uploader :avatar, FileUploader
   # attr_accessible :title, :body
@@ -127,104 +127,4 @@ end
 
 
 
-end# == Schema Information
-#
-# Table name: users
-#
-#  id                     :integer         not null, primary key
-#  name                   :string(255)
-#  school                 :string(255)
-#  colleges               :string(255)
-#  past_exams             :string(255)
-#  current_exams          :string(255)
-#  merits                 :integer         default(0)
-#  umerits                :integer         default(0)
-#  gradelevel             :integer
-#  email                  :string(255)     default(""), not null
-#  encrypted_password     :string(255)     default(""), not null
-#  reset_password_token   :string(255)
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  sign_in_count          :integer         default(0)
-#  current_sign_in_at     :datetime
-#  last_sign_in_at        :datetime
-#  current_sign_in_ip     :string(255)
-#  last_sign_in_ip        :string(255)
-#  created_at             :datetime        not null
-#  updated_at             :datetime        not null
-#  provider               :string(255)
-#  uid                    :string(255)
-#  rank                   :string(255)
-#  pic_url                :string(255)
-#
-
-# == Schema Information
-#
-# Table name: users
-#
-#  id                     :integer         not null, primary key
-#  name                   :string(255)
-#  school                 :string(255)
-#  colleges               :string(255)
-#  past_exams             :string(255)
-#  current_exams          :string(255)
-#  merits                 :integer         default(0)
-#  umerits                :integer         default(0)
-#  gradelevel             :integer
-#  email                  :string(255)     default(""), not null
-#  encrypted_password     :string(255)     default(""), not null
-#  reset_password_token   :string(255)
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  sign_in_count          :integer         default(0)
-#  current_sign_in_at     :datetime
-#  last_sign_in_at        :datetime
-#  current_sign_in_ip     :string(255)
-#  last_sign_in_ip        :string(255)
-#  created_at             :datetime        not null
-#  updated_at             :datetime        not null
-#  provider               :string(255)
-#  uid                    :string(255)
-#  rank                   :string(255)
-#  pic_url                :string(255)
-#  bday                   :datetime
-#  location               :string(255)
-#  avatar                 :string(255)
-#  gpa                    :float
-#
-
-# == Schema Information
-#
-# Table name: users
-#
-#  id                     :integer         not null, primary key
-#  name                   :string(255)
-#  school                 :string(255)
-#  colleges               :string(255)
-#  past_exams             :string(255)
-#  current_exams          :string(255)
-#  merits                 :integer         default(0)
-#  umerits                :integer         default(0)
-#  gradelevel             :integer
-#  email                  :string(255)     default(""), not null
-#  encrypted_password     :string(255)     default(""), not null
-#  reset_password_token   :string(255)
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  sign_in_count          :integer         default(0)
-#  current_sign_in_at     :datetime
-#  last_sign_in_at        :datetime
-#  current_sign_in_ip     :string(255)
-#  last_sign_in_ip        :string(255)
-#  created_at             :datetime        not null
-#  updated_at             :datetime        not null
-#  provider               :string(255)
-#  uid                    :string(255)
-#  rank                   :string(255)
-#  pic_url                :string(255)
-#  bday                   :datetime
-#  location               :string(255)
-#  avatar                 :string(255)
-#  gpa                    :float
-#
-
+end

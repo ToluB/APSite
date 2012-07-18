@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
+  def authenticate_admin!
+    redirect_to root_url, :notice => 'That action is reserved for administrative users' unless current_user.admin
+  end
     
   def demerituser(user,n)
     if user.merits < n

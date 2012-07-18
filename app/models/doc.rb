@@ -5,4 +5,10 @@ class Doc < ActiveRecord::Base
   belongs_to :user
   belongs_to :docable, :polymorphic => true
   mount_uploader :attachment, FileUploader
+  
+  validates :name, presence:true, length:{minimum:10}
+  validates :description, presence:true, length:{minimum:10}
+  validates :attachment, presence:true
+  
+  
 end
