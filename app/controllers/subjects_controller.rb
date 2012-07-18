@@ -5,9 +5,8 @@ class SubjectsController < ApplicationController
   end
 
   def show
-    subject = Subject.find_by_name(params[:name])
-    @subject = Subject.find_by_id(subject.id)
-    @convos = @subject.convos 
+    @subject = Subject.find_by_name(params[:subject_name])
+    
   end
   
   def new

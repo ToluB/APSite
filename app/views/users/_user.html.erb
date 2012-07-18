@@ -1,4 +1,4 @@
-<div class="user" data-post-id="<%= user.id %>">
+<div class="user" id="<%= dom_id(user) %>">
 
 	<% if user.avatar.present? %>
 
@@ -18,6 +18,6 @@
 
 	<%= link_to user.name, user_path(user.id) %><br/>
 	<%= user.rank %><br />
-	<%= user.merits %>
+	<%=link_to user.merits, "", :class => 'user_merits' %>
 
 </div>

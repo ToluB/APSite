@@ -1,39 +1,35 @@
-<article class ="post-wrapper" id = "<%= dom_id(post) %>">	
-	<div class = "post linearBg2" data-post-id = "<%= post.id %>">
+<article class ="post linearBg2" id = "<%= dom_id(post) %>">	
 		
 		<%= render 'users/user', :user => post.user %>
 
-		<section class = "post_content">
 
 			<header class = "title">
-				<h3>
+				<h2>
 					<%=link_to post.title, post %>
-				</h3>
+				</h2>
 			</header>
 		
 			<%= render 'shared/merits', :item => post %>
-			<!-- <p>
+			<%= render 'shared/docs', :item => post %>
+			
+			<div class="convo_text">
+			
+			<!-- 
 	  			<%= raw post.content %>
-	  		</p> -->
+	  		 -->
 
-	  		<p>Hello this is some test text! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	  		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	  		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	  		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 	  		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	  		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
 
 	  		<button class = "btn btn-primary post_actions">
 			<%= link_to "Reply", new_convo_post_path(:convo_id => post.convo.id, :parent_id => post.id), :remote => true %>
 			</button>
-		</section>
-		
-		<%= render 'shared/docs', :item => post %>
-	
-		<section class = "post_actions">
-			<%= link_to "Reply", new_convo_post_path(:convo_id => post.convo.id, :parent_id => post.id), :remote => true %>
-		</section>
+			
+			<!-- Admin will see delete button here -->
 
-		
-	</div>
 </article>

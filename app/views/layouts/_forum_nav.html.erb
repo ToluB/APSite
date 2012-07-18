@@ -1,14 +1,8 @@
-<div class="span10">
- <h1>	<%= page_heading(yield(:header))%></h1>
-</div>
-
-    <div class="span7 ">
     	<div class="tabs">
 	      <ul>			
 	        <%= nav_link "All", convos_url %>
-	        <%= nav_link 'Economics', subject_page_url(:name =>"Economics") %>
-	        <%= nav_link 'Calculus', subject_page_url(:name => "Calculus")%>
-	        <%= nav_link 'History', subject_page_url(:name => "History") %>
+	        <%= nav_link 'Economics', convos_url(:subject_name =>"Economics") %>
+	        <%= nav_link 'Calculus', convos_url(:subject_name => "Calculus")%>
+	        <%= nav_link 'History', convos_url(:subject_name => "History") %>
 	      </ul>
 	    </div>
-  	</div>

@@ -4,8 +4,12 @@ class ConvosController < ApplicationController
   def index
     if params[:query]
     @convos = Convo.text_search(params[:query]).page(params[:page]).per_page(3)
+    elsif params[:subject_name]
+      @subject = Subject.find_by_name(params[:subject_name])
+      @convos = @subject.convos.page(params[:page]).per_page(5) 
+      @popular = Convo.where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(10)
+      #create a condition to select convos of the right subject ...
     else
-    @subject = Subject.find_by_name(params[:subject_id])
     @convos = Convo.page(params[:page]).per_page(5)
     @popular = Convo.where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(3) 
         # @popular = Convo.where("created_at <?", (Time.now - 7.days)).order("merits DESC").page(params[:page]).per_page(3) 

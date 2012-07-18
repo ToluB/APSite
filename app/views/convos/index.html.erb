@@ -1,11 +1,11 @@
-<% provide(:header, '')%>
+<% if @subject %>
+<% provide(:header, @subject.name)%>
+<% end %>
 <%#= render 'layouts/sidebar' , :popular => @popular %>
-<ul id="convos">
+<section id="convos">
 	<%= render @convos %> 
 
-
-<!-- if admin, will see delete button here	 -->
-</ul>
+</section>
 
 <%= link_to "Start a new conversation", new_convo_path %>
 

@@ -2,12 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.content {
-	padding: 0px;
+.posts{
+	width:100%;
 }
 
-.post-wrapper {
+.post {
+	border: 1px solid black;
+	margin: 0 auto;
+	padding: 10px;
+	overflow: hidden;
+	color: gray;
+	
+	.title{
+		display:block;
+	}
+	
+	.post_text{
+		width:60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
+	.user {
+		float: left;
+		width: 20%;
+		}
+
+}
+
+.post_content {
+	height: auto;
+	overflow: hidden;
+	float: left;
+}
+
+
+
+.header {
+	float: left;
+	margin: 5px auto;
+}
+
+.merits{
+	color:red;
+}
+
+.nested_posts{
+	margin-left: 25px;
+}
+
+.nested_posts .nested_posts .nested_posts .nested_posts{
+	margin-left: 0px;
 }
 
 .linearBg2 {
@@ -33,48 +78,9 @@
 }
 
 
-.post {
-	width: 893;
-	border: 1px solid black;
-	margin: 0 auto;
-	padding: 10px;
-	overflow: hidden;
 
-}
 
-.post_content {
-	width: 560px;
-	height: auto;
-	overflow: hidden;
-	float: left;
-}
-
-.user {
-	float: left;
-}
-
-.header {
-	float: left;
-	margin: 5px auto;
-}
-
-h3 {
-	font-size: 24px;
-}
-
-.merits{
-	color:red;
-}
-
-.nested_posts{
-	margin-left: 25px;
-}
-
-.nested_posts .nested_posts .nested_posts .nested_posts{
-	margin-left: 0px;
-}
-
-#new_input {
+/*#new_input {
 	overflow: hidden;
 	padding: 10px;
 }
@@ -122,9 +128,5 @@ ul #posts {
 		float: right;
 	}
 
-.documents {
-	float: left;
-	width: 150px;
-	height: 90%;
-	margin: 5% auto;
-}
+
+*/

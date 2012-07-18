@@ -11,15 +11,20 @@
 	</head>
 	<body>
 		<div class="container">	
-		<%= render '/layouts/header'%>			
-			<div class="container">
-				<%= render 'layouts/forum_nav' unless no_forum_nav? %>
-				<div class= "content">
-				<%= yield %>
+				<%= render '/layouts/header'%>
+				
+				<h1><%= page_heading(yield(:header))%></h1>
+				
+				<div class= "row-fluid">
+						<div class="span10 content">
+								<%= render 'layouts/forum_nav' unless no_forum_nav? %>
+								<%= yield %>			
+						</div>
+						<div class="span2 sidebar" style="background:red">
+							sidebar goes here
+						</div>
+				<%= render '/layouts/footer'%>
 				</div>
-			</div>
-			
-			<%= render '/layouts/footer'%>
 		</div>
 
 		<br /><br /><br /><br />

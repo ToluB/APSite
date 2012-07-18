@@ -1,29 +1,23 @@
-<div class= "convo" id="<%= dom_id(convo) %>" data-convo-id="<%= convo.id %>" style="background:<%= merits_to_color(convo.merits) %>">
+<article class= "convo" id="<%= dom_id(convo) %>" style="background:<%= merits_to_color(convo.merits) %>">
 
 	  <%= render 'users/user', :user => convo.user %>
-
-	  <article class="post_content">
 		
 			<header class="title">
-				<h2>
-					<%=link_to convo.title, convo_posts_url(:convo_id => convo.id) %>
-				</h2>
+					<h2> <%=link_to convo.title, convo_posts_url(:convo_id => convo.id) %> </h2>
 			</header>
 		
 			<%= render 'shared/merits', :item => convo %>
-		
-			<section class="convo_content">
+			<%= render 'shared/docs', :item => convo %>
+			<div class="convo_text">
 			  <!-- <%= raw convo.content %> -->
-			  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			  WTFLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 			  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 			  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 			  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-			</section>
-		</article>
+			  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
 		
-		<%= render 'shared/docs', :item => convo %>
+		<!-- Admin will see delete button here -->
 				
-</div>
+</article>

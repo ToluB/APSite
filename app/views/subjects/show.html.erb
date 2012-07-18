@@ -1,9 +1,3 @@
-<% provide(:header, @subject.name)%>
-<ul id="convos">
-	<%= render @subject.convos %> 
-	
-	<!-- if admin, will see delete button here	 -->
+Details on <%@subject.name %>
 
-</ul>
-
-<%= link_to "Start a new conversation", new_convo_path(:subject_id => @subject.id) %>
+<%@subject.name%> has <%= @subject.convos.count %> conversations and <%= @subject.posts.count %> posts

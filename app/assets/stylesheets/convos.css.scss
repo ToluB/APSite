@@ -1,25 +1,38 @@
 // Place all the styles related to the Convos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.content {
-	padding: 0px;
+
+#convos{
+	width: 100%;
+	padding-top: 15px;
 }
 
 .convo {
-	width: 918px;
-	border: 1px solid black;
+	border: 1px solid gray;
 	margin: 0 auto;
 	padding: 10px;
 	overflow: hidden;
+	
+	.title{
+		display:block;
+	}
+	
+	.convo_text{
+		width:60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.user {
+		float: left;
+		width: 20%;
+		}
+	
 }
 
 .convo_content {
-	width: 450px;
+	width:70%;
 	padding: 10px;
-}
-
-.documents {
-	float: left;
 }
 
 .title {
