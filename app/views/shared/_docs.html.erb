@@ -5,7 +5,7 @@
   <% end %>
 	<%= doc.name %> 
 	<%= doc.description %>
-	<% if current_user == doc.user %>
+	<% if current_user == doc.user || current_user.admin %>
 	<!-- Admins should also be able to see edit/ delete doc links... -->
 	|<%=link_to "Edit", edit_doc_url(doc.id) %> | <%=link_to "Delete", doc_url(doc.id), method: :delete %><br />
 	<% end%>
