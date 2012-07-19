@@ -6,8 +6,8 @@ class Convo < ActiveRecord::Base
   belongs_to :subject
   belongs_to :user
   
-  mount_uploader :file, FileUploader
-  
+  validates :subject, presence:true
+    
   default_scope order: 'convos.created_at DESC'
   
   include PgSearch

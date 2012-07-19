@@ -1,5 +1,8 @@
 ApApp1::Application.routes.draw do
-  
+ 
+  resources :bzcolleges
+
+ #These resources provide core functionality 
   root to: 'convos#index'
 
   resources :convos, :shallow => true do
@@ -9,22 +12,25 @@ ApApp1::Application.routes.draw do
     end
   end
     
-  get 'users/avatar', to:'users#avatar', as: :user_avatar
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions=>'sessions'}
   resources :users, :only => [:show, :index, :update] do
     member do
-      get :tracked, :trackers, :activity, :documents
+      get :activity, :documents, :avatar#, :tracked, :trackers, 
     end
   end
   
-  resources :subjects, :except => [:show]
-  get 'subject_page', to: 'subjects#show'
-  
+  #These resources will only be accessed by admin
+  resources :subjects
+  resources :exams
+  resources :colleges
+
+  #These actions increment/decrement post and convo merits 
   put 'upmerit_convo', to: 'convos#upmerit'
   put 'demerit_convo', to: 'convos#demerit'
   put 'upmerit_post', to: 'posts#upmerit'
   put 'demerit_post', to: 'posts#demerit'
-  
+ 
+ #These are "about pages" 
   get "pages/home"
   get "pages/help"
   get "pages/about"

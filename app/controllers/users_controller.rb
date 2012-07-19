@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   end
   
   def avatar
-    @user = User.find(params[:user_id])
+    @user = User.find_by_id(params[:id])
   end
   
   # def upmerit

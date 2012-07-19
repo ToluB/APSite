@@ -9,7 +9,7 @@
 <% end %>
 
 <% if current_user == @user %>
-<%= link_to "Upload picture", user_avatar_url(:user_id => current_user.id) %>
+<%= link_to "Upload picture", avatar_user_url(current_user.id) %>
 <%#= button_to "Remove avatar", :onclick => current_user.avatar.remove! %>
 <% else %>
 

@@ -5,9 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :convo
   belongs_to :user
   has_many :docs, :as => :docable
-  
-  mount_uploader :file, FileUploader
-  
+    
 end
 # == Schema Information
 #

@@ -17,10 +17,15 @@
 	<% end %>
 	
 <!-- Should users choose the subject, prepopped with current subject? -->
-  <div class="field">
-    <%= f.label :subject_id %><br />
-    <%= f.number_field :subject_id %>
-  </div>
+	<div class="field">
+	<%= f.label :subject_id %><br />
+	<% if @subject%>
+	<%= f.collection_select :subject_id, Subject.all, :id,:name, :prompt => @subject.name %>
+	<% else %>
+	<%= f.collection_select :subject_id, Subject.all, :id,:name, :prompt => "Choose a subject" %>
+	<% end %>
+	
+	</div>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -32,4 +37,9 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+	<%# if current_user.admin %>
+		<%#= check_box_tag "sticky", @convo.sticky %>
+	<%# end %>
+
 <% end %>

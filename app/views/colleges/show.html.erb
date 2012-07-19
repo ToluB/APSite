@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @college.name %>
+</p>
+
+<p>
+  <b>Region:</b>
+  <%= @college.region %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @college.state %>
+</p>
+
+<p>
+  <b>Usnrank:</b>
+  <%= @college.usnrank %>
+</p>
+
+<p>
+  <b>Satmed:</b>
+  <%= @college.satmed %>
+</p>
+
+<p>
+  <b>Gpamed:</b>
+  <%= @college.gpamed %>
+</p>
+
+<p>
+  <b>Acceptrate:</b>
+  <%= @college.acceptrate %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @college.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_college_path(@college) %> |
+<%= link_to 'Back', colleges_path %>
