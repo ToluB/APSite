@@ -1,20 +1,22 @@
 <section class= "docs">
-	<% item.docs.each do|doc|%>
-	<% if doc.attachment.present?%>
-	<%=link_to (image_tag doc.attachment_url, :class => 'doc_image'), doc.attachment_url %>
-  <% end %>
-	<%= doc.name %> 
-	<%= doc.description %>
-	<% if current_user == doc.user || current_user.admin %>
-	<!-- Admins should also be able to see edit/ delete doc links... -->
-	|<%=link_to "Edit", edit_doc_url(doc.id) %> | <%=link_to "Delete", doc_url(doc.id), method: :delete %><br />
-	<% end%>
-	<hr>
 	
-	<% end %>
+	<% item.docs.each do|doc|%>
+		<%=link_to (image_tag doc.attachment_url, :class => 'doc_image'), doc.attachment_url %>
+		<%= doc.name %> 
+		<%= doc.description %>
+				<% if current_user == doc.user || current_user.admin %>
+				<%=link_to "Edit", edit_doc_url(doc.id) %> | <%=link_to "Delete", doc_url(doc.id), method: :delete %>
+				<% end %>
+		<hr>
+				
+	<% end%>
+	
+				<% if current_user == item.user || current_user.admin %>
+				<%= link_to "Upload document", new_convo_doc_url(item.id) %>
+				<% end %>
+	
 	<% # @item.documents do |doc|, doc.description on hover ...%>
 
-<%= link_to "Upload document", new_convo_doc_url(item.id) %>
 
 </section>
 

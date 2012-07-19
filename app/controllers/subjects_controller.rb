@@ -1,4 +1,5 @@
 class SubjectsController < ApplicationController
+  before_filter :authenticate_admin!, :except => [:show]
   def index
     #only admin will be able to see subjects#index
     @subjects = Subject.all

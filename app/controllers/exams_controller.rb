@@ -1,5 +1,5 @@
 class ExamsController < ApplicationController
-  # before_filter: authenticate_admin!
+  before_filter: authenticate_admin!
   def index
     @exams = Exam.all
 
