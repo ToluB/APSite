@@ -1,10 +1,15 @@
 <section class= "docs">
 	
 	<% item.docs.each do|doc|%>
-		<%=link_to (image_tag doc.attachment_url, :class => 'doc_image'), doc.attachment_url %>
-		<%= doc.name %> 
+	<span class="doc_image">
+		<%=image_tag doc.attachment_url%>
+		</span>	
+		<%#=link_to (image_tag doc.attachment_url, :class => 'doc_image'), doc.attachment_url %>
+		<%= doc.name %><br />
+		<span class="description"> 
 		<%= doc.description %>
-				<% if current_user == doc.user || current_user.admin %>
+		</span>
+				<% if current_user == doc.user || current_user.admin? %>
 				<%=link_to "Edit", edit_doc_url(doc.id) %> | <%=link_to "Delete", doc_url(doc.id), method: :delete %>
 				<% end %>
 		<hr>
@@ -19,7 +24,3 @@
 
 
 </section>
-
-<script>
-
-</script>

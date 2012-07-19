@@ -1,4 +1,7 @@
 <div class="user" id="<%= dom_id(user) %>">
+	<% if user.admin? %>
+	Admin image
+	<% end %>
 
 	<% if user.avatar.present? %>
 
