@@ -51,7 +51,7 @@
 </header>
 
 
-	<%# if current_user.admin%>
+	<% if current_user.admin%>
 	<header class="navbar navbar fixed-top">
 		<div class="container">
 			Admin bar:
@@ -61,7 +61,7 @@
 			<%= link_to "Lessons", '#' %>
 			</div>
 		</header>
-	<%# end %>
+	<% end %>
 	
 <% flash.each do |name,msg| %>
 	<%= content_tag :div, msg, :id => "flash_#{name}" %>
