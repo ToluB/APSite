@@ -24,8 +24,8 @@ s4=Subject.create :name => "Psychology"
 s5=Subject.create :name => "Environmental Science" 
 
 100.times do
-  title = (0...20).map{65.+(rand(25)).chr}.join
-  content = (0...90).map{65.+(rand(25)).chr}.join
+  title = Faker::Lorem.sentence
+  content = Faker::Lorem.paragraph
   merits = rand(0..100)
   user = rand(1..5)
   subject = rand (1...5)
@@ -38,8 +38,8 @@ c = Convo.create :title => title,
           end
 
 600.times do
-  title = (0...20).map{65.+(rand(25)).chr}.join
-  content = (0...90).map{65.+(rand(25)).chr}.join
+  title = Faker::Lorem.sentence
+  content = Faker::Lorem.paragraph
   merits = rand(0..100)
   convo = rand(1..250)
   user = rand(1..5)

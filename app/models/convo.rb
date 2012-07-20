@@ -1,5 +1,5 @@
 class Convo < ActiveRecord::Base
-  attr_accessible :content, :merits, :subject_id, :title, :user_id, :file
+  attr_accessible :content, :merits, :subject_id, :title, :user_id, :file, :sticky
   
   has_many :posts, dependent: :destroy 
   has_many :docs, :as => :docable 

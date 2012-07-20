@@ -1,10 +1,20 @@
+<% content_for :sidebar do %>
+<%= render 'layouts/sidebar' , :popular => @popular %>
+<% end %>
+
 <% if @subject %>
 <% provide(:header, @subject.name)%>
 <% end %>
-<%#= render 'layouts/sidebar' , :popular => @popular %>
-<section id="convos">
-	<%= render @convos %> 
 
+<section id="convos">
+	
+	<div class="sticky">
+		<% @sticks.each do |stick| %>
+		<%= render 'convo',:convo => stick%>
+		<% end %>
+	</div>
+	
+	<%= render @convos %> 
 </section>
 
 <% if @subject %>

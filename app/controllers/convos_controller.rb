@@ -3,18 +3,22 @@ class ConvosController < ApplicationController
   #before_filter :authenticate_admin, :only => [:destroy]
   
   def index
+    
     if params[:query]
     @convos = Convo.text_search(params[:query]).page(params[:page]).per_page(3)
+    
     elsif params[:subject_name]
       @subject = Subject.find_by_name(params[:subject_name])
       @convos = @subject.convos.page(params[:page]).per_page(5) 
-      @popular = Convo.where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(10)
+      @popular = Convo.where(:subject_id =>'#{@subject.id}').where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(10)
+      @sticks = Convo.where(:sticky => true).where(:subject_id =>"#{@subject.id}") 
       #create a condition to select convos of the right subject ...
+  
     else
     @convos = Convo.page(params[:page]).per_page(5)
-    @popular = Convo.where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(3) 
-        # @popular = Convo.where("created_at <?", (Time.now - 7.days)).order("merits DESC").page(params[:page]).per_page(3) 
-        # @sticky = admin selected "sticky at top" convos
+    @popular = Convo.where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(3)
+    @sticks = Convo.where(:sticky => true) #=> these conversations are messages set by admin so that they stay at the top of the index pages; they are "sticky at top"
+
   end
 
     respond_to do |format|

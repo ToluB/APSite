@@ -13,23 +13,20 @@
 			<%= render 'shared/docs', :item => post %>
 			
 			<div class="post_text">
-			
-			<!-- 
-	  			<%= raw post.content %>
-	  		 -->
-
-	  		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	  		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	  		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	  		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	  		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	  		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			 <%= raw post.content %>
 			</div>
-
-	  		<button class = "btn btn-primary post_actions">
-			<%= link_to "Reply", new_convo_post_path(:convo_id => post.convo.id, :parent_id => post.id), :remote => true %>
-			</button>
 			
+					<%if signed_in? %>
+						<% if current_user.admin?%>
+							<%= link_to "Edit", edit_post_url(post.id)%> | <%= link_to "Delete", post_url(post.id), method: :delete %>
+						<% elsif current_user == post.user# && (add some condition on time...)%>
+							<%= link_to "Edit", edit_post_url(post.id)%> | <%= link_to "Delete", post_url(post.id), method: :delete %>
+							<% else %>
+							Locked for editing after 1 day
+							<% end %>
+						<% end%>
+
+			|<%= link_to "Reply", new_convo_post_path(:convo_id => post.convo.id, :parent_id => post.id), :remote => true %>			
 			<!-- Admin will see delete button here -->
 
 </article>

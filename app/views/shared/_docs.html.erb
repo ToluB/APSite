@@ -1,26 +1,24 @@
 <section class= "docs">
 	
 	<% item.docs.each do|doc|%>
-	<span class="doc_image">
-		<%=image_tag doc.attachment_url%>
-		</span>	
-		<%#=link_to (image_tag doc.attachment_url, :class => 'doc_image'), doc.attachment_url %>
-		<%= doc.name %><br />
+		<%=link_to (image_tag doc.attachment_url, :class => 'doc_image'), doc.attachment_url %>
+		<%= link_to doc.name, doc.attachment_url, :class =>'doc_name' %><br />
 		<span class="description"> 
 		<%= doc.description %>
 		</span>
+		<% if signed_in? %>
 				<% if current_user == doc.user || current_user.admin? %>
 				<%=link_to "Edit", edit_doc_url(doc.id) %> | <%=link_to "Delete", doc_url(doc.id), method: :delete %>
 				<% end %>
+		<% end %>
 		<hr>
 				
 	<% end%>
 	
+	  <% if signed_in? %>
 				<% if current_user == item.user || current_user.admin %>
 				<%= link_to "Upload document", new_convo_doc_url(item.id) %>
 				<% end %>
-	
-	<% # @item.documents do |doc|, doc.description on hover ...%>
-
+		<% end %>
 
 </section>

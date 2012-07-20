@@ -9,15 +9,17 @@
 			<%= render 'shared/merits', :item => convo %>
 			<%= render 'shared/docs', :item => convo %>
 			<div class="convo_text">
-			  <!-- <%= raw convo.content %> -->
-			  WTFLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			  <%= raw convo.content %>
 			</div>
-		
+					<%if signed_in? %>
+						<% if current_user.admin?%>
+							<%= link_to "Edit", edit_convo_url(convo.id)%> | <%= link_to "Delete", convo_url(convo.id), method: :delete %>
+						<% elsif current_user == post.user# && (add some condition on time...)%>
+							<%= link_to "Edit", edit_convo_url(post.id)%> | <%= link_to "Delete", convo_url(convo.id), method: :delete %>
+							<% else %>
+							Locked for editing after 1 day
+							<% end %>
+						<% end%>
 		<!-- Admin will see delete button here -->
 				
 </article>

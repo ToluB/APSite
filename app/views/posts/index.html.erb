@@ -1,6 +1,6 @@
-<div id="convos">
+<section id="convos">
 <%= render 'convos/convo', :convo => @convo %>
-</div>
+</section>
 
 <section id="posts">
 	<%= nested_posts @posts.arrange(:order => :created_at) %> 

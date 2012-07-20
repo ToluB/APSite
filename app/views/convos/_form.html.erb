@@ -38,8 +38,9 @@
     <%= f.submit %>
   </div>
 
-	<%# if current_user.admin %>
-		<%#= check_box_tag "sticky", @convo.sticky %>
-	<%# end %>
+	<% if current_user.admin %>
+		Admin: make conversation appear at top of (all) index pages.  This is for key information and alerts.    Please remember to unstick the conversation (edit conversation and uncheck box) once it is no longer relevant <br/>
+		<%=f.check_box :sticky %>
+	<% end %>
 
 <% end %>
