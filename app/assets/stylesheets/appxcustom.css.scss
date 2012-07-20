@@ -138,13 +138,6 @@ p {
 	margin-bottom: -1px;
 }
 
-/* sidebar */
-.sidebar{
-	.span2{
-		.offset8{}
-	}
-	}
-
 
 /* content */
 
@@ -152,9 +145,9 @@ p {
 	padding: 10px;
 	padding-bottom: 10px;
 	background-color: $background;
-	-moz-border-radius: 15px;
+/*	-moz-border-radius: 15px;
 	border-radius: 15px;
-	width: 980px;
+	width: 980px;*/
 	
 	
 }

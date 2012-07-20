@@ -17,8 +17,8 @@
 	
 	  <% if signed_in? %>
 				<% if current_user == item.user || current_user.admin %>
-				<%= link_to "Upload document", new_convo_doc_url(item.id) %>
-				<% end %>
+					<%= link_to "Upload document", new_convo_doc_url(item.id) %>
+					<% end %>
 		<% end %>
 
 </section>

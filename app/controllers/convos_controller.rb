@@ -16,7 +16,7 @@ class ConvosController < ApplicationController
   
     else
     @convos = Convo.page(params[:page]).per_page(5)
-    @popular = Convo.where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(3)
+    @popular = Convo.where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(5)
     @sticks = Convo.where(:sticky => true) #=> these conversations are messages set by admin so that they stay at the top of the index pages; they are "sticky at top"
 
   end

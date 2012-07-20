@@ -1,8 +1,6 @@
-<aside class= "span2 offset8 sidebar">
+<aside class= "sidebar">
 	<h4> Most popular conversations </h4>
-	<% popular.each  do |convo| %>
-	<%= convo.title %>
-	<%= convo.merits%>
-	<%= convo.created_at %>
+	<% popular.each  do |convo| %><br />
+	<%= link_to convo.title, convo_url(convo.id) %> <hr>
 	<% end  %>
 	</aside>
