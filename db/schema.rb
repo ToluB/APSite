@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120718233034) do
+ActiveRecord::Schema.define(:version => 20120721184758) do
 
   create_table "collegeprefs", :force => true do |t|
     t.integer  "user_id"
@@ -138,6 +138,15 @@ ActiveRecord::Schema.define(:version => 20120718233034) do
     t.string   "name"
     t.integer  "area_id"
   end
+
+  create_table "topics", :force => true do |t|
+    t.string   "name"
+    t.integer  "subject_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "topics", ["subject_id"], :name => "index_topics_on_subject_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

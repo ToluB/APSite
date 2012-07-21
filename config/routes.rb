@@ -1,5 +1,7 @@
 ApApp1::Application.routes.draw do
  
+  resources :topics
+
   resources :bzcolleges
 
  #These resources provide core functionality 

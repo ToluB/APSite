@@ -1,6 +1,7 @@
 class Subject < ActiveRecord::Base
-  attr_accessible :area_id, :name
+  attr_accessible :name
   
+  has_many :topics
   has_many :convos
   has_many :posts, through: :convos
 end
