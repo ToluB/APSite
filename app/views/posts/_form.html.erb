@@ -21,9 +21,9 @@
 	
 	<%= f.text_field :title, placeholder: "Title" %>
 	
-	<%= f.text_area :content, :size =>'10x10',placeholder: "Credits for your thoughts?" %>
+	<%= f.text_area :content, :size =>'10x10',placeholder: "Merits for your thoughts?" %>
 	
-	<%= link_to "Cancel", convos_url, class: "btn btn-small post-cancel" %>
-	<%= f.submit "Post", class: "post-submit btn btn-primary btn-large", confirm:"Post this comment?" %>
+	<%= link_to "Cancel", convos_url %>
+	<%= f.submit "Post" , :remote => true%>
 	
 <% end %>

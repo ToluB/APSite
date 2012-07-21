@@ -37,7 +37,7 @@ class DocsController < ApplicationController
     @doc.user_id = current_user.id
 
       if @doc.save
-        redirect_to [@docable, :docs], notice: "Document saved"
+        redirect_to @docable, notice: "Document saved"
       else
        render :new, notice: "Error. Could not save document"
   
@@ -51,8 +51,7 @@ class DocsController < ApplicationController
 
     respond_to do |format|
       if @doc.update_attributes(params[:doc])
-        format.html { redirect_to @doc, notice: 'Doc was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to [@docable, :docs], notice: "Document updated"
       else
         format.html { render action: "edit" }
         format.json { render json: @doc.errors, status: :unprocessable_entity }
@@ -75,7 +74,7 @@ class DocsController < ApplicationController
     @docable = if params[:convo_id]
       Convo.find(params[:convo_id])
     elsif params[:post_id]
-      Post.find(params[:photo_id])
+      Post.find(params[:post_id])
     end
   end
 end

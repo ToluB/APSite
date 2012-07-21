@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-Posted by <%= @post.user_id %> at <%#= created_at %>
+Comment posted by <%= @post.user_id %> at <%= @post.created_at.localtime.strftime("%m/%d/%y %H:%M") %>
 
 <%= nested_posts @post.subtree.arrange(:order => :created_at ) %>
 
-<%= link_to 'Back to posts', posts_path %>
+<%= link_to 'Back to posts', convo_posts_url(@post.convo.id) %>

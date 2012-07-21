@@ -66,8 +66,8 @@ class ConvosController < ApplicationController
     upmerituser(current_user, 10)
     respond_to do |format|
       if @convo.save
-        format.html { redirect_to @convo, notice: 'New conversation created.' }
-        format.json { render json: @convo, status: :created, location: @convo }
+        format.html { redirect_to convo_posts_url(:convo_id => @convo.id), notice: 'New conversation created.' }
+        format.json { render json: convo_posts_url(:convo_id => @convo.id), status: :created, location: @convo }
       else
         format.html { render action: "new" }
         format.json { render json: @convo.errors, status: :unprocessable_entity }

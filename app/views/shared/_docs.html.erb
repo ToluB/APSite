@@ -1,6 +1,7 @@
 <section class= "docs">
 	
 	<% item.docs.each do|doc|%>
+	<!-- If doc is an image, return thumbnail (not full) version... -->
 		<%=link_to (image_tag doc.attachment_url, :class => 'doc_image'), doc.attachment_url %>
 		<%= link_to doc.name, doc.attachment_url, :class =>'doc_name' %><br />
 		<span class="description"> 

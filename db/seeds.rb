@@ -41,7 +41,7 @@ c = Convo.create :title => title,
   title = Faker::Lorem.sentence
   content = Faker::Lorem.paragraph
   merits = rand(0..100)
-  convo = rand(1..250)
+  convo = rand(1..100)
   user = rand(1..5)
 
 p = Post.create :title => title,

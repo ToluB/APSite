@@ -6,6 +6,12 @@
 <% provide(:header, @subject.name)%>
 <% end %>
 
+<% if @subject %>
+<%= link_to "Start a new conversation", new_convo_path(:subject_name => @subject.name) %>
+<% else %>
+<%= link_to "Start a new conversation", new_convo_path %>
+<% end %>
+
 <section id="convos">
 	
 	<div class="sticky">
@@ -17,11 +23,7 @@
 	<%= render @convos %> 
 </section>
 
-<% if @subject %>
-<%= link_to "Start a new conversation", new_convo_path(:subject_name => @subject.name) %>
-<% else %>
-<%= link_to "Start a new conversation", new_convo_path %>
-<% end %>
+
 
 
 <%= will_paginate @convos, previous_label: h("<"), next_label: h(">") %>

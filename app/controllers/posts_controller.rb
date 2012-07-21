@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   #before_filter :require_admin, :only => [:destroy]
   def index
     @convo = Convo.find(params[:convo_id])
-    @posts = @convo.posts.page(params[:page]).per_page(10)
+    @posts = @convo.posts.page(params[:page]).per_page(5)
     @post = Post.new
 
     respond_to do |format|

@@ -19,7 +19,7 @@
 					<%if signed_in? %>
 						<% if current_user.admin?%>
 							<%= link_to "Edit", edit_post_url(post.id)%> | <%= link_to "Delete", post_url(post.id), method: :delete %>
-						<% elsif current_user == post.user# && (add some condition on time...)%>
+						<% elsif current_user == post.user && post.created_at < 1.day.ago %>
 							<%= link_to "Edit", edit_post_url(post.id)%> | <%= link_to "Delete", post_url(post.id), method: :delete %>
 							<% else %>
 							Locked for editing after 1 day

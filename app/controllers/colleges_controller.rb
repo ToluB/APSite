@@ -1,5 +1,5 @@
 class CollegesController < ApplicationController
-  #before_filter: authenticate_admin!
+  before_filter :authenticate_admin!
   def index
     @colleges = College.all
 

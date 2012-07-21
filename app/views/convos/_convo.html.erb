@@ -14,8 +14,8 @@
 					<%if signed_in? %>
 						<% if current_user.admin?%>
 							<%= link_to "Edit", edit_convo_url(convo.id)%> | <%= link_to "Delete", convo_url(convo.id), method: :delete %>
-						<% elsif current_user == post.user# && (add some condition on time...)%>
-							<%= link_to "Edit", edit_convo_url(post.id)%> | <%= link_to "Delete", convo_url(convo.id), method: :delete %>
+						<% elsif current_user == convo.user && convo.created_at < 1.day.ago %>
+							<%= link_to "Edit", edit_convo_url(convo.id)%> | <%= link_to "Delete", convo_url(convo.id), method: :delete %>
 							<% else %>
 							Locked for editing after 1 day
 							<% end %>

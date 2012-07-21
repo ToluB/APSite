@@ -1,14 +1,16 @@
-<div class="convo" data-post-id="<%= @convo.id %>">
+Conversation created at <%= @convo.created_at.localtime.strftime("%m/%d/%y %H:%M") %> by <%= @convo.user.name %>
+
+<section id="convos">
 
 	<%= render @convo %>
 
-</div>
+</section>
 
 <hr>
+<section id="posts">
+	<% @convo.posts.each do |post|%>
+	<%= render '/posts/post', :post => post %>
+	<% end %>
+</section>
 
-<% @convo.posts.each do |post|%>
-<%= render '/posts/post', :post => post %>
-<% end %>
-
-<%= link_to 'Edit', edit_convo_path(@convo) %> |
-<%= link_to 'Back', convos_path %>
+<%= link_to 'Back', convos_url(:subject_id => @convo.subject_id) %>
