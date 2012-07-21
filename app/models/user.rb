@@ -60,21 +60,21 @@ def update_rank
   rank_level = [250, 500, 1000, 3000, 5000, 10000]
   
    if merits < rank_level[0]
-     rank = ranks[0]
+    self.rank = ranks[0]
    elsif merits < rank_level[1]
-    rank = ranks[1]
+    self.rank = ranks[1]
    elsif merits < rank_level[2]
-     rank = ranks[2]
+    self.rank = ranks[2]
    elsif merits < rank_level[3]
-     rank = ranks[3]
+    self.rank = ranks[3]
    elsif merits < rank_level[4]
-     rank = ranks[4]
+    self.rank = ranks[4]
    elsif merits < rank_level[5]
-     rank = ranks[5]
+    self.rank = ranks[5]
    else
-     rank = ranks[6]
+    self.rank = ranks[6]
    end
-   update_attribute(:rank, rank)
+
 end
 
 def update_merits

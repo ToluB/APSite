@@ -17,11 +17,44 @@ u3=User.create :email => "exam3@exam.com", :name => "Jimmy Doe", :password => "p
 u4=User.create :email => "exam4@exam.com", :name => "Joseph Doe", :password => "password", :merits => rand(0..100)
 u5=User.create :email => "exam5@exam.com", :name => "Jacob Doe", :password => "password", :merits => rand(0..100)
 
-s1=Subject.create :name => "Economics" 
-s2=Subject.create :name => "Calculus" 
-s3=Subject.create :name => "History" 
-s4=Subject.create :name => "Psychology"
-s5=Subject.create :name => "Environmental Science" 
+
+s1=Subject.create :name => "Mathematics" 
+s2=Subject.create :name => "Natural Science" 
+s3=Subject.create :name => "Social Science" 
+s4=Subject.create :name => "Art/Humanities"
+s5=Subject.create :name => "Languages/Lit"
+s5=Subject.create :name => "Other"
+
+t1=Topic.create :name=>"Calculus", :subject_id => 1
+t2=Topic.create :name=>"Computer Science", :subject_id => 1
+t2=Topic.create :name=>"Statistics", :subject_id => 1
+
+t2=Topic.create :name=>"Biology", :subject_id => 2
+t2=Topic.create :name=>"Chemistry", :subject_id => 2
+t2=Topic.create :name=>"Environmental Science", :subject_id => 2
+t2=Topic.create :name=>"Physics", :subject_id => 2
+
+t2=Topic.create :name=>"Economics", :subject_id => 3
+t2=Topic.create :name=>"Psychology", :subject_id => 3
+t2=Topic.create :name=>"Government", :subject_id => 3
+
+t2=Topic.create :name=>"Art and Music", :subject_id => 4
+t2=Topic.create :name=>"European History", :subject_id => 4
+t2=Topic.create :name=>"U.S. History", :subject_id => 4
+t2=Topic.create :name=>"World History", :subject_id => 4
+
+t2=Topic.create :name=>"English", :subject_id => 5
+t2=Topic.create :name=>"French", :subject_id => 5
+t2=Topic.create :name=>"Spanish", :subject_id => 5
+t2=Topic.create :name=>"German", :subject_id => 5
+t2=Topic.create :name=>"Italian", :subject_id => 5
+t2=Topic.create :name=>"Japanese", :subject_id => 5
+
+
+
+
+
+
 
 100.times do
   title = Faker::Lorem.sentence

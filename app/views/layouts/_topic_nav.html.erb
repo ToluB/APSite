@@ -1,0 +1,7 @@
+<ul class="breadcrumb">
+	<% for @subject.topics.each do |topic|%>
+		<%=link_to @topic.name, convos_url(:topic_id => @topic.id) %>
+    <a href="#">Home</a> <span class="divider">/</span>
+  </li>
+	<% end %>
+</ul>

@@ -1,9 +1,5 @@
 ApApp1::Application.routes.draw do
  
-  resources :topics
-
-  resources :bzcolleges
-
  #These resources provide core functionality 
   root to: 'convos#index'
 
@@ -23,6 +19,7 @@ ApApp1::Application.routes.draw do
   
   #These resources will only be accessed by admin
   resources :subjects
+  resources :topics
   resources :exams
   resources :colleges
 

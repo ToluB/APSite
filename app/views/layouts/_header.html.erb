@@ -48,18 +48,17 @@
       </nav>
     </div>
   </div>
-</header>
+</header><br/>
 
 <%if signed_in? %>
 	<% if current_user.admin %>
 	<header class="navbar navbar fixed-top">
-		<div class="container">
 			Admin bar:
 			<%= link_to "Subjects", subjects_url %>|
+			<%= link_to "Topics", topics_url %>|
 			<%= link_to "Exams", exams_url %>|
 			<%= link_to "Users", users_url %>|
 			<%= link_to "Lessons", '#' %>
-			</div>
 		</header>
 	<% end %>
 <% end %>

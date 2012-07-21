@@ -7,8 +7,11 @@ class Convo < ActiveRecord::Base
   belongs_to :user
   
   validates :subject, presence:true
+  
+  #scope :by_recent, order("created_at desc")
     
   default_scope order: 'convos.created_at DESC'
+  #scope:by
   
   include PgSearch
   pg_search_scope :search, against: [:title, :content],
