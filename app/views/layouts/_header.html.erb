@@ -12,8 +12,8 @@
 					<% if user_signed_in? %>	
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							<%= current_user.name %>(<%= current_user.rank%>)<br/>
-							<%= current_user.merits %> merits
+							<%= current_user.name %><br/><%= current_user.rank%><br/>
+							<span class='<%=dom_id(current_user)%>_merits'> <%= current_user.merits %> merits</span>
 							<b class="caret"> </b>
 						</a>
 							<ul class="dropdown-menu">

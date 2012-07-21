@@ -78,7 +78,7 @@ def update_rank
 end
 
 def update_merits
-  # This method is run on login; it calculates total merits for the user
+  # Deprecated method  run on login to calculate total merits for the user
   # THIS IS THE HEART OF THE MERIT SYSTEM; ABSOLUTELY DO NOT F*** WITH THIS!
   
   # Initializing two dummy variables:  
