@@ -6,6 +6,9 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :docs, :as => :docable
     
+  validates :title, presence:true, length: { minimum: 8}
+  validates :content, presence:true, length: { minimum: 15}
+  
 end
 # == Schema Information
 #

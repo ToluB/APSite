@@ -78,14 +78,15 @@ def update_rank
 end
 
 def update_merits
-  # Deprecated method  run on login to calculate total merits for the user
+  # Method run on login to calculate total merits for the user
   # THIS IS THE HEART OF THE MERIT SYSTEM; ABSOLUTELY DO NOT F*** WITH THIS!
+  # Not the simplest implementation, but allows flexibility to easily integrate other sources of merits (e.g. direct granting of merits to users from others...)
   
   # Initializing two dummy variables:  
     convo_merits = 0
     post_merits = 0   
     
-  # personal merits = merits given directly to the user, minus merits given out by the user
+  # personal merits = merits earned through posting activity, not thumbs up
   # quality merits = the merits a user has derived from their posts and conversations
   # umerits = quality merits as of a user's last login
     personal_merits = self.merits - self.umerits
@@ -93,7 +94,7 @@ def update_merits
   # calculating all the "quality merits" a user has ever earned from posting
     self.convos.each{|convo| convo_merits += convo.merits}
     self.posts.each{|post| post_merits += post.merits}
-    quality_merits = (convo_merits + post_merits)/5
+    quality_merits = (convo_merits + post_merits)/2
     
   #we'll save this as "umerits", so we can keep track for the next iteration
     self.umerits = quality_merits

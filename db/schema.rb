@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120721184758) do
+ActiveRecord::Schema.define(:version => 20120721232550) do
 
   create_table "collegeprefs", :force => true do |t|
     t.integer  "user_id"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20120721184758) do
     t.datetime "updated_at",                    :null => false
     t.string   "file"
     t.boolean  "sticky",     :default => false
+    t.string   "topic"
   end
 
   add_index "convos", ["subject_id"], :name => "index_convos_on_subject_id"

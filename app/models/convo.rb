@@ -1,5 +1,5 @@
 class Convo < ActiveRecord::Base
-  attr_accessible :content, :merits, :subject_id, :title, :user_id, :file, :sticky
+  attr_accessible :content, :merits, :subject_id, :title, :user_id, :sticky
   
   has_many :posts, dependent: :destroy 
   has_many :docs, :as => :docable 
@@ -7,6 +7,8 @@ class Convo < ActiveRecord::Base
   belongs_to :user
   
   validates :subject, presence:true
+  validates :title, presence:true, length: { minimum: 8}
+  validates :content, presence:true, length: { minimum: 15}  
   
   #scope :by_recent, order("created_at desc")
     
