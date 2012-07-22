@@ -11,6 +11,7 @@ Convo.destroy_all
 Post.destroy_all
 User.destroy_all
 
+#Faker::Name.name
 u1=User.create :email => "exam@exam.com", :name => "John Doe", :password => "password", :merits => rand(0..10000)
 u2=User.create :email => "exam2@exam.com", :name => "Jane Doe", :password => "password", :merits => rand(0..10000)
 u3=User.create :email => "exam3@exam.com", :name => "Jimmy Doe", :password => "password", :merits => rand(0..100)

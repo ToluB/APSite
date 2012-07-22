@@ -20,10 +20,13 @@
 	<div class="field">
 	<%= f.label :subject_id %><br />
 	<% if @subject%>
-	<%= f.collection_select :subject_id, Subject.all, :id,:name, :prompt => @subject.name %>
+	<%= f.collection_select :subject_id, Subject.order(:name), :id,:name, :prompt => @subject.name %>
 	<% else %>
-	<%= f.collection_select :subject_id, Subject.all, :id,:name, :prompt => "Choose a subject" %>
+	<%= f.collection_select :subject_id, Subject.order(:name), :id,:name, :prompt => "Choose a subject" %>
 	<% end %>
+	
+	<%= f.label :topic_id %><br />
+	<br /> <%= f.grouped_collection_select :topic_id, Subject.order(:name),:topics, :name,:id,:name%>
 	
 	</div>
   <div class="field">

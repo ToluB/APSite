@@ -5,7 +5,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
-      @user.login_merits
+      #@user.login_merits
       @user.update_merits
       @user.update_rank
       sign_in_and_redirect @user, :event => :authentication

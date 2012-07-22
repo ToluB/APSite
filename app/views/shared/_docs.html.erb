@@ -1,5 +1,5 @@
 <section class= "docs">
-	
+	Attached Documents:
 	<% item.docs.each do|doc|%>
 	<!-- If doc is an image, return thumbnail (not full) version... -->
 		<%=link_to (image_tag doc.attachment_url, :class => 'doc_image'), doc.attachment_url %>
