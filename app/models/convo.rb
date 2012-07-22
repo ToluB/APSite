@@ -10,10 +10,14 @@ class Convo < ActiveRecord::Base
   validates :title, presence:true, length: { minimum: 8}
   validates :content, presence:true, length: { minimum: 15}  
   
-  #scope :by_recent, order("created_at desc")
+  scope :by_latest, order("created_at desc")
+  scope :recent, where("created_at >= ?", Time.now-7.days)
+  scope :by_merits, order("merits desc")
+  scope :by_sticky, order("sticky desc")
+  scope :sticky, where("sticky = ?", true)
+  #.to_sql returns query performed on database...
     
   default_scope order: 'convos.created_at DESC'
-  #scope:by
   
   include PgSearch
   pg_search_scope :search, against: [:title, :content],
