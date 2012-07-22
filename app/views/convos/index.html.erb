@@ -4,6 +4,7 @@
 
 <% if @subject %>
 <% provide(:header, @subject.name)%>
+<%= render 'layouts/topic_nav', :subject => @subject %>
 <% end %>
 
 <% if @subject %>

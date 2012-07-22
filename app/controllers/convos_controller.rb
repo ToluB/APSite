@@ -7,6 +7,13 @@ class ConvosController < ApplicationController
     if params[:query]
     @convos = Convo.text_search(params[:query]).page(params[:page]).per_page(3)
     
+    elsif params[:topic_id]
+    @topic = Topic.find_by_id(params[:topic_id])
+    @subject = @topic.subject
+    @convos = @topic.convos.page(params[:subject_name])
+    @popular = Convo.where(:subject_id =>'#{@subject.id}').where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(10)
+    @sticks = Convo.where(:sticky => true).where(:subject_id =>"#{@subject.id}")
+    
     elsif params[:subject_name]
       @subject = Subject.find_by_name(params[:subject_name])
       @convos = @subject.convos.page(params[:page]).per_page(5) 

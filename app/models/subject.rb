@@ -1,7 +1,7 @@
 class Subject < ActiveRecord::Base
   attr_accessible :name
   
-  has_many :topics
+  has_many :topics, dependent: :destroy 
   has_many :convos
   has_many :posts, through: :convos
 end
