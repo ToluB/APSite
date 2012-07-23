@@ -5,27 +5,23 @@ class ConvosController < ApplicationController
   def index
     
     if params[:query]
-    @convos = Convo.text_search(params[:query]).page(params[:page]).per_page(3)
+    @convos = Convo.text_search(params[:query]).page(params[:page]).per_page(5)
     
     elsif params[:topic_id]
     @topic = Topic.find_by_id(params[:topic_id])
     @subject = @topic.subject
-    @convos = @topic.convos.page(params[:subject_name])
-    @popular = Convo.where(:subject_id =>'#{@subject.id}').where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(10)
-    @sticks = Convo.where(:sticky => true).where(:subject_id =>"#{@subject.id}")
+    @convos = @topic.convos.standard.page(params[:page]).per_page(5)
+    @popular = Convo.by_topic.recent.by_merits.page(params[:page]).per_page(10)
     
     elsif params[:subject_name]
       @subject = Subject.find_by_name(params[:subject_name])
-      @convos = @subject.convos.page(params[:page]).per_page(5) 
-      @popular = Convo.where(:subject_id =>'#{@subject.id}').where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(10)
-      @sticks = Convo.where(:sticky => true).where(:subject_id =>"#{@subject.id}") 
+      @convos = @subject.convos.standard.page(params[:page]).per_page(5) 
+      @popular = Convo.by_subject.recent.by_merits.page(params[:page]).per_page(10)
       #create a condition to select convos of the right subject ...
   
     else
-    @convos = Convo.page(params[:page]).per_page(5)
-    @popular = Convo.where(:created_at => (Time.now - 7.days)..Time.now ).order("merits DESC").page(params[:page]).per_page(5)
-    @sticks = Convo.where(:sticky => true) #=> these conversations are messages set by admin so that they stay at the top of the index pages; they are "sticky at top"
-
+    @convos = Convo.standard.page(params[:page]).per_page(5)
+    @popular = Convo.recent.by_merits.page(params[:page]).per_page(5)
   end
 
     respond_to do |format|
