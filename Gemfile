@@ -14,9 +14,12 @@ gem 'carrierwave'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'color'
+gem 'rmagick'
+gem 'pg', '0.12.2'
+
+
 
 group :development, :test do
-gem 'pg', '0.12.2'
 gem 'rspec-rails', '2.9.0'
 gem 'annotate', '~> 2.4.1.beta'
 gem 'quiet_assets'
@@ -43,7 +46,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.12.2'
 end
 
 #Full - text - search gem
