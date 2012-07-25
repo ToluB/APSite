@@ -12,11 +12,11 @@ Post.destroy_all
 User.destroy_all
 
 #Faker::Name.name
-u1=User.create :email => "exam@exam.com", :name => "John Doe", :password => "password", :merits => rand(0..10000)
-u2=User.create :email => "exam2@exam.com", :name => "Jane Doe", :password => "password", :merits => rand(0..10000)
-u3=User.create :email => "exam3@exam.com", :name => "Jimmy Doe", :password => "password", :merits => rand(0..100)
-u4=User.create :email => "exam4@exam.com", :name => "Joseph Doe", :password => "password", :merits => rand(0..100)
-u5=User.create :email => "exam5@exam.com", :name => "Jacob Doe", :password => "password", :merits => rand(0..100)
+u1=User.create :email => "exam@exam.com", :name => "John Doe", :password => "password", :merits => rand(10000)
+u2=User.create :email => "exam2@exam.com", :name => "Jane Doe", :password => "password", :merits => rand(10000)
+u3=User.create :email => "exam3@exam.com", :name => "Jimmy Doe", :password => "password", :merits => rand(10000)
+u4=User.create :email => "exam4@exam.com", :name => "Joseph Doe", :password => "password", :merits => rand(10000)
+u5=User.create :email => "exam5@exam.com", :name => "Jacob Doe", :password => "password", :merits => rand(10000)
 
 s1=Subject.create :name => "Art/Humanities"
 s2=Subject.create :name => "Languages/Lit"
@@ -53,19 +53,19 @@ t10=Topic.create :name=>"Government", :subject_id => 5
   200.times do
     title = Faker::Lorem.sentence
     content = Faker::Lorem.paragraph
-    merits = rand(0..100)
-    user = rand(1..5)
-    subject = rand(1..6)
+    merits = rand(100)
+    user = 1+rand(5)
+    subject = 1+rand(5)
       if subject == 1
-        topic = rand(1..4)
+        topic = 1+rand(4)
       elsif subject == 2
-        topic = rand(5..10)
+        topic = 5+rand(6)
       elsif subject == 3
-        topic = rand(11..13)
+        topic = 11+rand(3)
       elsif subject == 4
-        topic = rand(14..17)
+        topic = 14+rand(4)
       else 
-        topic = rand (18..20)
+        topic = 18+rand(4)
       end
 
   c = Convo.create :title => title,
@@ -80,9 +80,9 @@ t10=Topic.create :name=>"Government", :subject_id => 5
 600.times do
   title = Faker::Lorem.sentence
   content = Faker::Lorem.paragraph
-  merits = rand(0..100)
-  convo = rand(1..200)
-  user = rand(1..5)
+  merits = rand(100)
+  convo = 1+rand(200)
+  user = 1+rand(5)
 
 p = Post.create :title => title,
                 :content => content,
