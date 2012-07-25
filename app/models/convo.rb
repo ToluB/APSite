@@ -17,9 +17,7 @@ class Convo < ActiveRecord::Base
   scope :recent, where("created_at >= ?", Time.now-7.days)
   scope :by_merits, order("merits desc")
   scope :popular, recent.by_merits
-  #scope :by_commented, order("posts.count desc")
-  scope :by_subject, where(:subject_id =>'#{@subject.id}')
-  scope :by_topic, where(:topic_id =>'#{@topic.id}')
+  #scope :by_commented, order("postcount desc")
   
   #scope :
   #.to_sql returns query performed on database...
