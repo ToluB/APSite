@@ -28,6 +28,7 @@ class Convo < ActiveRecord::Base
     associated_against: {posts: [:title, :content]},
     ignoring: :accents
   
+  #There is no unaccent extension...
   def self.text_search(query)
     if query.present?
          rank = <<-RANK #=> this version wont search posts
