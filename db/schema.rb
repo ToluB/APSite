@@ -137,7 +137,6 @@ ActiveRecord::Schema.define(:version => 20120721232550) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "name"
-    t.integer  "area_id"
   end
 
   create_table "topics", :force => true do |t|
