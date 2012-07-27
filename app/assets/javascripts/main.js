@@ -1,7 +1,7 @@
 $(function(){
-  
-  $('.kase_control').on('click', function(){
-    $('#kase_content').toggle("slow");
-    $('#kase_add').toggle("slow");
+  $('.add_convo').click(function(){
+    $('.add_convo_form').toggle("slow");
     return false;
   });
+
+})

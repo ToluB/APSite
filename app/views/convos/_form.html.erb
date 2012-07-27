@@ -38,10 +38,12 @@
     <%= f.text_area :content %>
   </div>
 
+<% if user_signed_in?%>
 	<% if current_user.admin %>
 			<em>Admin: "Sticky on top" makes a conversation appear at top of index pages. It is used to post admin alerts to the site. Please remember to <strong>unstick the conversation</strong> (edit conversation and uncheck box) once it is no longer relevant</em> <br/><br/>
 			<strong>Sticky on top</strong>	<%=f.check_box :sticky %><br/>
 	<% end %>
+<% end %>
 	
 		<%= f.submit "Post", class: "post-submit btn btn-primary ", confirm:"Start this conversation?" %>
 

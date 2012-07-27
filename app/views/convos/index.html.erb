@@ -7,11 +7,16 @@
 <%= render 'layouts/topic_nav', :subject => @subject %>
 <% end %>
 
-<% if @subject %>
-<%= link_to "Start a new conversation", new_convo_path(:subject_name => @subject.name), :class => 'convo_button' %>
-<% else %>
-<%= link_to "Start a new conversation", new_convo_path %>
-<% end %>
+
+<%=link_to "Start a new conversation", '#', :class => "add_convo"%>
+
+<div class="add_convo_form", style="display:none">
+	<%# if @subject %>
+	<%#= render 'form', :subject_id => @subject.id %>
+	<%# else %>
+	<%= render 'form', :@convo => Convo.new%>
+	<%# end %>
+</div>
 
 <section id="convos">
 	<%= render @convos %> 
