@@ -79,39 +79,32 @@
 
 
 
-/*#new_input {
+#post_form {
 	overflow: hidden;
 	padding: 10px;
-}
-.new_post {
-	position: relative;
-	width: 600px;
-	margin-left: 30%;
-	float: left;
-}
-
-ul #posts {
-	width: 915px;
-}
+	margin: 10px;
+	width: 100%;
 	
-	.new-post hr {
-		padding: 0 10px;
+	form{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		
+		#post_title {
+			font-size: 18px;
+			width: 380px;
+			height: 20px;
+			line-height: 20px;
+			padding: 10px;
+		}
+		
+		textarea{
+			width: 380px;
+			padding: 10px;
+		}
+		
 	}
-
-	#post_title {
-		font-size: 18px;
-		width: 380px;
-		height: 20px;
-		line-height: 20px;
-		padding: 10px;
-
-	}
-
-	#post_content {
-		width: 380px;
-		padding: 10px;
-	}
-
+	
 	.post-submit {
 		width: 150px;
 		float: right;
@@ -126,6 +119,5 @@ ul #posts {
 	.post_actions {
 		float: right;
 	}
+}
 
-
-*/

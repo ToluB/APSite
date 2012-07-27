@@ -3,8 +3,10 @@
   task populate: :environment do
     make_subjects
     make_topics
+    # make_colleges
+    # make_exams
   end
-end
+ end
 
   def make_subjects
     s1=Subject.create :name => "Art/Humanities"
