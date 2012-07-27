@@ -11,15 +11,15 @@ class ConvosController < ApplicationController
     @topic = Topic.find_by_id(params[:topic_id])
     @subject = @topic.subject
     @convos = @topic.convos.standard.page(params[:page]).per_page(5)
-    @popular = @convos.recent.by_merits.page(params[:page]).per_page(10)
+    @popular = @convos.recent.by_merits.page(params[:page]).per_page(5)
     
     elsif params[:subject_name]
       @subject = Subject.find_by_name(params[:subject_name])
       @convos = @subject.convos.standard.page(params[:page]).per_page(5) 
-      @popular = @subject.convos.recent.by_merits.page(params[:page]).per_page(10)  
+      @popular = @subject.convos.recent.by_merits.page(params[:page]).per_page(5)  
     else
     @convos = Convo.standard.page(params[:page]).per_page(5)
-    @popular = Convo.recent.by_merits.page(params[:page]).per_page(10)
+    @popular = Convo.recent.by_merits.page(params[:page]).per_page(5)
   end
 
     respond_to do |format|

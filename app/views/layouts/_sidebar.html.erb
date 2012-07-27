@@ -1,6 +1,6 @@
 <aside class= "sidebar">
 	<h4> Most popular conversations </h4>
 	<% popular.each  do |convo| %><br />
-	<%= link_to convo.title, convo_url(convo.id) %> | merits: <%= convo.merits %> | id: <%= convo.id %> | created at: <%= convo.created_at %><hr>
+	<%= link_to convo.title, convo_url(convo.id) %> | merits: <%= convo.merits %> <hr>
 	<% end  %>
 	</aside>
