@@ -8,15 +8,29 @@
 <% end %>
 
 
-<%=link_to "Start a new conversation", '#', :class => "add_convo"%>
+<!-- Start a new conversation -->
 
-<div class="add_convo_form", style="display:none">
-	<%# if @subject %>
-	<%#= render 'form', :subject_id => @subject.id %>
-	<%# else %>
-	<%= render 'form', :@convo => Convo.new%>
-	<%# end %>
-</div>
+<% if user_signed_in?%>
+
+	<%=link_to "Start a new conversation", '#', :class => "add_convo"%>
+	<div class="add_convo_form", style="display:none">
+		<%= render 'form', :@convo => Convo.new%>
+	</div>
+	
+<% else %>
+
+	<%= link_to "Start a new conversation", 
+	if @subject
+		new_convo_path(:subject_name => @subject.name)
+	else
+		new_convo_path
+	end %>
+
+<% end %>
+
+
+
+
 
 <section id="convos">
 	<%= render @convos %> 
