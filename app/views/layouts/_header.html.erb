@@ -27,7 +27,8 @@
 						<% elsif current_user.pic_url.present? %>
 							<%= link_to (image_tag current_user.pic_url, :class => "user_image"), user_url(current_user.id) %><br />
 						<% else %>
-							<%= link_to (image_tag "no-image.png" , :class => "user_image"), user_url(current_user.id) %><br />
+							<%#= link_to (image_tag "no-image.png" , :class => "user_image"), user_url(current_user.id) %><br />
+							<%= link_to "No image", user_url(current_user.id) %><br />
 						<% end %>
 						
 						<% else %>

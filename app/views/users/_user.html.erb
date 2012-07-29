@@ -13,7 +13,8 @@
 
 	<% else %>
 
-		<%=link_to (image_tag "no-image.png" , :class => "user_image"), user_url(user.id) %><br />
+		<%#=link_to (image_tag "no-image.png" , :class => "user_image"), user_url(user.id) %><br />
+		<%=link_to "No image :-( " , user_url(user.id) %><br />
 
 	<% end %>
 	
