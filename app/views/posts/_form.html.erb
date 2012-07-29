@@ -21,9 +21,8 @@
 	
 	<%= f.text_field :title, placeholder: "Title" %>
 	
-	<%= f.text_area :content, :size =>'10x10',placeholder: "Merits for your thoughts?" %>
+	<br /><%= f.text_area :content, :size =>'10x10',placeholder: "Merits for your thoughts?" %>
 	
-	<%= link_to "Cancel", convos_url %>
-	<%= f.submit "Post" , :remote => true%>
+<br /><%= f.submit "Post" , :remote => true%>
 	
 <% end %>

@@ -26,7 +26,7 @@
 							<% end %>
 						<% end%>
 
-			|<%= link_to "Reply", new_convo_post_path(:convo_id => post.convo.id, :parent_id => post.id), :remote => true %>			
+			|<%= link_to "Reply", new_convo_post_path(:convo_id => post.convo.id,:class => 'btn btn-primary', :parent_id => post.id), :remote => true %>			
 			<!-- Admin will see delete button here -->
 
 </article>

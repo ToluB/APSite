@@ -9,7 +9,7 @@
 		</span>
 		<% if signed_in? %>
 				<% if current_user == doc.user || current_user.admin? %>
-				<%=link_to "Edit", edit_doc_url(doc.id) %> | <%=link_to "Delete", doc_url(doc.id), method: :delete %>
+				<%=link_to "Edit", edit_doc_url(doc.id) %> | <%=link_to "Delete", doc_url(doc.id), method: :delete , :class => 'btn btn-danger'%>
 				<% end %>
 		<% end %>
 		<hr>
@@ -18,7 +18,7 @@
 	
 	  <% if signed_in? %>
 				<% if current_user == item.user || current_user.admin %>
-					<%= link_to "Upload document", new_convo_doc_url(item.id) %>
+					<%= link_to "Upload", new_convo_doc_url(item.id), :class => 'btn btn-primary' %>
 					<% end %>
 		<% end %>
 
