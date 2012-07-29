@@ -1,8 +1,8 @@
 <br/>
-<ul class="breadcrumb">
+<ul class="breadcrumb topics">
 	<% subject.topics.each do |topic|%>
 		<li>
-			<%=link_to topic.name, convos_url(:topic_id => topic.id) %><span class="divider">/</span>
+			<%=link_to topic.name, convos_url(:topic_id => topic.id), :class => is_active?(topic.id) %><span class="divider">/</span>
 	  </li>
 	<% end %>
 </ul>

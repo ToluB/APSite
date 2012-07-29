@@ -1,6 +1,9 @@
 module ConvosHelper
-     @@color_min = '#26FF60' # green
-          @@color_max = '#FF3F25' # red
+     # @@color_min = '#FF3F25' # red
+     # @@color_max = '#26FF60' # green     
+     
+      @@color_min = '#AFDDFF' # light blue
+      @@color_max = '#0075CC' # darker blue
        
           def merits_to_color(merits)  
        
