@@ -57,6 +57,6 @@ module ApApp1
     config.assets.version = '1.0'
     
     #Do not load db till config vars are set...
-    config.assets.initialize_on_precompile = true
+    config.assets.initialize_on_precompile = false
   end
 end
