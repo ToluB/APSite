@@ -65,7 +65,7 @@
   #     e14=Exam.create :name =>'Government - U.S.', :url=>apcentral"2086"
   #     e15=Exam.create :name =>'Human Geography', :url=>apcentral"2004"
   #     e16=Exam.create :name =>'Italian Lang.', :url=>apcentral"51775"
-  #     e17=Exam.create :name =>'Japanese Lang.', :url=>apcentral"157014"
+  #     e17=Exam.create :name =>'Japanese Lang.', :url=s>apcentral"157014"
   #     e18=Exam.create :name =>'Latin', :url=>apcentral"4558"
   #     e19=Exam.create :name =>'Macroeconomics', :url=>apcentral"2083"
   #     e20=Exam.create :name =>'Microeconomics', :url=>apcentral"2084"
