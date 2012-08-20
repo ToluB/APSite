@@ -14,16 +14,17 @@
 				<%= render '/layouts/header'%>
 				
 				<h1><%= page_heading(yield(:header))%></h1>
-					<div class= "row-fluid">
 						
-							<div class="span9 content">
+							<div class="span12 content">
 									<%= render 'layouts/subject_nav' unless no_forum_nav? %>
-									<%= yield %>			
+									<div class="span9">
+									<%= yield %>
+									</div>	
+									<div class="span2">
+										<%= yield :sidebar %>
+									</div>		
 							</div>
-							<div class="span2">
-								<%= yield :sidebar %>
-							</div>
-					 </div>
+
 					 <%= render '/layouts/footer'%>
 						<br /><br /><br />
 					<p>AP and Advanced Placement are registered trademarks of the College Board, which is not involved in, and does not endorse WhizAP.</p><br /><br />	
