@@ -83,4 +83,3 @@
     e32=Exam.create :name =>'U.S. History', :url=>apcentral+"2089"
     e33=Exam.create :name =>'World History', :url=>apcentral+"2090"
   end
->>>>>>> layouts
