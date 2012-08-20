@@ -54,7 +54,7 @@
     e4=Exam.create :name =>'Calculus BC', :url=>apcentral+"8031"
     e5=Exam.create :name =>'Chemistry', :url=>apcentral+"1998"
     e6=Exam.create :name =>'Chinese Lang.', :url=>apcentral+"157009"
-    e7=Exam.create :name =>'Computer Science A', :url=apcentral+"2000"
+    e7=Exam.create :name =>'Computer Science A', :url=>apcentral+"2000"
     e8=Exam.create :name =>'English Lang.', :url=>apcentral+"2001"
     e9=Exam.create :name =>'English Lit.', :url=>apcentral+"2002"
     e10=Exam.create :name =>'Environmental Science', :url=>apcentral+"2003"

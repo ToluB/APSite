@@ -7,6 +7,11 @@
 	        <%= nav_link 'Natural Science', convos_url(:subject_name => "Natural Science") %>
 	        <%= nav_link 'Languages / Literature', convos_url(:subject_name => "Languages/Lit") %>
 	        <%= nav_link 'Humanities', convos_url(:subject_name => "Art/Humanities") %>
+	<% if user_signed_in? %>
+	<div class="mywhiz">
+	<%= nav_link 'My WhizAP',user_url(current_user.id) %>
+	</div>
+  <% end %>
 	
 	      </ul>
 	    </div>
